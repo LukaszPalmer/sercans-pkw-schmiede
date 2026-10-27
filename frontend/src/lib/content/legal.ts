@@ -7,7 +7,7 @@ import type { LegalSection } from '@/types/legal';
  * ggf. die Teilnahme an der Kfz-Schiedsstelle unter „Verbraucherstreitbeilegung“ angeben.
  */
 
-const company = `**${site.name}**\nGeschäftsführer: ${site.owner}\n${fullAddress}`;
+const company = `**${site.name}**\nInhaber: ${site.owner}\n${fullAddress}`;
 const contactLines = `Telefon: ${site.phone.display}\nWhatsApp: ${site.whatsapp.display}\nE-Mail: [${site.email}](mailto:${site.email})`;
 
 export const impressumSections: LegalSection[] = [
