@@ -1,24 +1,20 @@
 export type ImageKey =
-  | 'workshop-lift'
-  | 'studio-sedan'
-  | 'wheel-hub'
-  | 'engine-bay'
-  | 'instrument-cluster'
-  | 'paint-droplets'
-  | 'tire-sidewall'
-  | 'windshield-crack'
-  | 'tire-rack'
-  | 'engine-service'
-  | 'led-headlight'
-  | 'gear-knob'
-  | 'cockpit'
-  | 'matte-front'
-  | 'speedometer'
-  | 'tire-tread'
-  | 'headlight-detail'
-  | 'alloy-wheel';
+  | 'startseite-banner'
+  | 'startseite-aufbereitung'
+  | 'startseite-werkstatt'
+  | 'smartrepair'
+  | 'oelwechsel'
+  | 'fahrzeugaufbereitung'
+  | 'klimaservice'
+  | 'reifen-felgenservice'
+  | 'gutachten'
+  | 'hu-au'
+  | 'folierung'
+  | 'autoglas'
+  | 'werkstatt'
+  | 'kontakt';
 
-/** Bild-Registry-Eintrag – statisches Foto aus /public/images inkl. Lizenzangaben (CC BY 2.0). */
+/** Bild-Registry-Eintrag – statisches Foto aus /public/images. */
 export interface SiteImage {
   src: string;
   width: number;
@@ -26,14 +22,4 @@ export interface SiteImage {
   alt: string;
   /** Winziges, eingebettetes Vorschaubild für den Blur-Placeholder (CLS 0). */
   blurDataURL: string;
-  credit: ImageCredit;
-}
-
-export interface ImageCredit {
-  author: string;
-  title: string;
-  sourceUrl: string;
-  license: 'CC BY 2.0';
-  licenseUrl: string;
-  modified: boolean;
 }

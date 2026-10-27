@@ -8,10 +8,10 @@ import type { NavItem, SiteConfig } from '@/types/site';
 export const site: SiteConfig = {
   name: 'Sercans PKW Schmiede',
   shortName: 'PKW Schmiede',
-  tagline: 'Präzision aus der Schmiede.',
+  tagline: 'Präzision, die bleibt.',
   description:
-    'Sercans PKW Schmiede – Ihre Kfz-Werkstatt für Reparaturen, Instandhaltung, Achsvermessung, Reifenservice, Ölwechsel, Aufbereitung, Smart Repair Glas und TÜV-Service. Alle Marken, transparente Preise.',
-  owner: 'XXX',
+    'Sercans PKW Schmiede – Service, Reparatur und Wartung mit klarem Blick für Ihr Fahrzeug: Smartrepair, Ölwechsel, Fahrzeugaufbereitung, Klimaservice, Reifen- und Felgenservice, Folierung und Autoglas sowie Anfragen zu Gutachten und HU/AU.',
+  owner: 'Reda Fakih',
   legalForm: 'XXX',
   vatId: 'XXX',
   chamber: 'XXX',
@@ -24,20 +24,21 @@ export const site: SiteConfig = {
     region: 'XXX',
     country: 'DE',
   },
-  phone: { display: '+49 XXX XXXXXXX', href: 'tel:+49XXXXXXXXXX' },
+  phone: { display: '+49 173 6646188', href: 'tel:+491736646188' },
   email: 'info@XXX.de',
   whatsapp: {
-    display: '+49 XXX XXXXXXX',
+    display: '+49 173 6646188',
     /** Internationales Format ohne +, Leerzeichen oder führende 0 – z. B. 4917612345678 */
-    number: '49XXXXXXXXXX',
+    number: '491736646188',
     greeting: 'Hallo Sercans PKW Schmiede, ich habe eine Frage zu meinem Fahrzeug:',
   },
   hours: [
-    { days: 'Montag – Freitag', time: 'XX:XX – XX:XX Uhr' },
-    { days: 'Samstag', time: 'XX:XX – XX:XX Uhr' },
-    { days: 'Sonntag & Feiertage', time: 'geschlossen' },
+    { days: 'Montag – Freitag', short: 'Mo–Fr', time: '08:00 – 18:00 Uhr' },
+    { days: 'Samstag', short: 'Sa', time: 'geschlossen' },
+    { days: 'Sonntag & Feiertage', short: 'So', time: 'geschlossen' },
   ],
   mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Sercans+PKW+Schmiede',
+  google: { rating: 'X,X', reviewCount: 'XXX' },
 };
 
 export const siteUrl = (
@@ -52,10 +53,11 @@ export const fullAddress = `${site.address.street}, ${site.address.zip} ${site.a
 /** true, solange ein Wert noch den Platzhalter „XX“ enthält – verhindert fehlerhafte Structured Data. */
 export const isPlaceholder = (value: string) => value.includes('XX');
 
+/** Hauptnavigation wie im Design. „Leistungen“ führt zur Übersicht auf der Startseite und ist auf allen Leistungsseiten aktiv. */
 export const mainNav: NavItem[] = [
-  { label: 'Leistungen', href: '/leistungen' },
-  { label: 'FAQ', href: '/faq' },
-  { label: 'Blog', href: '/blog' },
+  { label: 'Start', href: '/' },
+  { label: 'Leistungen', href: '/#leistungen', activePath: '/leistungen' },
+  { label: 'Werkstatt', href: '/werkstatt' },
   { label: 'Kontakt', href: '/kontakt' },
 ];
 

@@ -1,19 +1,12 @@
 import { notFound } from 'next/navigation';
-import { BenefitGrid } from '@/components/sections/BenefitGrid';
-import { ContactSection } from '@/components/sections/ContactSection';
-import { FaqSection } from '@/components/sections/FaqSection';
-import { IntroSplit } from '@/components/sections/IntroSplit';
 import { PageBanner } from '@/components/sections/PageBanner';
-import { ProcessSteps } from '@/components/sections/ProcessSteps';
-import { ServiceDetails } from '@/components/sections/ServiceDetails';
-import { ServicesGrid } from '@/components/sections/ServicesGrid';
-import { ButtonLink } from '@/components/ui/Button';
-import { serviceGraphics } from '@/components/ui/graphics';
+import { Preparation } from '@/components/sections/Preparation';
+import { RequestBand } from '@/components/sections/RequestBand';
+import { ServiceQuestions } from '@/components/sections/ServiceQuestions';
+import { ServiceScope } from '@/components/sections/ServiceScope';
 import { JsonLd } from '@/components/ui/JsonLd';
-import { getFaqsForService } from '@/lib/content/faq';
-import { getService, getServicesBySlugs, serviceSlugs } from '@/lib/content/services';
+import { getService, requestPath, servicePath, serviceSlugs } from '@/lib/content/services';
 import { breadcrumbJsonLd, buildMetadata, serviceJsonLd } from '@/lib/seo';
-import { whatsappUrl } from '@/lib/whatsapp';
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -29,65 +22,39 @@ export async function generateMetadata({ params }: Props) {
   const service = getService((await params).slug);
   if (!service) return {};
   return buildMetadata({
-    title: `${service.title} – ${service.eyebrow}`,
+    title: `${service.title} – ${service.teaser.replace(/\.$/, '')}`,
     description: service.metaDescription,
-    path: `/leistungen/${service.slug}`,
+    path: servicePath(service.slug),
     image: service.image,
   });
 }
 
+/** Leistungsseite wie im Design: Banner · Leistungsumfang · Gut vorbereitet · Häufige Fragen · Terminanfrage. */
 export default async function ServicePage({ params }: Props) {
   const service = getService((await params).slug);
   if (!service) notFound();
+  const related = getService(service.related);
 
-  const Graphic = serviceGraphics[service.slug];
   const crumbs = [
     { label: 'Start', href: '/' },
-    { label: 'Leistungen', href: '/leistungen' },
-    { label: service.title, href: `/leistungen/${service.slug}` },
+    { label: service.title, href: servicePath(service.slug) },
   ];
 
   return (
     <>
       <JsonLd data={[serviceJsonLd(service), breadcrumbJsonLd(crumbs)]} />
       <PageBanner
+        layout={service.banner.layout}
         image={service.image}
-        eyebrow={service.eyebrow}
-        title={service.headline}
-        lead={service.summary}
-        breadcrumbs={crumbs}
-        primary={{ label: 'Termin anfragen', href: '#termin', icon: 'calendar' }}
-        secondary={{
-          label: 'WhatsApp schreiben',
-          href: whatsappUrl(`Hallo Sercans PKW Schmiede, ich interessiere mich für: ${service.title}.`),
-          icon: 'whatsapp',
-        }}
+        kicker={`Leistung / ${service.title}`}
+        title={service.banner.title}
+        intro={service.banner.intro}
+        action={{ label: 'Termin anfragen', href: requestPath(service.slug) }}
       />
-      <IntroSplit id="ueberblick" eyebrow="Überblick" title={service.title} paragraphs={service.intro} graphic={<Graphic />}>
-        <ButtonLink href="#termin" variant="dark" icon="arrow-right">
-          {service.title} anfragen
-        </ButtonLink>
-      </IntroSplit>
-      <ServiceDetails service={service} />
-      <BenefitGrid benefits={service.benefits} title={`Warum ${service.title} bei uns?`} />
-      <ProcessSteps
-        steps={service.steps}
-        eyebrow="Ablauf"
-        title={`So läuft ${service.title === 'TÜV-Service' ? 'der TÜV-Service' : service.title} bei uns ab.`}
-      />
-      <FaqSection items={getFaqsForService(service.slug)} eyebrow={`FAQ · ${service.title}`} title="Fragen & Antworten." />
-      <ServicesGrid
-        id="weitere-leistungen"
-        services={getServicesBySlugs(service.related)}
-        eyebrow="Passend dazu"
-        title="Weitere Leistungen"
-        tone="paper"
-      />
-      <ContactSection
-        tone="white"
-        defaultService={service.slug}
-        title={`${service.title} anfragen – wir melden uns schnellstmöglich.`}
-      />
+      <ServiceScope scope={service.scope} />
+      <Preparation preparation={service.preparation} />
+      {related && <ServiceQuestions items={service.faqs} related={{ label: related.title, href: servicePath(related.slug) }} />}
+      <RequestBand title={service.request.title} text={service.request.text} href={requestPath(service.slug)} />
     </>
   );
 }

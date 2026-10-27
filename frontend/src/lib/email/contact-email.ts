@@ -4,22 +4,19 @@ import type { ContactRequest } from '@/types/contact';
 const escape = (value: string) =>
   value.replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c] ?? c);
 
-const formatDate = (iso: string) => {
-  if (!/^\d{4}-\d{2}-\d{2}$/.test(iso)) return iso;
-  const [y, m, d] = iso.split('-');
-  return `${d}.${m}.${y}`;
-};
-
 /** Markenkonforme HTML-Mail (tabellenbasiert für maximale Client-Kompatibilität) + Text-Fallback. */
-export function renderContactEmail(data: ContactRequest, serviceLabel: string) {
+export function renderContactEmail(data: ContactRequest, serviceLabel: string, photoCount = 0) {
   const rows: [string, string][] = [
     ['Name', data.name],
     ['E-Mail', data.email],
     ['Telefon', data.phone || '–'],
     ['Leistung', serviceLabel],
     ['Fahrzeug', data.vehicle || '–'],
-    ['Wunschtermin', data.date ? formatDate(data.date) : '–'],
+    ['Motorisierung', data.engine || '–'],
+    ['Kilometerstand', data.mileage || '–'],
+    ['Fotos', photoCount > 0 ? `${photoCount} im Anhang` : '–'],
   ];
+  const message = data.message || '–';
 
   const html = `<!doctype html>
 <html lang="de"><body style="margin:0;padding:0;background:#f4f6f9;font-family:Arial,Helvetica,sans-serif;color:#0b1b2b">
@@ -40,8 +37,8 @@ ${rows
   .join('')}
 </table></td></tr>
 <tr><td style="padding:20px 32px 32px">
-<p style="margin:0 0 8px;color:#3e5064;font-size:13px">Nachricht</p>
-<p style="margin:0;font-size:15px;line-height:1.6;white-space:pre-wrap">${escape(data.message)}</p>
+<p style="margin:0 0 8px;color:#3e5064;font-size:13px">Anliegen</p>
+<p style="margin:0;font-size:15px;line-height:1.6;white-space:pre-wrap">${escape(message)}</p>
 </td></tr>
 <tr><td style="background:#f4f6f9;padding:16px 32px;color:#3e5064;font-size:12px">Direkt auf diese E-Mail antworten, um ${escape(data.name)} zu erreichen.</td></tr>
 </table></td></tr></table></body></html>`;
@@ -51,8 +48,8 @@ ${rows
     '',
     ...rows.map(([k, v]) => `${k}: ${v}`),
     '',
-    'Nachricht:',
-    data.message,
+    'Anliegen:',
+    message,
   ].join('\n');
 
   return { html, text };

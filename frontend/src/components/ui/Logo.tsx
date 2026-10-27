@@ -1,70 +1,35 @@
-import type { SVGProps } from 'react';
+import Image from 'next/image';
 import { cn } from '@/lib/cn';
+import { site } from '@/lib/site';
 
-interface LogoMarkProps extends Omit<SVGProps<SVGSVGElement>, 'viewBox'> {
+interface LogoProps {
+  /** `night` auf Graphit: Zahnrad im selben Präzisionsblau wie in der Kopfzeile, Schraubenschlüssel und Schrift weiß. */
+  tone?: 'paper' | 'night';
+  /** `md` Kopfzeile (60 px hoch, ab lg 94 px wie im Design) · `xl` Fußzeile (so groß wie zuvor: 317 px Rahmenbreite bei 1440 px). */
+  size?: 'md' | 'xl';
+  priority?: boolean;
   className?: string;
-  /** Eindeutiges Präfix für SVG-IDs (mehrere Logos pro Seite). */
-  idPrefix?: string;
 }
 
 /**
- * Bildmarke „Schmiede-Mutter“: Sechskant (Schraubenmutter) als Symbol für Werkstatt-Präzision,
- * darin ein gefastes „S“ wie aus Flachstahl geschmiedet, der Glutfunke als Akzent.
+ * Kundenlogo aus dem Design (Figma „PKW Schmiede Kundenlogo“, 200 × 94): halbes Zahnrad, Schraubenschlüssel mit Auto,
+ * Schriftzug und Markenkern – Vektor-SVG aus Figma, Innenformen als echte Aussparungen (auf jedem Grund korrekt).
+ * Der Leerraum links vor dem Zahnrad (7,6 von 200) ist abgeschnitten: Das Zahnrad steht bündig auf der Inhaltskante –
+ * in Kopfzeile, Menü und Fußzeile auf derselben Linie, egal wie groß das Logo dargestellt wird.
  */
-export function LogoMark({ className = 'size-10', idPrefix = 'logo', ...svgProps }: LogoMarkProps) {
-  const gradientId = `${idPrefix}-hex`;
+export function Logo({ tone = 'paper', size = 'md', priority = false, className }: LogoProps) {
   return (
-    <svg viewBox="0 0 48 48" className={className} aria-hidden="true" focusable="false" {...svgProps}>
-      <defs>
-        <linearGradient id={gradientId} x1="0" y1="0" x2="0.35" y2="1">
-          <stop offset="0" stopColor="#1f4e79" />
-          <stop offset="1" stopColor="#0b1b2b" />
-        </linearGradient>
-      </defs>
-      <path d="M24 1.5 43.5 12.75v22.5L24 46.5 4.5 35.25v-22.5z" fill={`url(#${gradientId})`} />
-      <path d="M24 3.8 41.5 13.9v20.2L24 44.2 6.5 34.1V13.9z" fill="none" stroke="#ffffff" strokeOpacity="0.16" />
-      <path
-        d="M31 14.5H19.5l-4 4v2l4 4h9l4 4v2l-4 4H16.5"
-        fill="none"
-        stroke="#ffffff"
-        strokeWidth="4.25"
-        strokeLinecap="square"
-        strokeLinejoin="miter"
-      />
-      <path d="m36 11.2 2.9 2.9-2.9 2.9-2.9-2.9z" fill="#ff8a33" />
-    </svg>
-  );
-}
-
-interface LogoProps {
-  tone?: 'light' | 'dark';
-  className?: string;
-  idPrefix?: string;
-}
-
-/** Wort-Bild-Marke: Mark + zweizeilige Wortmarke im Extended-Schnitt. */
-export function Logo({ tone = 'light', className, idPrefix }: LogoProps) {
-  return (
-    <span className={cn('inline-flex items-center gap-3', className)}>
-      <LogoMark className="size-10 shrink-0 sm:size-11" idPrefix={idPrefix} />
-      <span className="flex flex-col leading-none">
-        <span
-          className={cn(
-            'font-wide text-[1.0625rem] font-extrabold tracking-[0.08em] sm:text-[1.1875rem]',
-            tone === 'light' ? 'text-white' : 'text-primary',
-          )}
-        >
-          SERCANS
-        </span>{' '}
-        <span
-          className={cn(
-            'mt-1.5 text-[0.625rem] font-semibold tracking-[0.34em] sm:text-[0.6875rem]',
-            tone === 'light' ? 'text-accent' : 'text-accent-700',
-          )}
-        >
-          PKW SCHMIEDE
-        </span>
-      </span>
-    </span>
+    <Image
+      src={tone === 'night' ? '/images/logo-night.svg' : '/images/logo.svg'}
+      width={192}
+      height={94}
+      alt={site.shortName}
+      priority={priority}
+      className={cn(
+        'block',
+        size === 'xl' ? 'h-auto w-[clamp(14.7306rem,13.2063rem+6.5041vw,19.0596rem)]' : 'h-[3.75rem] w-auto lg:h-[5.875rem]',
+        className,
+      )}
+    />
   );
 }

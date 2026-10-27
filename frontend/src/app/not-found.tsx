@@ -1,16 +1,21 @@
-import { PageBanner } from '@/components/sections/PageBanner';
+import { PageTitle } from '@/components/sections/PageTitle';
+import { ButtonLink, TextLink } from '@/components/ui/Button';
 
 export const metadata = { title: 'Seite nicht gefunden', robots: { index: false } };
 
 export default function NotFound() {
   return (
-    <PageBanner
-      image="gear-knob"
-      eyebrow="Fehler 404"
-      title="Hier hat sich jemand verfahren."
+    <PageTitle
+      kicker="Fehler 404"
+      title={'Hier hat sich jemand\nverfahren.'}
       lead="Die gewünschte Seite existiert nicht oder wurde verschoben. Wir bringen Sie zurück auf die richtige Spur."
-      primary={{ label: 'Zur Startseite', href: '/' }}
-      secondary={{ label: 'Leistungen ansehen', href: '/leistungen' }}
-    />
+    >
+      <div className="flex flex-wrap items-center gap-x-8 gap-y-4">
+        <ButtonLink href="/">Zur Startseite</ButtonLink>
+        <TextLink href="/#leistungen" className="text-sm">
+          Leistungen ansehen
+        </TextLink>
+      </div>
+    </PageTitle>
   );
 }

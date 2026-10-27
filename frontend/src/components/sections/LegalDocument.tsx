@@ -1,52 +1,38 @@
-import type { ReactNode } from 'react';
-import { Section } from '@/components/ui/Section';
+import { pad2 } from '@/lib/format';
 import type { LegalSection } from '@/types/legal';
 import { ArticleBody } from './ArticleBody';
 
-interface LegalDocumentProps {
-  sections: LegalSection[];
-  aside: ReactNode;
-  children?: ReactNode;
-}
-
-/** Rechtstexte: Inhaltsverzeichnis + Grafik (sticky) links, Fließtext rechts. */
-export function LegalDocument({ sections, aside, children }: LegalDocumentProps) {
+/** Rechtstexte: Inhaltsverzeichnis links (sticky), nummerierte Abschnitte mit Haarlinie rechts – im Raster der Leistungsseiten. */
+export function LegalDocument({ sections }: { sections: LegalSection[] }) {
   return (
-    <Section id="inhalt-text">
-      <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
-        <aside className="lg:col-span-4">
-          <div className="space-y-10 lg:sticky lg:top-28">
-            <nav aria-label="Inhaltsverzeichnis" className="bg-paper p-6 ring-1 ring-line">
-              <p className="text-eyebrow font-semibold text-accent-700 uppercase">Inhalt</p>
-              <ol className="mt-4 space-y-1 text-sm">
-                {sections.map((s, i) => (
-                  <li key={s.id}>
-                    <a href={`#${s.id}`} className="flex min-h-10 items-center gap-3 font-semibold hover:text-secondary">
-                      <span className="w-6 text-muted">{String(i + 1).padStart(2, '0')}</span>
-                      {s.title}
-                    </a>
-                  </li>
-                ))}
-              </ol>
-            </nav>
-            <div className="hidden lg:block">{aside}</div>
-          </div>
-        </aside>
-        <div className="max-w-3xl lg:col-span-8">
+    <section aria-label="Rechtstext" className="bg-white">
+      <div className="container-site flex flex-col gap-12 py-sec-80 lg:flex-row lg:gap-[6.25rem]">
+        <nav aria-label="Inhaltsverzeichnis" className="lg:w-[33.95%] lg:shrink-0">
+          <ol className="lg:sticky lg:top-32">
+            {sections.map((s, i) => (
+              <li key={s.id} className="border-t border-line">
+                <a href={`#${s.id}`} className="flex min-h-11 items-center gap-6 py-2 text-[0.9375rem] transition-colors hover:text-primary">
+                  <span className="w-[1.875rem] shrink-0 text-xs text-primary tabular-nums">{pad2(i + 1)}</span>
+                  {s.title}
+                </a>
+              </li>
+            ))}
+          </ol>
+        </nav>
+        <div className="max-w-3xl lg:flex-1">
           {sections.map((s, i) => (
-            <section key={s.id} id={s.id} aria-labelledby={`${s.id}-title`} className="scroll-mt-28 border-b border-line py-10 first:pt-0 last:border-0">
-              <h2 id={`${s.id}-title`} className="text-h3 font-bold">
-                <span className="mr-3 text-accent-700">{String(i + 1).padStart(2, '0')}</span>
+            <section key={s.id} id={s.id} aria-labelledby={`${s.id}-title`} className="reveal scroll-mt-32 border-t border-line pt-[1.375rem] pb-10 last:pb-0">
+              <h2 id={`${s.id}-title`} className="flex gap-6 text-step-sm">
+                <span className="w-[1.875rem] shrink-0 pt-1.5 text-xs text-primary tabular-nums">{pad2(i + 1)}</span>
                 {s.title}
               </h2>
-              <div className="mt-6">
+              <div className="mt-5 lg:pl-[3.375rem]">
                 <ArticleBody blocks={s.blocks} />
               </div>
             </section>
           ))}
-          {children}
         </div>
       </div>
-    </Section>
+    </section>
   );
 }

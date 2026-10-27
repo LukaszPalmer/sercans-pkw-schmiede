@@ -1,58 +1,76 @@
-import { BlogGrid } from '@/components/sections/BlogGrid';
-import { ContactSection } from '@/components/sections/ContactSection';
-import { FaqSection } from '@/components/sections/FaqSection';
+import { FocusSplit } from '@/components/sections/FocusSplit';
+import { HomeQuestions } from '@/components/sections/HomeQuestions';
 import { PageBanner } from '@/components/sections/PageBanner';
-import { ProcessSteps } from '@/components/sections/ProcessSteps';
-import { ServicesGrid } from '@/components/sections/ServicesGrid';
-import { TrustBar } from '@/components/sections/TrustBar';
-import { WhatsAppSection } from '@/components/sections/WhatsAppSection';
-import { WhyUs } from '@/components/sections/WhyUs';
-import { blogPosts } from '@/lib/content/blog';
-import { featuredFaqs } from '@/lib/content/faq';
-import { workshopProcess } from '@/lib/content/process';
-import { services } from '@/lib/content/services';
+import { PrinciplesBar } from '@/components/sections/PrinciplesBar';
+import { RequestBand } from '@/components/sections/RequestBand';
+import { SeasonNote } from '@/components/sections/SeasonNote';
+import { ServiceOverview } from '@/components/sections/ServiceOverview';
+import { WorkSteps } from '@/components/sections/WorkSteps';
+import { WorkshopInsight } from '@/components/sections/WorkshopInsight';
+import { faqTopics, faqs } from '@/lib/content/faq';
+import { requestPath, servicePath } from '@/lib/content/services';
 import { buildMetadata } from '@/lib/seo';
 import { site } from '@/lib/site';
 
+const title = `${site.shortName} | Service, Reparatur und Wartung`;
+
 export const metadata = {
-  ...buildMetadata({
-    title: `${site.name} | Kfz-Werkstatt für alle Marken`,
-    description: site.description,
-    path: '/',
-    image: 'workshop-lift',
-  }),
-  title: { absolute: `${site.name} | Kfz-Werkstatt für alle Marken` },
+  ...buildMetadata({ title, description: site.description, path: '/', image: 'startseite-banner' }),
+  title: { absolute: title },
 };
 
 export default function HomePage() {
   return (
     <>
       <PageBanner
-        variant="home"
-        image="workshop-lift"
-        eyebrow="Kfz-Werkstatt für alle Marken"
-        title={
-          <>
-            Präzision aus der <span className="text-glow">Schmiede.</span>
-          </>
-        }
-        lead="Wartung, Reparatur, Reifen, Glas und TÜV-Service – transparent, termintreu und mit dem Anspruch, jedes Fahrzeug so zu behandeln, als wäre es unser eigenes."
-        primary={{ label: 'Termin anfragen', href: '#termin', icon: 'calendar' }}
-        secondary={{ label: 'Leistungen entdecken', href: '#leistungen' }}
+        layout="overlay"
+        image="startseite-banner"
+        kicker="PKW Schmiede / Werkstatt mit Anspruch"
+        title={'Präzision,\ndie bleibt.'}
+        intro="Service, Reparatur und Wartung. Mit einem klaren Blick für Ihr Fahrzeug und Sorgfalt bis ins Detail."
+        action={{ label: 'Termin anfragen', href: requestPath() }}
       />
-      <TrustBar />
-      <ServicesGrid
-        services={services}
-        eyebrow="Leistungen"
-        title="Neun Disziplinen. Ein Qualitätsanspruch."
-        lead="Von der Achsvermessung bis zur TÜV-Vorführung: Alles, was Ihr Fahrzeug braucht – präzise ausgeführt und verständlich erklärt."
+      <PrinciplesBar items={['Erst verstehen. Dann empfehlen.', 'Arbeiten nach Absprache.', 'Auf das Detail kommt es an.']} />
+      <ServiceOverview />
+      <FocusSplit
+        id="fokus"
+        image="startseite-aufbereitung"
+        kicker="Im Detail liegt der Unterschied"
+        title={'Nicht einfach schöner.\nSondern gepflegt.'}
+        text="Ein Kratzer, matte Oberflächen oder Spuren im Innenraum: Wir schauen auf den Zustand und besprechen, welche Behandlung sinnvoll ist. Nicht jede Spur braucht denselben Eingriff."
+        action={{ label: 'Zur Fahrzeugaufbereitung', href: servicePath('fahrzeugaufbereitung') }}
       />
-      <WhyUs />
-      <ProcessSteps steps={workshopProcess} />
-      <WhatsAppSection />
-      <FaqSection items={featuredFaqs} lead="Die wichtigsten Antworten rund um Termin, Kosten, Garantie und Reifen – kompakt zusammengefasst." />
-      <BlogGrid posts={blogPosts.slice(0, 3)} showAllLink />
-      <ContactSection tone="white" showQr={false} />
+      <WorkSteps
+        kicker="So gehen wir vor"
+        steps={[
+          { title: 'Zuhören.', text: 'Sie beschreiben Ihr Anliegen. Wir fragen nach Fahrzeug, Zustand und Ihren Erwartungen.' },
+          { title: 'Einordnen.', text: 'Wir prüfen, was sich vorab klären lässt und was einen Blick am Fahrzeug braucht.' },
+          { title: 'Abstimmen.', text: 'Umfang und Termin werden besprochen. Zusätzliche Arbeiten brauchen eine neue Absprache.' },
+        ]}
+      />
+      <SeasonNote
+        text="Saisonwechsel? Reifen und Klima rechtzeitig mitdenken."
+        link={{ label: 'Passenden Service anfragen', href: requestPath() }}
+      />
+      <WorkshopInsight
+        image="startseite-werkstatt"
+        kicker="Die PKW Schmiede"
+        title="Handwerk braucht Haltung."
+        text="Genau hinsehen. Verständlich erklären. Sorgfältig arbeiten. Daran soll sich der Besuch in unserer Werkstatt messen lassen."
+        action={{ label: 'Die Werkstatt kennenlernen', href: '/werkstatt' }}
+      />
+      <HomeQuestions
+        kicker="Vor Ihrem Besuch"
+        title="Kurz geklärt."
+        intro="Antworten rund um Anfrage, Ablauf und Ihren Besuch. Suchen Sie nach einem Stichwort oder wählen Sie ein Thema."
+        topics={faqTopics}
+        items={faqs}
+      />
+      <RequestBand
+        title={'Ihr Anliegen.\nUnser nächster Schritt.'}
+        text="Beschreiben Sie kurz, was Ihr Fahrzeug braucht. Den passenden Umfang und einen möglichen Termin klären wir mit Ihnen."
+        href={requestPath()}
+      />
     </>
   );
 }

@@ -1,8 +1,9 @@
 import type { ReactNode } from 'react';
+import { cn } from '@/lib/cn';
 
-/** Gemeinsame Control-Optik: 16 px Schrift (kein iOS-Zoom), ≥ 48 px Höhe, klarer Fokus. */
+/** Control-Optik wie im Design: weiße Fläche, Haarlinie, 18 px Innenabstand, 15 px Schrift (mobil 16 px – kein iOS-Zoom). */
 export const controlClass =
-  'block w-full min-h-12 bg-white px-4 py-3 text-base text-primary ring-1 ring-line ring-inset outline-none transition-shadow placeholder:text-muted/70 focus:ring-2 focus:ring-accent aria-[invalid=true]:ring-2 aria-[invalid=true]:ring-accent-700';
+  'block w-full border border-line bg-white px-[1.125rem] text-base leading-[1.5] text-ink outline-none transition-[border-color,box-shadow] duration-200 placeholder:text-muted hover:border-muted focus:border-primary focus:ring-1 focus:ring-primary focus:ring-inset md:text-[0.9375rem] aria-[invalid=true]:border-error aria-[invalid=true]:ring-1 aria-[invalid=true]:ring-error aria-[invalid=true]:ring-inset';
 
 interface FieldProps {
   id: string;
@@ -13,23 +14,17 @@ interface FieldProps {
   children: ReactNode;
 }
 
+/** Feldname über dem Feld (13 px, 12 px Abstand); Pflichtfelder tragen ein Sternchen. */
 export function Field({ id, label, required, error, className, children }: FieldProps) {
   return (
-    <div className={className}>
-      <label htmlFor={id} className="mb-2 block text-sm font-semibold">
+    <div className={cn('min-w-0', className)}>
+      <label htmlFor={id} className="mb-3 block text-[0.8125rem] leading-[1.21]">
         {label}
-        {required ? (
-          <span className="text-accent-700" aria-hidden="true">
-            {' '}
-            *
-          </span>
-        ) : (
-          <span className="font-normal text-muted"> (optional)</span>
-        )}
+        {required && <span aria-hidden="true"> *</span>}
       </label>
       {children}
       {error && (
-        <p id={`${id}-error`} className="mt-2 text-sm font-semibold text-accent-700">
+        <p id={`${id}-error`} className="mt-2 text-xs text-error">
           {error}
         </p>
       )}

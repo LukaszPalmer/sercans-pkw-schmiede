@@ -1,6 +1,5 @@
 import { fullAddress, site } from '@/lib/site';
 import type { LegalSection } from '@/types/legal';
-import { imageList } from './images';
 
 /*
  * Rechtstexte – Platzhalter „XXX“ vor dem Livegang ergänzen.
@@ -8,7 +7,7 @@ import { imageList } from './images';
  * ggf. die Teilnahme an der Kfz-Schiedsstelle unter „Verbraucherstreitbeilegung“ angeben.
  */
 
-const company = `**${site.name}**\nInhaber: ${site.owner}\n${fullAddress}`;
+const company = `**${site.name}**\nGeschäftsführer: ${site.owner}\n${fullAddress}`;
 const contactLines = `Telefon: ${site.phone.display}\nWhatsApp: ${site.whatsapp.display}\nE-Mail: [${site.email}](mailto:${site.email})`;
 
 export const impressumSections: LegalSection[] = [
@@ -70,7 +69,7 @@ export const impressumSections: LegalSection[] = [
       },
       {
         type: 'p',
-        text: 'Die Ratgeber-Inhalte dieser Website dienen der allgemeinen Information und ersetzen keine individuelle Prüfung Ihres Fahrzeugs.',
+        text: 'Die Inhalte dieser Website dienen der allgemeinen Information und ersetzen keine individuelle Prüfung Ihres Fahrzeugs.',
       },
     ],
   },
@@ -100,13 +99,7 @@ export const impressumSections: LegalSection[] = [
     blocks: [
       {
         type: 'p',
-        text: 'Die Fotografien dieser Website stammen aus dem Open Images Dataset und stehen unter der Lizenz Creative Commons Namensnennung 2.0 ([CC BY 2.0](https://creativecommons.org/licenses/by/2.0/deed.de)). Alle Bilder wurden für die Website bearbeitet (Zuschnitt, Kompression sowie farbliche Überlagerung).',
-      },
-      {
-        type: 'ul',
-        items: imageList.map(
-          (img) => `**${img.alt}** – Foto: ${img.credit.author}, „${img.credit.title}“, [Quelle](${img.credit.sourceUrl}), Lizenz: [CC BY 2.0](${img.credit.licenseUrl})`,
-        ),
+        text: 'Die Fotos dieser Website sind KI-generierte Symbolbilder, die im Rahmen der Gestaltung des Markenauftritts entstanden sind. Sie zeigen keine Aufnahmen unseres Betriebs, unserer Mitarbeitenden oder von Kundenfahrzeugen.',
       },
     ],
   },
@@ -127,7 +120,7 @@ export const datenschutzSections: LegalSection[] = [
     blocks: [
       {
         type: 'p',
-        text: 'Wir nehmen den Schutz Ihrer persönlichen Daten ernst und verarbeiten sie ausschließlich im Rahmen der gesetzlichen Bestimmungen. Diese Website verwendet **keine Analyse- oder Marketing-Cookies**, keine Tracking-Tools und keine eingebetteten Inhalte Dritter wie Karten- oder Videodienste.',
+        text: 'Wir nehmen den Schutz Ihrer persönlichen Daten ernst und verarbeiten sie ausschließlich im Rahmen der gesetzlichen Bestimmungen. Diese Website verwendet **keine Analyse- oder Marketing-Cookies** und keine Tracking-Tools. Inhalte Dritter bindet sie an einer Stelle ein: die Karte von Google Maps auf der Kontaktseite – und auch diese erst, nachdem Sie sie per Klick laden (siehe „Google Maps“).',
       },
       {
         type: 'p',
@@ -164,7 +157,7 @@ export const datenschutzSections: LegalSection[] = [
     blocks: [
       {
         type: 'p',
-        text: 'Wenn Sie uns über das Kontaktformular eine Anfrage senden, verarbeiten wir Ihre Angaben (Name, E-Mail-Adresse, optional Telefonnummer, Leistung, Fahrzeug und Wunschtermin sowie Ihre Nachricht) zur Bearbeitung der Anfrage und für mögliche Anschlussfragen.',
+        text: 'Wenn Sie uns über das Kontaktformular eine Anfrage senden, verarbeiten wir Ihre Angaben (Name, E-Mail-Adresse, gewünschte Leistung und Ihr Anliegen sowie optional Telefonnummer, Fahrzeug, Motorisierung, Kilometerstand und Fotos) zur Bearbeitung der Anfrage und für mögliche Anschlussfragen. Hochgeladene Fotos werden ausschließlich als Anhang der Anfrage-E-Mail an uns übermittelt.',
       },
       {
         type: 'p',
@@ -196,7 +189,7 @@ export const datenschutzSections: LegalSection[] = [
     blocks: [
       {
         type: 'p',
-        text: 'Sie können uns über WhatsApp kontaktieren – per Link oder durch Scannen des QR-Codes. Erst mit Ihrem Klick bzw. Scan wird eine Verbindung zu WhatsApp aufgebaut; vorher werden keine Daten an WhatsApp übertragen. Anbieter ist die WhatsApp Ireland Limited, 4 Grand Canal Square, Grand Canal Harbour, Dublin 2, Irland.',
+        text: 'Sie können uns über WhatsApp kontaktieren – per Link. Erst mit Ihrem Klick wird eine Verbindung zu WhatsApp aufgebaut; vorher werden keine Daten an WhatsApp übertragen. Anbieter ist die WhatsApp Ireland Limited, 4 Grand Canal Square, Grand Canal Harbour, Dublin 2, Irland.',
       },
       {
         type: 'p',
@@ -205,6 +198,24 @@ export const datenschutzSections: LegalSection[] = [
       {
         type: 'p',
         text: 'Bei telefonischer Kontaktaufnahme verarbeiten wir Ihre Telefonnummer und Ihr Anliegen ausschließlich zur Bearbeitung der Anfrage.',
+      },
+    ],
+  },
+  {
+    id: 'karte',
+    title: 'Google Maps',
+    blocks: [
+      {
+        type: 'p',
+        text: 'Auf der Kontaktseite können Sie eine Karte des Dienstes Google Maps einblenden. Anbieter ist die Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland. Die Karte wird erst geladen, wenn Sie auf „Karte laden“ klicken – vorher wird keine Verbindung zu Google aufgebaut.',
+      },
+      {
+        type: 'p',
+        text: 'Mit dem Laden der Karte werden insbesondere Ihre IP-Adresse, Angaben zu Browser und Gerät sowie Ihre Nutzung der Karte an Google übermittelt; Google kann dabei Cookies oder ähnliche Technologien einsetzen. Eine Übermittlung an die Google LLC in den USA ist möglich und erfolgt auf Grundlage des EU-US Data Privacy Framework (Art. 45 DSGVO).',
+      },
+      {
+        type: 'p',
+        text: 'Rechtsgrundlage ist Ihre Einwilligung nach Art. 6 Abs. 1 lit. a DSGVO und § 25 Abs. 1 TDDDG, die Sie mit dem Klick erteilen. Sie gilt nur für den jeweiligen Seitenaufruf und lässt sich mit Wirkung für die Zukunft widerrufen, indem Sie die Seite neu laden. Der Link „Route planen“ öffnet Google Maps in einem neuen Fenster. Weitere Informationen: [policies.google.com/privacy](https://policies.google.com/privacy).',
       },
     ],
   },
@@ -218,7 +229,7 @@ export const datenschutzSections: LegalSection[] = [
       },
       {
         type: 'p',
-        text: 'Links zu externen Diensten (z. B. Routenplanung über Google Maps oder die Bildquellen im Bildnachweis) werden erst beim Anklicken aktiv. Ab diesem Zeitpunkt gelten die Datenschutzbestimmungen des jeweiligen Anbieters.',
+        text: 'Links zu externen Diensten (z. B. der WhatsApp-Chat) werden erst beim Anklicken aktiv. Ab diesem Zeitpunkt gelten die Datenschutzbestimmungen des jeweiligen Anbieters.',
       },
     ],
   },
@@ -261,7 +272,7 @@ export const datenschutzSections: LegalSection[] = [
     blocks: [
       {
         type: 'p',
-        text: 'Stand dieser Datenschutzerklärung: September 2026. Wir passen sie an, sobald Änderungen der Website oder der Rechtslage dies erfordern.',
+        text: 'Stand dieser Datenschutzerklärung: Oktober 2026. Wir passen sie an, sobald Änderungen der Website oder der Rechtslage dies erfordern.',
       },
     ],
   },

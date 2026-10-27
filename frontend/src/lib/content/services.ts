@@ -1,442 +1,589 @@
 import type { Service, ServiceSlug } from '@/types/service';
 
 /**
- * Leistungskatalog – eine Datenquelle für Navigation, Übersicht, Detailseiten,
- * Formular-Auswahl, Sitemap und Structured Data.
+ * Leistungskatalog wie im Figma-Design – eine Datenquelle für Startseite, Detailseiten, Fußzeile,
+ * Formular-Auswahl, Sitemap und Structured Data. Reihenfolge = Nummerierung „01“–„09“ im Design.
  */
 export const services: Service[] = [
   {
-    slug: 'achsvermessung',
-    title: 'Achsvermessung',
-    navTitle: 'Achsvermessung',
-    icon: 'alignment',
-    image: 'wheel-hub',
-    eyebrow: 'Fahrwerk & Geometrie',
-    headline: 'Achsvermessung – exakt eingestellt, sicher unterwegs.',
-    summary:
-      'Computergestützte Vermessung von Spur und Sturz für präzises Lenkverhalten, gleichmäßigen Reifenverschleiß und spürbar mehr Fahrsicherheit.',
+    slug: 'smartrepair',
+    title: 'Smartrepair',
+    shortTitle: 'Smartrepair',
+    teaser: 'Kleine Lackschäden gezielt behandeln.',
+    icon: 'paint',
     metaDescription:
-      'Achsvermessung bei Sercans PKW Schmiede: Spur, Sturz & Nachlauf präzise vermessen und nach Herstellervorgaben einstellen – mit Messprotokoll. Jetzt Termin anfragen.',
-    intro: [
-      'Schon wenige Winkelminuten Abweichung genügen, damit ein Fahrzeug zur Seite zieht, das Lenkrad schief steht oder Reifen einseitig abfahren. Schlaglöcher, Bordsteinkontakt und natürlicher Verschleiß verändern die Fahrwerksgeometrie schleichend – meist, ohne dass man es sofort bemerkt.',
-      'Mit moderner, computergestützter Messtechnik erfassen wir alle relevanten Achswerte an Vorder- und Hinterachse, vergleichen sie mit den Sollwerten des Herstellers und stellen Ihr Fahrzeug exakt ein. Das Ergebnis dokumentieren wir in einem Messprotokoll mit Vorher-Nachher-Werten.',
-    ],
-    scope: [
-      'Vermessung von Spur, Sturz, Nachlauf und Spreizung',
-      'Vorder- und Hinterachse inkl. Messprotokoll',
-      'Einstellung exakt nach Herstellervorgaben',
-      'Prüfung von Spurstangen, Traggelenken und Buchsen',
-      'Geradestellung des Lenkrads',
-      'Abschließende Probefahrt zur Kontrolle',
-    ],
-    benefits: [
-      { icon: 'gauge', title: 'Präzises Fahrgefühl', text: 'Ihr Fahrzeug läuft sauber geradeaus, das Lenkrad steht mittig und reagiert direkt.' },
-      { icon: 'tire', title: 'Längere Reifenlebensdauer', text: 'Korrekte Spurwerte verhindern einseitigen Abrieb – Ihre Reifen halten deutlich länger.' },
-      { icon: 'euro', title: 'Weniger Verbrauch', text: 'Optimal ausgerichtete Räder senken den Rollwiderstand und damit Kraftstoff- bzw. Energiebedarf.' },
-    ],
-    signs: {
-      title: 'Wann eine Vermessung sinnvoll ist',
+      'Smartrepair bei der PKW Schmiede: Kratzer, Schrammen und kleine Lackschäden beurteilen und gezielt behandeln. Reparaturweg, Aufwand und Termin stimmen wir vorab mit Ihnen ab.',
+    image: 'smartrepair',
+    banner: {
+      layout: 'overlay',
+      title: 'Kleine Spuren.\nGezielter Eingriff.',
+      intro: 'Kratzer, Schrammen, kleine Lackschäden: Entscheidend ist nicht nur die Größe, sondern wo und wie tief die Spur sitzt.',
+    },
+    scope: {
+      kicker: 'Erhalten statt großflächig ersetzen',
+      title: 'So wenig Eingriff wie sinnvoll.',
+      text: 'Smartrepair kann bei örtlich begrenzten Schäden eine passende Lösung sein. Wir beurteilen die Stelle und besprechen, welches Ergebnis realistisch ist – bevor aus einer kleinen Spur eine große Maßnahme wird.',
+      layout: 'columns',
+      tone: 'light',
       items: [
-        'Das Fahrzeug zieht nach links oder rechts',
-        'Das Lenkrad steht bei Geradeausfahrt schief',
-        'Reifen sind innen oder außen einseitig abgefahren',
-        'Nach Bordstein-, Schlagloch- oder Unfallkontakt',
-        'Nach Arbeiten an Fahrwerk, Lenkung oder einer Tieferlegung',
-        'Beim Aufziehen neuer Reifen',
+        { title: 'Lackschäden beurteilen', text: 'Lage, Tiefe und Untergrund bestimmen, ob eine lokale Behandlung infrage kommt.' },
+        { title: 'Reparaturweg abstimmen', text: 'Polieren, örtlich ausbessern oder weitergehend behandeln: Die Methode folgt dem Schaden.' },
+        { title: 'Übergänge im Blick', text: 'Farbton, Glanz und die angrenzende Oberfläche gehören zur Beurteilung dazu.' },
       ],
     },
-    steps: [
-      { title: 'Fahrwerks-Check', text: 'Sichtprüfung von Lenkung, Achsteilen und Reifen, Einstellung des korrekten Reifendrucks.' },
-      { title: 'Präzisionsmessung', text: 'Computergestützte Erfassung aller Achswerte an Vorder- und Hinterachse.' },
-      { title: 'Einstellung', text: 'Justage von Spur und – wo konstruktiv möglich – Sturz auf die Herstellersollwerte.' },
-      { title: 'Protokoll & Probefahrt', text: 'Kontrollfahrt und Übergabe des Messprotokolls mit Vorher-Nachher-Werten.' },
-    ],
-    related: ['reifenwechsel', 'reparaturen', 'reifenlagerung'],
-  },
-  {
-    slug: 'reparaturen',
-    title: 'Reparaturen',
-    navTitle: 'Reparaturen',
-    icon: 'wrench',
-    image: 'engine-bay',
-    eyebrow: 'Mechanik & Elektrik',
-    headline: 'Reparaturen – fachgerecht, transparent, termintreu.',
-    summary:
-      'Von Bremsen über Kupplung bis Motor und Elektrik: Wir diagnostizieren präzise und reparieren nach Herstellervorgaben – mit Kostenvoranschlag vorab.',
-    metaDescription:
-      'Kfz-Reparaturen für alle Marken: Diagnose, Bremsen, Kupplung, Motor, Fahrwerk & Elektrik. Transparenter Kostenvoranschlag vorab – Sercans PKW Schmiede.',
-    intro: [
-      'Eine gute Reparatur beginnt mit einer sauberen Diagnose. Statt Teile auf Verdacht zu tauschen, lesen wir Fehlerspeicher aus, prüfen Messwerte und grenzen die Ursache systematisch ein. So zahlen Sie nur für das, was Ihr Fahrzeug wirklich braucht.',
-      'Bevor wir mit der Arbeit beginnen, erhalten Sie einen verständlichen Kostenvoranschlag. Erst nach Ihrer Freigabe legen wir los – mit Originalteilen oder Teilen in gleichwertiger Qualität, sorgfältig verbaut und abschließend geprüft.',
-    ],
-    scope: [
-      'Fehlerdiagnose per Steuergeräte-Auslesung',
-      'Bremsen: Beläge, Scheiben, Sättel & Bremsflüssigkeit',
-      'Kupplung, Getriebe und Antriebswellen',
-      'Motor, Zahnriemen und Steuerkette',
-      'Abgasanlage, Turbolader und Kühlsystem',
-      'Stoßdämpfer, Federn und Fahrwerksteile',
-      'Batterie, Lichtmaschine, Anlasser & Elektrik',
-      'Klimaanlagen-Check und Wartung',
-    ],
-    benefits: [
-      { icon: 'search', title: 'Präzise Diagnose', text: 'Systematische Fehlersuche statt Rätselraten – das spart Zeit, Teile und Geld.' },
-      { icon: 'euro', title: 'Kosten vorab klar', text: 'Sie erhalten einen Kostenvoranschlag. Keine Arbeiten ohne Ihre ausdrückliche Freigabe.' },
-      { icon: 'shield', title: 'Qualität, die hält', text: 'Originalteile oder gleichwertige Qualität, verbaut nach Herstellervorgaben.' },
-    ],
-    signs: {
-      title: 'Warnsignale, die Sie ernst nehmen sollten',
-      items: [
-        'Eine Warnleuchte im Kombiinstrument leuchtet auf',
-        'Bremsen quietschen, schleifen oder das Pedal fühlt sich weich an',
-        'Ungewohnte Geräusche, Vibrationen oder Gerüche',
-        'Leistungsverlust oder unruhiger Motorlauf',
-        'Flüssigkeitsflecken unter dem geparkten Fahrzeug',
+    preparation: {
+      layout: 'aside',
+      title: 'Zeigen Sie uns die Stelle.',
+      notice: 'Nicht jeder Schaden eignet sich für Smartrepair. Fotos helfen zur Orientierung, ersetzen aber nicht immer die Besichtigung.',
+      steps: [
+        { title: 'Fotos senden', text: 'Eine Nahaufnahme und ein Bild des gesamten Bauteils helfen, den Schaden einzuordnen.' },
+        { title: 'Stelle besichtigen', text: 'Wir betrachten Oberfläche und Verlauf im passenden Licht und klären den möglichen Umfang.' },
+        { title: 'Vorgehen vereinbaren', text: 'Reparaturweg, Aufwand und Termin werden vor der Ausführung abgestimmt.' },
       ],
     },
-    steps: [
-      { title: 'Annahme', text: 'Sie schildern uns die Symptome – persönlich, telefonisch oder per WhatsApp.' },
-      { title: 'Diagnose & Angebot', text: 'Wir ermitteln die Ursache und erstellen einen transparenten Kostenvoranschlag.' },
-      { title: 'Reparatur', text: 'Nach Ihrer Freigabe reparieren wir fachgerecht und nach Herstellervorgaben.' },
-      { title: 'Endkontrolle', text: 'Funktionsprüfung, Probefahrt und Übergabe mit Erläuterung der Arbeiten.' },
+    faqs: [
+      {
+        question: 'Lässt sich jeder Kratzer entfernen?',
+        answer: 'Nein. Tiefe Kratzer bis zum Untergrund brauchen eine andere Behandlung als oberflächliche Spuren.',
+      },
+      {
+        question: 'Kann ich den Preis anhand eines Fotos erfahren?',
+        answer: 'Ein Foto ermöglicht eine erste Orientierung. Der tatsächliche Aufwand hängt vom Zustand vor Ort ab.',
+      },
+      {
+        question: 'Ist Smartrepair auch vor einer Rückgabe sinnvoll?',
+        answer: 'Eine Zustandsprüfung kann helfen, sinnvolle Maßnahmen zu erkennen. Rückgabevorgaben sollten dabei vorliegen.',
+      },
     ],
-    related: ['instandhaltung', 'tuev', 'oelwechsel'],
-  },
-  {
-    slug: 'instandhaltung',
-    title: 'Instandhaltung',
-    navTitle: 'Instandhaltung',
-    icon: 'maintenance',
-    image: 'instrument-cluster',
-    eyebrow: 'Inspektion & Wartung',
-    headline: 'Instandhaltung – Werterhalt mit System.',
-    summary:
-      'Inspektion nach Herstellervorgaben, Wartungsplan im Blick und alle Verschleißteile geprüft – für Zuverlässigkeit, Werterhalt und eine lückenlose Service-Historie.',
-    metaDescription:
-      'Inspektion & Wartung nach Herstellervorgaben – die Herstellergarantie bleibt erhalten. Lückenlose Service-Historie für alle Marken bei Sercans PKW Schmiede.',
-    intro: [
-      'Regelmäßige Wartung ist die günstigste Reparatur. Wer Intervalle einhält, verhindert Folgeschäden, erhält den Wert seines Fahrzeugs und fährt entspannter. Wir warten Ihr Fahrzeug exakt nach dem Serviceplan des Herstellers.',
-      'Gut zu wissen: Dank der EU-Gruppenfreistellungsverordnung (Kfz-GVO) dürfen Sie Inspektionen auch in einer freien Werkstatt durchführen lassen. Die Herstellergarantie bleibt erhalten, sofern nach Herstellervorgaben und mit geeigneten Teilen gearbeitet wird – genau das ist unser Standard.',
-    ],
-    scope: [
-      'Inspektion nach Herstellervorgaben',
-      'Motoröl-, Luft-, Innenraum- und Kraftstofffilter',
-      'Zündkerzen, Bremsflüssigkeit und Kühlmittel',
-      'Zahnriemen- und Nebenaggregatetrieb nach Intervall',
-      'Prüfung von Bremsen, Fahrwerk, Licht und Batterie',
-      'Rücksetzen der Serviceanzeige',
-      'Dokumentation im Serviceheft',
-    ],
-    benefits: [
-      { icon: 'shield', title: 'Garantie bleibt erhalten', text: 'Wartung nach Herstellervorgaben sichert Ihre Garantie- und Kulanzansprüche.' },
-      { icon: 'gauge', title: 'Maximale Zuverlässigkeit', text: 'Verschleiß wird erkannt, bevor er zur Panne auf der Autobahn wird.' },
-      { icon: 'euro', title: 'Höherer Wiederverkaufswert', text: 'Ein lückenlos gepflegtes Serviceheft ist beim Verkauf bares Geld wert.' },
-    ],
-    signs: {
-      title: 'Wann die nächste Wartung ansteht',
-      items: [
-        'Die Serviceanzeige im Display meldet sich',
-        'Das Intervall laut Serviceheft (Kilometer oder Zeit) ist erreicht',
-        'Vor längeren Reisen oder der Urlaubsfahrt',
-        'Vor dem Verkauf – für eine lückenlose Historie',
-        'Nach dem Kauf eines Gebrauchtwagens mit unklarer Vorgeschichte',
-      ],
+    related: 'fahrzeugaufbereitung',
+    request: {
+      title: 'Eine kleine Spur?\nSchauen wir genauer hin.',
+      text: 'Senden Sie uns Fahrzeugangaben und eine kurze Beschreibung der betroffenen Stelle.',
     },
-    steps: [
-      { title: 'Serviceplan prüfen', text: 'Wir ermitteln anhand von Fahrzeugdaten und Laufleistung den fälligen Umfang.' },
-      { title: 'Wartung & Check', text: 'Alle vorgeschriebenen Arbeiten plus Sichtprüfung der Verschleißteile.' },
-      { title: 'Rücksprache', text: 'Zusätzlicher Bedarf? Wir melden uns vorab – ohne Freigabe kein Mehraufwand.' },
-      { title: 'Dokumentation', text: 'Eintrag ins Serviceheft, Rücksetzen der Anzeige, Übergabe mit Bericht.' },
-    ],
-    related: ['oelwechsel', 'reparaturen', 'tuev'],
-  },
-  {
-    slug: 'aufbereitung',
-    title: 'Aufbereitung',
-    navTitle: 'Aufbereitung',
-    icon: 'sparkle',
-    image: 'paint-droplets',
-    eyebrow: 'Pflege & Werterhalt',
-    headline: 'Aufbereitung – Glanz, der bleibt.',
-    summary:
-      'Professionelle Innen- und Außenaufbereitung: gründliche Reinigung, maschinelle Politur und Versiegelung – für einen Auftritt wie am ersten Tag.',
-    metaDescription:
-      'Fahrzeugaufbereitung innen & außen: Handwäsche, Lackpolitur, Versiegelung, Innenraum-Tiefenreinigung und Lederpflege. Ideal vor Verkauf oder Leasing-Rückgabe.',
-    intro: [
-      'Lack und Innenraum erzählen die Geschichte eines Fahrzeugs. Waschanlagen-Kratzer, Flugrost, verblasste Kunststoffe oder Flecken im Polster mindern nicht nur das Fahrgefühl, sondern auch den Wert – spätestens beim Verkauf oder der Leasing-Rückgabe.',
-      'Unsere Aufbereitung geht Schicht für Schicht vor: gründliche Reinigung, Dekontamination, maschinelle Politur zur Reduzierung von Swirls und feinen Kratzern und eine Versiegelung, die den Glanz schützt. Innen sorgen Tiefenreinigung und Materialpflege für ein spürbar frisches Ambiente.',
-    ],
-    scope: [
-      'Schonende Handwäsche und Felgenreinigung',
-      'Lackreinigung mit Knete, Entfernung von Flugrost',
-      'Maschinelle Politur gegen Swirls und feine Kratzer',
-      'Lackversiegelung für langanhaltenden Schutz',
-      'Innenraum-Tiefenreinigung von Polstern und Teppichen',
-      'Lederreinigung und -pflege',
-      'Kunststoff-, Gummi- und Scheibenpflege',
-      'Geruchsneutralisation',
-    ],
-    benefits: [
-      { icon: 'sparkle', title: 'Sichtbarer Tiefenglanz', text: 'Politur und Versiegelung bringen Farbtiefe und Brillanz zurück in den Lack.' },
-      { icon: 'euro', title: 'Mehr Wert beim Verkauf', text: 'Ein gepflegter erster Eindruck wirkt sich spürbar auf Verkaufspreis und Rückgabe aus.' },
-      { icon: 'shield', title: 'Schutz vor Umwelteinflüssen', text: 'Versiegelt gegen UV-Strahlung, Vogelkot, Baumharz und Streusalz.' },
-    ],
-    signs: {
-      title: 'Ideal für diese Momente',
-      items: [
-        'Vor dem Verkauf oder der Leasing-Rückgabe',
-        'Nach dem Winter – gegen Streusalz und Schmutz',
-        'Bei stumpfem, vergrautem oder verkratztem Lack',
-        'Bei Flecken, Tierhaaren oder Gerüchen im Innenraum',
-        'Als Geschenk oder vor besonderen Anlässen',
-      ],
-    },
-    steps: [
-      { title: 'Zustandsanalyse', text: 'Wir begutachten Lack und Innenraum und empfehlen den passenden Umfang.' },
-      { title: 'Reinigung', text: 'Wäsche, Dekontamination und Tiefenreinigung als Basis für das Ergebnis.' },
-      { title: 'Politur & Schutz', text: 'Maschinelle Politur und Versiegelung – abgestimmt auf Ihren Lack.' },
-      { title: 'Gemeinsame Abnahme', text: 'Übergabe im Licht – inklusive Pflegetipps für lang anhaltenden Glanz.' },
-    ],
-    related: ['smart-repair-glas', 'instandhaltung', 'reparaturen'],
-  },
-  {
-    slug: 'reifenwechsel',
-    title: 'Reifenwechsel',
-    navTitle: 'Reifenwechsel',
-    icon: 'tire',
-    image: 'tire-sidewall',
-    eyebrow: 'Räder & Reifen',
-    headline: 'Reifenwechsel – schnell, sauber, sicher.',
-    summary:
-      'Saisonaler Radwechsel, Reifenmontage und Auswuchten – inklusive Profil- und Zustandsprüfung sowie korrektem Anzugsdrehmoment.',
-    metaDescription:
-      'Reifenwechsel & Radwechsel: Montage, Auswuchten, RDKS, Drehmoment nach Herstellervorgabe und Profilcheck. Kombinierbar mit Reifenlagerung. Termin anfragen.',
-    intro: [
-      'Reifen sind die einzige Verbindung zwischen Fahrzeug und Straße – die Kontaktfläche eines Rades ist kaum größer als eine Postkarte. Umso wichtiger sind das richtige Profil, der passende Luftdruck und eine fachgerechte Montage.',
-      'Beim Wechsel prüfen wir nicht nur die Profiltiefe, sondern auch das Reifenalter anhand der DOT-Nummer, Beschädigungen und Risse. Räder werden gewuchtet, mit dem Drehmomentschlüssel nach Herstellervorgabe angezogen und das Reifendruckkontrollsystem (RDKS) geprüft.',
-    ],
-    scope: [
-      'Saisonaler Radwechsel Sommer/Winter',
-      'Reifenmontage auf Stahl- und Alufelgen',
-      'Elektronisches Auswuchten',
-      'Profil-, Alters- (DOT) und Schadensprüfung',
-      'Luftdruck einstellen, RDKS prüfen und anlernen',
-      'Anzug mit Drehmomentschlüssel nach Vorgabe',
-      'Beratung und Beschaffung neuer Reifen',
-    ],
-    benefits: [
-      { icon: 'shield', title: 'Sicherheit bei jedem Wetter', text: 'Richtiger Reifen, richtiges Profil, richtiger Druck – für kurze Bremswege.' },
-      { icon: 'clock', title: 'Zügig erledigt', text: 'Mit Termin sind Sie schnell wieder auf der Straße – ohne lange Wartezeit.' },
-      { icon: 'tire', title: 'Ruhiger Lauf', text: 'Präzises Auswuchten verhindert Vibrationen und schont Fahrwerk und Reifen.' },
-    ],
-    signs: {
-      title: 'Faustregeln & Fakten',
-      items: [
-        'Von O bis O: Winterreifen etwa von Oktober bis Ostern',
-        'Gesetzliche Mindestprofiltiefe: 1,6 mm',
-        'Empfehlung: Sommerreifen ab 3 mm, Winterreifen ab 4 mm ersetzen',
-        'Seit 1. Oktober 2024 gelten nur Reifen mit Alpine-Symbol als Winterreifen',
-        'Reifen altern auch ungenutzt – die DOT-Nummer verrät das Alter',
-      ],
-    },
-    steps: [
-      { title: 'Termin & Annahme', text: 'Sie bringen Ihr Fahrzeug – oder wir holen die eingelagerten Räder bereit.' },
-      { title: 'Prüfung', text: 'Profil, Alter und Zustand werden kontrolliert, Auffälligkeiten besprochen.' },
-      { title: 'Montage & Wuchten', text: 'Fachgerechte Montage, Auswuchten und Anzug mit Drehmomentschlüssel.' },
-      { title: 'Druck & RDKS', text: 'Luftdruck nach Herstellerangabe, Prüfung und Anlernen des RDKS.' },
-    ],
-    related: ['reifenlagerung', 'achsvermessung', 'instandhaltung'],
-  },
-  {
-    slug: 'smart-repair-glas',
-    title: 'Smart Repair Glas',
-    navTitle: 'Smart Repair Glas',
-    icon: 'glass',
-    image: 'windshield-crack',
-    eyebrow: 'Scheibe & Steinschlag',
-    headline: 'Smart Repair Glas – reparieren statt tauschen.',
-    summary:
-      'Kleine Steinschläge werden mit Spezialharz dauerhaft versiegelt – schnell, kostengünstig und ressourcenschonend. Ist ein Tausch nötig, übernehmen wir auch das.',
-    metaDescription:
-      'Steinschlagreparatur & Scheibentausch: Smart Repair für die Windschutzscheibe, oft über die Teilkasko abgedeckt. Schnell, günstig, nachhaltig – Sercans PKW Schmiede.',
-    intro: [
-      'Ein Steinschlag wirkt harmlos – doch Temperaturwechsel, Erschütterungen und die Heizung lassen aus einem kleinen Einschlag schnell einen langen Riss werden. Dann hilft nur noch der teure Austausch der kompletten Scheibe.',
-      'Wird der Schaden früh erkannt, versiegeln wir ihn per Smart Repair: Die Bruchstelle wird gereinigt, unter Vakuum mit einem speziellen, UV-härtenden Harz gefüllt und anschließend poliert. Die Scheibe erhält ihre Stabilität zurück, die Stelle ist kaum noch sichtbar. Viele Teilkaskoversicherungen übernehmen die Kosten einer Reparatur – häufig ohne Selbstbeteiligung.',
-    ],
-    scope: [
-      'Fachkundige Begutachtung des Schadens',
-      'Steinschlagreparatur mit UV-härtendem Spezialharz',
-      'Politur der Reparaturstelle',
-      'Austausch von Front-, Heck- und Seitenscheiben',
-      'Prüfung und ggf. Kalibrierung der Frontkamera nach Scheibentausch',
-      'Unterstützung bei der Abwicklung mit Ihrer Versicherung',
-    ],
-    benefits: [
-      { icon: 'clock', title: 'Schnell erledigt', text: 'Eine Steinschlagreparatur dauert in der Regel weniger als eine Stunde.' },
-      { icon: 'euro', title: 'Oft ohne Eigenanteil', text: 'Viele Teilkaskotarife übernehmen Reparaturen häufig ohne Selbstbeteiligung.' },
-      { icon: 'shield', title: 'Stabilität zurück', text: 'Die Frontscheibe trägt zur Karosseriesteifigkeit bei – eine intakte Scheibe ist Sicherheit.' },
-    ],
-    signs: {
-      title: 'Reparieren oder tauschen? Die Faustregeln',
-      items: [
-        'Der Schaden ist kleiner als eine 2-Euro-Münze',
-        'Er liegt mindestens etwa 10 cm vom Scheibenrand entfernt',
-        'Er befindet sich nicht im direkten Sichtfeld des Fahrers',
-        'Aus dem Einschlag ist noch kein längerer Riss entstanden',
-        'Tipp: Steinschlag sofort mit Klebefolie abdecken – das hält Schmutz und Feuchtigkeit fern',
-      ],
-    },
-    steps: [
-      { title: 'Schadensprüfung', text: 'Wir prüfen Größe, Art und Lage – und sagen Ihnen ehrlich, ob Reparatur möglich ist.' },
-      { title: 'Vorbereitung', text: 'Reinigung der Bruchstelle und Entfernung von Luft und Feuchtigkeit per Vakuum.' },
-      { title: 'Harz & UV-Härtung', text: 'Injektion des Spezialharzes und Aushärtung mit UV-Licht.' },
-      { title: 'Politur & Kontrolle', text: 'Oberfläche plan polieren, Sichtprüfung und Übergabe.' },
-    ],
-    related: ['aufbereitung', 'tuev', 'reparaturen'],
-  },
-  {
-    slug: 'reifenlagerung',
-    title: 'Reifenlagerung',
-    navTitle: 'Reifenlagerung',
-    icon: 'storage',
-    image: 'tire-rack',
-    eyebrow: 'Reifenhotel',
-    headline: 'Reifenlagerung – sauber verstaut, sicher geprüft.',
-    summary:
-      'Ihre Räder überwintern und übersommern bei uns fachgerecht: gereinigt, geprüft, gekennzeichnet und optimal gelagert – ohne Schlepperei und Platzprobleme.',
-    metaDescription:
-      'Reifenlagerung im Reifenhotel: Räder gereinigt, geprüft, gekennzeichnet und fachgerecht gelagert – bequem kombiniert mit dem saisonalen Reifenwechsel.',
-    intro: [
-      'Vier Räder im Keller, auf dem Balkon oder im Kofferraum – das kostet Platz, Kraft und oft auch Reifenqualität. Denn Licht, Wärme, Feuchtigkeit und falsches Stapeln lassen Gummi schneller altern und verformen.',
-      'In unserem Reifenhotel lagern Ihre Räder unter optimalen Bedingungen. Vor der Einlagerung werden sie gereinigt und geprüft; Sie erfahren sofort, ob die Reifen noch eine Saison durchhalten. Zum nächsten Wechseltermin stehen sie bereit – ganz ohne Schlepperei.',
-    ],
-    scope: [
-      'Reinigung der Räder vor der Einlagerung',
-      'Profil- und Zustandsprüfung mit Rückmeldung',
-      'Eindeutige Kennzeichnung und Zuordnung',
-      'Lagerung trocken, kühl und dunkel',
-      'Fachgerechtes Lagern von Kompletträdern',
-      'Kombinierbar mit dem saisonalen Radwechsel',
-      'Auf Wunsch Erinnerung an den nächsten Wechsel',
-    ],
-    benefits: [
-      { icon: 'storage', title: 'Mehr Platz zu Hause', text: 'Keller, Garage und Balkon bleiben frei – Ihre Räder sind in guten Händen.' },
-      { icon: 'shield', title: 'Längere Lebensdauer', text: 'Optimale Lagerbedingungen schützen Gummimischung und Reifenform.' },
-      { icon: 'clock', title: 'Maximaler Komfort', text: 'Zum Termin sind Ihre Räder bereit – kein Transport, kein Schmutz im Auto.' },
-    ],
-    signs: {
-      title: 'So lagern Reifen optimal',
-      items: [
-        'Trocken, kühl und dunkel – UV-Licht lässt Gummi altern',
-        'Fern von Ozon, Lösungsmitteln, Ölen und Heizquellen',
-        'Kompletträder liegend gestapelt oder hängend',
-        'Reifen ohne Felge stehend lagern und regelmäßig drehen',
-        'Vor der Einlagerung Profil und Zustand prüfen',
-      ],
-    },
-    steps: [
-      { title: 'Übernahme', text: 'Direkt beim Radwechsel nehmen wir Ihre abmontierten Räder entgegen.' },
-      { title: 'Reinigung & Prüfung', text: 'Räder werden gereinigt, Profil und Zustand dokumentiert.' },
-      { title: 'Einlagerung', text: 'Eindeutig gekennzeichnet und fachgerecht gelagert.' },
-      { title: 'Bereitstellung', text: 'Zum nächsten Wechsel sind Ihre Räder vorbereitet und startklar.' },
-    ],
-    related: ['reifenwechsel', 'achsvermessung', 'aufbereitung'],
   },
   {
     slug: 'oelwechsel',
     title: 'Ölwechsel',
-    navTitle: 'Ölwechsel',
+    shortTitle: 'Ölwechsel',
+    teaser: 'Das passende Öl. Der richtige Wechsel.',
     icon: 'oil',
-    image: 'engine-service',
-    eyebrow: 'Motoröl & Filter',
-    headline: 'Ölwechsel – frisches Öl, gesunder Motor.',
-    summary:
-      'Motoröl nach Herstellerfreigabe, neuer Ölfilter und fachgerechte Altöl-Entsorgung – schnell erledigt und sauber dokumentiert.',
     metaDescription:
-      'Ölwechsel mit Motoröl nach Herstellerfreigabe, neuem Ölfilter und Altöl-Entsorgung. Serviceanzeige zurückgesetzt, Eintrag ins Serviceheft. Jetzt Termin anfragen.',
-    intro: [
-      'Motoröl schmiert, kühlt, reinigt und schützt vor Korrosion – und verliert mit jedem Kilometer an Leistungsfähigkeit. Kurzstrecken, hohe Temperaturen und Additivverbrauch setzen ihm zusätzlich zu. Ein rechtzeitiger Wechsel ist deshalb die beste Versicherung für Ihren Motor.',
-      'Entscheidend ist nicht allein die Viskosität wie 5W-30, sondern die Herstellerfreigabe – etwa VW 504 00, MB 229.52 oder BMW Longlife-04. Wir ermitteln anhand Ihrer Fahrzeugdaten das exakt passende Öl und die richtige Füllmenge.',
-    ],
-    scope: [
-      'Motoröl gemäß Herstellerfreigabe und Viskosität',
-      'Neuer Ölfilter inkl. Dichtungen',
-      'Sichtprüfung auf Undichtigkeiten',
-      'Kontrolle von Kühlmittel, Bremsflüssigkeit und Wischwasser',
-      'Rücksetzen der Serviceanzeige',
-      'Fachgerechte Entsorgung des Altöls',
-      'Dokumentation im Serviceheft',
-    ],
-    benefits: [
-      { icon: 'gauge', title: 'Optimaler Motorschutz', text: 'Frisches Öl reduziert Reibung und Verschleiß – für lange Motorlebensdauer.' },
-      { icon: 'euro', title: 'Teure Schäden vermeiden', text: 'Ein Ölwechsel kostet einen Bruchteil einer Motorinstandsetzung.' },
-      { icon: 'shield', title: 'Herstellerkonform', text: 'Die richtige Freigabe sichert Garantie- und Kulanzansprüche.' },
-    ],
-    signs: {
-      title: 'Wann ein Ölwechsel fällig ist',
+      'Ölwechsel bei der PKW Schmiede: Motoröl und Filter nach Fahrzeugvorgabe – mit Blick auf Freigabe, Motorisierung und den passenden Wartungszeitpunkt. Jetzt Termin anfragen.',
+    image: 'oelwechsel',
+    banner: {
+      layout: 'split',
+      title: 'Der richtige Schutz.\nFür Ihren Motor.',
+      intro: 'Ölwechsel nach Fahrzeuganforderung – mit Blick auf Freigabe, Filter und den passenden Wartungszeitpunkt.',
+    },
+    scope: {
+      kicker: 'Wartung mit Maß',
+      title: 'Nicht irgendein Öl. Das passende.',
+      text: 'Viskosität allein reicht nicht. Für die Auswahl sind die Herstellervorgaben und die konkrete Motorisierung entscheidend. Diese Angaben klären wir vor dem Wechsel.',
+      layout: 'rows',
+      tone: 'light',
       items: [
-        'Das Intervall laut Hersteller (Kilometer oder Zeit) ist erreicht',
-        'Die Serviceanzeige oder Öl-Warnleuchte meldet sich',
-        'Der Ölstand ist zu niedrig oder das Öl sehr dunkel und zäh',
-        'Sie fahren überwiegend Kurzstrecken',
-        'Nach dem Kauf eines Gebrauchtwagens',
+        { title: 'Freigabe klären', text: 'Fahrzeugdaten und Wartungsunterlagen bilden die Grundlage für die Auswahl des Motoröls.' },
+        { title: 'Öl und Filter wechseln', text: 'Der vereinbarte Wechsel umfasst das passende Öl und den zugehörigen Filter nach Fahrzeugvorgabe.' },
+        {
+          title: 'Füllstand kontrollieren',
+          text: 'Nach dem Wechsel werden Füllstand und der bearbeitete Bereich geprüft. Ein Servicehinweis wird nach Absprache berücksichtigt.',
+        },
       ],
     },
-    steps: [
-      { title: 'Öl ermitteln', text: 'Freigabe, Viskosität und Füllmenge anhand Ihrer Fahrzeugdaten bestimmen.' },
-      { title: 'Ablassen & Filter', text: 'Altöl vollständig ablassen, Ölfilter und Dichtungen erneuern.' },
-      { title: 'Befüllen & prüfen', text: 'Neues Öl einfüllen, Füllstand und Dichtheit kontrollieren.' },
-      { title: 'Dokumentieren', text: 'Serviceanzeige zurücksetzen und Wechsel im Serviceheft eintragen.' },
+    preparation: {
+      layout: 'aside',
+      title: 'Die Fahrzeugdaten machen den Unterschied.',
+      notice: 'Ein Ölwechsel ist nicht automatisch eine vollständige Inspektion. Weitere Wartungspositionen bitte separat abstimmen.',
+      steps: [
+        { title: 'Daten bereithalten', text: 'Modell, Baujahr, Motorisierung und Kilometerstand angeben. Hilfreich: die Zulassungsbescheinigung.' },
+        { title: 'Intervall einordnen', text: 'Wann war der letzte Wechsel? Gibt es eine Serviceanzeige oder einen Eintrag im Wartungsheft?' },
+        { title: 'Umfang bestätigen', text: 'Wir stimmen Material und Arbeit mit Ihnen ab und vereinbaren einen möglichen Termin.' },
+      ],
+    },
+    faqs: [
+      {
+        question: 'Wann braucht mein Fahrzeug neues Öl?',
+        answer: 'Maßgeblich sind Herstellervorgabe, Zeit und Laufleistung. Eine pauschale Kilometerangabe wäre nicht für jedes Fahrzeug richtig.',
+      },
+      {
+        question: 'Kann eine Warnleuchte bis zum Termin warten?',
+        answer:
+          'Bei einer roten Öldruckwarnung sicher anhalten, den Motor abstellen und die Hinweise der Betriebsanleitung beachten. Nicht einfach weiterfahren.',
+      },
+      {
+        question: 'Kann ich einen weiteren Service mit anfragen?',
+        answer: 'Ja. Nennen Sie zusätzliche Wartungswünsche direkt bei der Anfrage, damit der Umfang geplant werden kann.',
+      },
     ],
-    related: ['instandhaltung', 'reparaturen', 'tuev'],
+    related: 'klimaservice',
+    request: {
+      title: 'Wartung fällig?\nDaten senden. Termin klären.',
+      text: 'Mit Fahrzeugmodell, Motorisierung und Kilometerstand lässt sich Ihr Ölwechsel gezielt vorbereiten.',
+    },
   },
   {
-    slug: 'tuev',
-    title: 'TÜV-Service',
-    navTitle: 'TÜV (HU/AU)',
-    icon: 'inspection',
-    image: 'led-headlight',
-    eyebrow: 'Hauptuntersuchung & Abgasuntersuchung',
-    headline: 'TÜV-Service – bestens vorbereitet zur Plakette.',
-    summary:
-      'Wir prüfen Ihr Fahrzeug vorab, beheben Mängel direkt und übernehmen die Vorführung zur Hauptuntersuchung inklusive Abgasuntersuchung – alles aus einer Hand.',
+    slug: 'fahrzeugaufbereitung',
+    title: 'Fahrzeugaufbereitung',
+    shortTitle: 'Fahrzeugaufbereitung',
+    teaser: 'Oberflächen pflegen. Substanz erhalten.',
+    icon: 'shine',
     metaDescription:
-      'TÜV-Service: HU/AU-Vorabcheck, Mängelbeseitigung und Vorführung zur Hauptuntersuchung – alles aus einer Hand bei Sercans PKW Schmiede. Jetzt Termin anfragen.',
-    intro: [
-      'Alle zwei Jahre steht die Hauptuntersuchung an – bei Neuwagen erstmals nach drei Jahren. Wer unvorbereitet hinfährt, riskiert eine Nachprüfung, zusätzliche Wege und Kosten. Häufige Mängel betreffen Beleuchtung, Bremsen, Reifen und die Achsaufhängung.',
-      'Mit unserem TÜV-Service ist Ihr Fahrzeug bestens vorbereitet: Wir führen einen Vorab-Check nach den Prüfkriterien der HU durch, beheben Mängel nach Ihrer Freigabe und organisieren die Vorführung. Die Prüfung selbst nimmt ein Sachverständiger einer amtlich anerkannten Prüforganisation vor.',
-    ],
-    scope: [
-      'Vorab-Check nach HU-Prüfkriterien',
-      'Bremsen, Lenkung, Fahrwerk und Reifen',
-      'Beleuchtung und Scheinwerfereinstellung',
-      'Mängelbeseitigung nach Rücksprache',
-      'Abgasuntersuchung (AU) als Teil der HU',
-      'Vorführung zur Hauptuntersuchung (HU)',
-      'Kontrolle von Verbandkasten, Warndreieck und Warnweste',
-    ],
-    benefits: [
-      { icon: 'badge', title: 'Beim ersten Mal bestehen', text: 'Durch den Vorab-Check werden Mängel erkannt, bevor der Prüfer sie findet.' },
-      { icon: 'clock', title: 'Ein Termin für alles', text: 'Check, Reparatur und Vorführung – Sie sparen Wege, Zeit und Nerven.' },
-      { icon: 'shield', title: 'Verkehrssicher unterwegs', text: 'Die Plakette bestätigt, was wir sicherstellen: ein sicheres Fahrzeug.' },
-    ],
-    signs: {
-      title: 'Gut zu wissen',
+      'Fahrzeugaufbereitung bei der PKW Schmiede: Innenraum und Außenflächen materialgerecht reinigen und pflegen – abgestimmt auf Zustand, Material und Ihr Pflegeziel.',
+    image: 'fahrzeugaufbereitung',
+    banner: {
+      layout: 'stacked',
+      title: 'Pflege, die man sieht.\nSorgfalt, die bleibt.',
+      intro: 'Innenraum und Außenflächen gezielt behandeln. Abgestimmt auf Material, Zustand und Ihren Anspruch.',
+    },
+    scope: {
+      kicker: 'Substanz im Mittelpunkt',
+      title: 'Jede Oberfläche hat ihre Eigenheiten.',
+      text: 'Lack, Kunststoff, Textil oder Leder brauchen unterschiedliche Pflege. Wir beginnen beim Zustand und wählen die Behandlung danach aus – nicht nach einem starren Paket.',
+      layout: 'columns',
+      tone: 'night',
       items: [
-        'HU-Intervall: alle 24 Monate, bei Neuwagen erstmals nach 36 Monaten',
-        'Die Zahl oben auf der Plakette zeigt den Monat, die Farbe das Jahr',
-        'Mehr als zwei Monate überzogen? Dann wird eine erweiterte Prüfung fällig',
-        'Zusätzlich drohen bei Überziehung Verwarn- bzw. Bußgelder',
-        'Bei erheblichen Mängeln ist innerhalb eines Monats eine Nachprüfung nötig',
+        {
+          title: 'Außenflächen',
+          text: 'Schonende Reinigung und eine abgestimmte Lackbehandlung. Der Zustand entscheidet über die sinnvolle Intensität.',
+        },
+        { title: 'Innenraum', text: 'Materialgerechte Reinigung von Flächen, Sitzen und Kontaktbereichen nach vereinbartem Umfang.' },
+        { title: 'Pflegeziel', text: 'Alltag, Verkauf oder Rückgabe: Wir besprechen, worauf es Ihnen bei der Aufbereitung ankommt.' },
       ],
     },
-    steps: [
-      { title: 'Vorab-Check', text: 'Prüfung aller HU-relevanten Baugruppen – ehrlich und gründlich.' },
-      { title: 'Mängelbeseitigung', text: 'Nach Ihrer Freigabe beheben wir gefundene Mängel direkt.' },
-      { title: 'HU/AU-Vorführung', text: 'Vorführung bei einer amtlich anerkannten Prüforganisation.' },
-      { title: 'Übergabe', text: 'Sie erhalten Ihr Fahrzeug mit Prüfbericht und frischer Plakette.' },
+    preparation: {
+      layout: 'stacked',
+      title: 'Ein gutes Ergebnis beginnt beim Hinsehen.',
+      notice:
+        'Tiefe Beschädigungen, Materialverschleiß und manche Flecken lassen sich durch Reinigung oder Politur nicht vollständig beheben.',
+      steps: [
+        { title: 'Zustand beschreiben', text: 'Nennen Sie beanspruchte Bereiche, Flecken oder sichtbare Lackspuren. Ergänzen Sie gern Fotos.' },
+        { title: 'Behandlung festlegen', text: 'Wir grenzen Reinigung, Lackkorrektur und mögliche Pflegeprodukte gemeinsam ab.' },
+        {
+          title: 'Übergabe vorbereiten',
+          text: 'Persönliche Gegenstände bitte vor dem Termin aus dem Fahrzeug nehmen. Den benötigten Zeitraum stimmen wir ab.',
+        },
+      ],
+    },
+    faqs: [
+      {
+        question: 'Verschwindet jeder Kratzer durch Polieren?',
+        answer: 'Nein. Ob eine Korrektur sinnvoll ist, hängt von der Tiefe der Spur und der verfügbaren Lackschicht ab.',
+      },
+      {
+        question: 'Ist eine Innenraumreinigung einzeln möglich?',
+        answer: 'Fragen Sie den gewünschten Bereich gezielt an. Wir stimmen einen passenden Umfang ab.',
+      },
+      {
+        question: 'Wie lange bleibt das Fahrzeug in der Werkstatt?',
+        answer: 'Das richtet sich nach Größe, Zustand und Behandlung. Ein Zeitfenster wird vor dem Termin vereinbart.',
+      },
     ],
-    related: ['reparaturen', 'instandhaltung', 'achsvermessung'],
+    related: 'smartrepair',
+    request: {
+      title: 'Mehr Pflege.\nWeniger Kompromiss.',
+      text: 'Erzählen Sie uns, welche Bereiche Sie aufbereiten lassen möchten und welches Ergebnis Ihnen wichtig ist.',
+    },
+  },
+  {
+    slug: 'klimaservice',
+    title: 'Klimaservice',
+    shortTitle: 'Klimaservice',
+    teaser: 'Kühlleistung und Funktion im Blick.',
+    icon: 'climate',
+    metaDescription:
+      'Klimaservice bei der PKW Schmiede: nachlassende Kühlung, Geräusche oder Geruch einordnen und Prüfung sowie Service passend zu Fahrzeug und Kältemitteltyp abstimmen.',
+    image: 'klimaservice',
+    banner: {
+      layout: 'overlay',
+      title: 'Ein kühler Kopf.\nEine klare Prüfung.',
+      intro: 'Weniger Kühlung, ungewohnte Geräusche oder Geruch? Wir grenzen das Anliegen ein und stimmen den nächsten Schritt ab.',
+    },
+    scope: {
+      kicker: 'Funktion vor Routine',
+      title: 'Schwache Kühlung hat nicht nur eine Ursache.',
+      text: 'Eine Klimaanlage ist ein geschlossenes System. Bei nachlassender Leistung ist es sinnvoll, den Zustand einzuordnen statt nur auf Verdacht nachzufüllen. Fahrzeug und Kältemitteltyp bestimmen die Möglichkeiten.',
+      layout: 'columns',
+      tone: 'light',
+      items: [
+        { title: 'Leistung einordnen', text: 'Wie kühlt die Anlage, wann tritt das Problem auf und welche Auffälligkeiten gibt es?' },
+        { title: 'Service abstimmen', text: 'Art des Kältemittels, Fahrzeugdaten und Prüfergebnis bestimmen den möglichen Serviceumfang.' },
+        {
+          title: 'Geruch gezielt ansprechen',
+          text: 'Geruchsprobleme können andere Ursachen haben als fehlende Kühlung. Reinigung und Filter separat besprechen.',
+        },
+      ],
+    },
+    preparation: {
+      layout: 'stacked',
+      title: 'Was fällt Ihnen im Alltag auf?',
+      notice: 'Kältemittel nicht selbst nachfüllen. Bei vermuteter Undichtigkeit ist zunächst eine fachgerechte Prüfung nötig.',
+      steps: [
+        { title: 'Symptome notieren', text: 'Kühlt die Anlage nur zeitweise? Gibt es Geräusche oder Geruch? Seit wann besteht die Veränderung?' },
+        { title: 'Fahrzeug nennen', text: 'Modell und Baujahr helfen, Anlage und Kältemitteltyp zuzuordnen. Vorherige Arbeiten bitte erwähnen.' },
+        { title: 'Prüfung und Service klären', text: 'Wir stimmen die Untersuchung und mögliche weitere Maßnahmen vor der Ausführung ab.' },
+      ],
+    },
+    faqs: [
+      {
+        question: 'Hilft Nachfüllen immer?',
+        answer: 'Nein. Fehlende Kühlung kann auch durch Undichtigkeiten oder andere technische Fehler entstehen.',
+      },
+      {
+        question: 'Ist Geruch ein Zeichen für zu wenig Kältemittel?',
+        answer:
+          'Nicht zwangsläufig. Filter und feuchtigkeitsbedingte Ablagerungen können eine Rolle spielen und sollten gesondert betrachtet werden.',
+      },
+      {
+        question: 'Kann jedes Kältemittel bearbeitet werden?',
+        answer: 'Bitte Fahrzeugdaten angeben. Ob die konkrete Anlage betreut werden kann, wird mit der Anfrage bestätigt.',
+      },
+    ],
+    related: 'oelwechsel',
+    request: {
+      title: 'Kühlleistung verändert?\nSprechen wir darüber.',
+      text: 'Mit einer kurzen Beschreibung der Symptome lässt sich die Anfrage besser vorbereiten.',
+    },
+  },
+  {
+    slug: 'reifen-felgenservice',
+    title: 'Reifen- und Felgenservice',
+    shortTitle: 'Reifen- und Felgenservice',
+    teaser: 'Für einen sauberen Kontakt zur Straße.',
+    icon: 'wheel',
+    metaDescription:
+      'Reifen- und Felgenservice bei der PKW Schmiede: Radwechsel, Reifenmontage, Auswuchten und Felgenzustand – passend zu Fahrzeug, Dimension und Zustand. Jetzt Termin anfragen.',
+    image: 'reifen-felgenservice',
+    banner: {
+      layout: 'split',
+      title: 'Der Kontakt\nzur Straße zählt.',
+      intro: 'Saisonwechsel, Reifenmontage und Fragen zur Felge. Passend zu Fahrzeug, Dimension und Zustand.',
+    },
+    scope: {
+      kicker: 'Rund um Rad und Reifen',
+      title: 'Mehr als ein Wechsel der Saison.',
+      text: 'Ob kompletter Radsatz oder neue Bereifung: Der nötige Aufwand ist unterschiedlich. Wir klären vorab, was vorhanden ist und welche Arbeiten am Rad sinnvoll sind.',
+      layout: 'rows',
+      tone: 'light',
+      items: [
+        { title: 'Radwechsel', text: 'Vorhandene Kompletträder wechseln und den vereinbarten Kontrollumfang abstimmen.' },
+        { title: 'Montage und Wuchten', text: 'Bei neuen Reifen oder Unwucht die passende Montage und das Auswuchten anfragen.' },
+        { title: 'Felgenzustand', text: 'Beschädigungen und sichtbare Auffälligkeiten einordnen. Nicht jede Felge ist reparaturfähig.' },
+      ],
+    },
+    preparation: {
+      layout: 'aside',
+      title: 'Den richtigen Satz Daten mitbringen.',
+      notice:
+        'Bei Druckverlust, sichtbarer Beschädigung oder ungewöhnlichem Fahrverhalten nicht bis zum Saisonwechsel warten. Weiterfahrt sicher beurteilen lassen.',
+      steps: [
+        { title: 'Dimension angeben', text: 'Reifengröße, Fahrzeugmodell und gegebenenfalls abweichende Felgendaten nennen.' },
+        { title: 'Bestand beschreiben', text: 'Sind Kompletträder vorhanden oder sollen Reifen montiert werden? RDKS bitte mit angeben.' },
+        { title: 'Termin vorbereiten', text: 'Räder und gegebenenfalls den Schlüssel für Felgenschlösser zum Termin mitbringen.' },
+      ],
+    },
+    faqs: [
+      {
+        question: 'Radwechsel oder Reifenwechsel – was ist der Unterschied?',
+        answer:
+          'Beim Radwechsel wird das komplette Rad getauscht. Beim Reifenwechsel wird der Reifen von der Felge ab- und ein anderer aufgezogen.',
+      },
+      {
+        question: 'Was ist bei einem Reifendruckkontrollsystem wichtig?',
+        answer: 'Je nach System müssen Sensoren berücksichtigt oder Werte neu angelernt werden. Fahrzeugdaten helfen bei der Planung.',
+      },
+      {
+        question: 'Können beschädigte Felgen instand gesetzt werden?',
+        answer: 'Das hängt von Art und Ausmaß des Schadens ab. Eine Prüfung geht jeder Empfehlung voraus.',
+      },
+    ],
+    related: 'hu-au',
+    request: {
+      title: 'Bereit für\nden nächsten Wechsel?',
+      text: 'Nennen Sie uns Fahrzeug, Reifendimension und ob ein kompletter Radsatz vorhanden ist.',
+    },
+  },
+  {
+    slug: 'gutachten',
+    title: 'Gutachten',
+    shortTitle: 'Gutachten',
+    teaser: 'Anlass klären. Begutachtung anfragen.',
+    icon: 'report',
+    metaDescription:
+      'Gutachten anfragen bei der PKW Schmiede: Anlass klären, Unterlagen sammeln und die Koordination einer Begutachtung abstimmen – Zuständigkeit und Termin werden ausdrücklich bestätigt.',
+    image: 'gutachten',
+    banner: {
+      layout: 'stacked',
+      title: 'Erst dokumentieren.\nDann entscheiden.',
+      intro: 'Sie benötigen eine Begutachtung? Wir klären den Anlass und fragen den passenden Weg zur Koordination an.',
+    },
+    scope: {
+      kicker: 'Anlass und Zuständigkeit klären',
+      title: 'Eine fundierte Grundlage beginnt mit den richtigen Fragen.',
+      text: 'Schaden, Fahrzeugzustand oder eine andere Fragestellung: Nicht jeder Anlass braucht dieselbe Art der Begutachtung. Wir nehmen Ihre Anfrage auf und klären, welche Koordination möglich ist.',
+      layout: 'columns',
+      tone: 'light',
+      items: [
+        {
+          title: 'Anliegen einordnen',
+          text: 'Was soll festgestellt werden und für wen wird die Einschätzung benötigt? Das klären wir zuerst.',
+        },
+        { title: 'Unterlagen sammeln', text: 'Fahrzeugdaten, vorhandene Fotos und relevante Schreiben helfen bei der weiteren Abstimmung.' },
+        {
+          title: 'Begutachtung koordinieren',
+          text: 'Zuständigkeit, Verfügbarkeit und möglicher Termin werden angefragt und ausdrücklich bestätigt.',
+        },
+      ],
+    },
+    preparation: {
+      layout: 'aside',
+      title: 'Die Fragestellung ist der Ausgangspunkt.',
+      notice:
+        'Die Anfrage ist keine Zusage einer Gutachtenerstellung durch PKW Schmiede. Zuständigkeit, Leistung und Verfügbarkeit sind vorab zu bestätigen.',
+      steps: [
+        {
+          title: 'Anlass schildern',
+          text: 'Beschreiben Sie kurz, ob es um einen Schaden, den Zustand oder eine konkrete Bewertungsfrage geht.',
+        },
+        {
+          title: 'Dokumente bereithalten',
+          text: 'Vorhandene Unterlagen und Ansprechpartner nennen. Sensible Daten erst nach Abstimmung übermitteln.',
+        },
+        {
+          title: 'Weiteres Vorgehen klären',
+          text: 'Wir stimmen ab, ob und wie eine Begutachtung koordiniert werden kann. Keine Zusage ohne Bestätigung.',
+        },
+      ],
+    },
+    faqs: [
+      {
+        question: 'Wird das Gutachten in der Werkstatt erstellt?',
+        answer:
+          'Wer die Begutachtung übernimmt und wo sie stattfindet, wird im Einzelfall geklärt. Eine eigene Sachverständigenleistung wird hier nicht zugesagt.',
+      },
+      {
+        question: 'Soll ich vor einer Reparatur anfragen?',
+        answer:
+          'Wenn ein Schaden dokumentiert werden soll, das Vorgehen möglichst vor einer Veränderung am Fahrzeug mit den zuständigen Beteiligten abstimmen.',
+      },
+      {
+        question: 'Ist die Anfrage eine Beratung zur Schadenregulierung?',
+        answer:
+          'Nein. Versicherungs- oder Rechtsfragen gehören zu den dafür zuständigen Stellen. Hier geht es um die Anfrage und Koordination.',
+      },
+    ],
+    related: 'smartrepair',
+    request: {
+      title: 'Was soll\ngeklärt werden?',
+      text: 'Nennen Sie uns Anlass und Fahrzeug. Wir melden uns zur möglichen Koordination einer Begutachtung.',
+    },
+  },
+  {
+    slug: 'hu-au',
+    title: 'Hauptuntersuchung HU/AU',
+    shortTitle: 'HU/AU',
+    teaser: 'Prüftermin und Vorbereitung abstimmen.',
+    icon: 'inspection',
+    metaDescription:
+      'Hauptuntersuchung HU/AU: Vorbereitung und mögliche Terminkoordination bei der PKW Schmiede anfragen. Die amtliche Prüfung erfolgt durch eine berechtigte Prüfstelle.',
+    image: 'hu-au',
+    banner: {
+      layout: 'split',
+      title: 'Prüftermin fällig?\nGut vorbereitet.',
+      intro: 'Vorbereitung und mögliche Terminkoordination für HU/AU anfragen. Zuständigkeit und Verfügbarkeit klären wir vorab.',
+    },
+    scope: {
+      kicker: 'Vor dem Prüftermin',
+      title: 'Vorbereitung schafft Klarheit.',
+      text: 'Wenn die Hauptuntersuchung ansteht, lohnt es sich, bekannte Auffälligkeiten vorher anzusprechen. Wir stimmen einen möglichen Vorab-Check und die weitere Terminabwicklung mit Ihnen ab.',
+      layout: 'columns',
+      tone: 'light',
+      items: [
+        {
+          title: 'Fälligkeit nennen',
+          text: 'Prüfmonat und Fahrzeugdaten helfen bei der Planung. Bei einer Nachprüfung bitte den Bericht bereithalten.',
+        },
+        {
+          title: 'Vorbereitung anfragen',
+          text: 'Bekannte Mängel und gewünschte Kontrollen am Fahrzeug vorab besprechen. Reparaturen nur nach Absprache.',
+        },
+        { title: 'Termin koordinieren', text: 'Ob und wie ein Prüftermin organisiert werden kann, wird individuell angefragt und bestätigt.' },
+      ],
+    },
+    preparation: {
+      layout: 'aside',
+      title: 'Unterlagen bereit. Fragen geklärt.',
+      notice:
+        'Die amtliche Hauptuntersuchung erfolgt durch eine berechtigte Prüfstelle bzw. Prüfperson. Eine eigene Prüfberechtigung von PKW Schmiede wird nicht behauptet.',
+      steps: [
+        {
+          title: 'Dokumente vorbereiten',
+          text: 'Zulassungsbescheinigung Teil I sowie gegebenenfalls Nachweise zu Änderungen und den letzten Prüfbericht bereithalten.',
+        },
+        {
+          title: 'Auffälligkeiten mitteilen',
+          text: 'Warnanzeigen, Defekte oder bekannte Mängel nennen. Bei einer Nachprüfung den konkreten Bericht berücksichtigen.',
+        },
+        {
+          title: 'Verfügbarkeit bestätigen lassen',
+          text: 'Prüfort, zuständige Stelle und Termin werden vorab geklärt. Die Anfrage ist noch keine Buchung.',
+        },
+      ],
+    },
+    faqs: [
+      {
+        question: 'Ist die Untersuchung bei Ihnen garantiert möglich?',
+        answer: 'Nein. Prüfort und Verfügbarkeit werden auf Anfrage geklärt. Erst die Rückmeldung bestätigt das konkrete Vorgehen.',
+      },
+      {
+        question: 'Garantiert ein Vorab-Check eine neue Plakette?',
+        answer: 'Nein. Die Entscheidung trifft die berechtigte Prüfperson im Rahmen der amtlichen Untersuchung.',
+      },
+      {
+        question: 'Was gilt bei einer Nachprüfung?',
+        answer: 'Bitte den Prüfbericht und die dort genannten Fristen beachten. Den möglichen Termin rechtzeitig abstimmen.',
+      },
+    ],
+    related: 'reifen-felgenservice',
+    request: {
+      title: 'Fälligkeit im Blick.\nTermin in Abstimmung.',
+      text: 'Nennen Sie Prüfmonat, Fahrzeug und mögliche Auffälligkeiten. Wir klären die nächsten Schritte.',
+    },
+  },
+  {
+    slug: 'folierung',
+    title: 'Folierung',
+    shortTitle: 'Folierung',
+    teaser: 'Neue Oberfläche. Eigener Charakter.',
+    icon: 'foil',
+    metaDescription:
+      'Folierung bei der PKW Schmiede: Farbe, Finish und ausgewählte Details – Idee, Untergrund und Ausführung stimmen wir vor dem Termin gemeinsam ab.',
+    image: 'folierung',
+    banner: {
+      layout: 'overlay',
+      title: 'Eine neue Fläche.\nIhr eigener Ausdruck.',
+      intro: 'Farbe, Finish und ausgewählte Details. Eine Folierung beginnt mit einer klaren Idee und einem geeigneten Untergrund.',
+    },
+    scope: {
+      kicker: 'Gestaltung mit Augenmaß',
+      title: 'Die Wirkung entsteht an der Kante.',
+      text: 'Fläche, Form und Material müssen zusammenpassen. Wir besprechen die gewünschte Veränderung, den Zustand des Lacks und den möglichen Umfang – von einzelnen Akzenten bis zur angefragten größeren Fläche.',
+      layout: 'columns',
+      tone: 'night',
+      items: [
+        {
+          title: 'Idee konkretisieren',
+          text: 'Welche Bauteile, welcher Farbton, welches Finish? Muster und Referenzen machen Vorstellungen vergleichbar.',
+        },
+        { title: 'Untergrund prüfen', text: 'Lackzustand, frühere Reparaturen und Kanten beeinflussen, ob und wie foliert werden kann.' },
+        { title: 'Ausführung abstimmen', text: 'Material, Vorbereitung und die gewünschte Flächenabdeckung werden vor einem Termin festgelegt.' },
+      ],
+    },
+    preparation: {
+      layout: 'stacked',
+      title: 'Erst die Fläche. Dann das Finish.',
+      notice: 'Folierung behebt keine Lackschäden. Haftung und spätere Entfernung hängen auch vom Zustand des Untergrunds ab.',
+      steps: [
+        {
+          title: 'Wunsch beschreiben',
+          text: 'Fahrzeug und betroffene Teile nennen. Bilder eines gewünschten Farbtons dienen als Orientierung, nicht als verbindliches Muster.',
+        },
+        { title: 'Zustand besprechen', text: 'Nachlackierungen, Steinschläge und bestehende Beschichtungen bitte vorab mitteilen.' },
+        {
+          title: 'Material und Termin festlegen',
+          text: 'Geeignete Folie, Pflegehinweise und Zeitbedarf werden nach Prüfung des Vorhabens abgestimmt.',
+        },
+      ],
+    },
+    faqs: [
+      {
+        question: 'Kann über Kratzer foliert werden?',
+        answer: 'Schäden können sich durch die Folie abzeichnen oder die Haftung beeinflussen. Der Untergrund muss vorab beurteilt werden.',
+      },
+      {
+        question: 'Ist die Folie rückstandsfrei entfernbar?',
+        answer: 'Das lässt sich nicht pauschal garantieren. Lackzustand, Material, Alter und Nutzung spielen dabei eine Rolle.',
+      },
+      {
+        question: 'Wie pflege ich eine folierte Fläche?',
+        answer:
+          'Die Pflege richtet sich nach dem verwendeten Material und Finish. Passende Hinweise werden für die vereinbarte Folie besprochen.',
+      },
+    ],
+    related: 'fahrzeugaufbereitung',
+    request: {
+      title: 'Eine Idee im Kopf?\nMachen wir sie konkret.',
+      text: 'Senden Sie uns Ihr Fahrzeugmodell und die gewünschte Veränderung. Wir klären, was sich umsetzen lässt.',
+    },
+  },
+  {
+    slug: 'autoglas',
+    title: 'Autoglas',
+    shortTitle: 'Autoglas',
+    teaser: 'Glasschäden beurteilen und versorgen.',
+    icon: 'glass',
+    metaDescription:
+      'Autoglas bei der PKW Schmiede: Steinschlag oder Riss prüfen lassen und Reparatur oder Austausch passend zu Fahrzeug, Scheibenausstattung und Assistenzsystemen abstimmen.',
+    image: 'autoglas',
+    banner: {
+      layout: 'stacked',
+      title: 'Klare Sicht.\nKlare Entscheidung.',
+      intro: 'Steinschlag oder Riss: Schadenstelle prüfen lassen und Reparatur oder Austausch passend zum Fahrzeug abstimmen.',
+    },
+    scope: {
+      kicker: 'Glas braucht eine genaue Beurteilung',
+      title: 'Reparieren, wenn es zulässig und sinnvoll ist.',
+      text: 'Lage, Größe und Art des Schadens entscheiden über die Möglichkeiten. Bei einem Austausch sind außerdem die Ausstattung der Scheibe und mögliche Assistenzsysteme zu berücksichtigen.',
+      layout: 'rows',
+      tone: 'light',
+      items: [
+        {
+          title: 'Schaden einordnen',
+          text: 'Wo sitzt die Stelle und hat sich bereits ein Riss gebildet? Eine Besichtigung schafft die nötige Grundlage.',
+        },
+        { title: 'Reparatur oder Austausch', text: 'Wir besprechen den geeigneten Weg und stimmen den konkreten Arbeitsumfang vorab ab.' },
+        {
+          title: 'Ausstattung berücksichtigen',
+          text: 'Kamera, Sensoren, Heizung oder weitere Funktionen bei der Anfrage nennen. Nötige Folgeschritte werden mitgeklärt.',
+        },
+      ],
+    },
+    preparation: {
+      layout: 'aside',
+      title: 'Nicht größer werden lassen.',
+      notice:
+        'Bei beeinträchtigter Sicht oder einem Riss die sichere Nutzung des Fahrzeugs klären. Eine Anfrage ersetzt keine Beurteilung der Verkehrssicherheit.',
+      steps: [
+        { title: 'Schaden fotografieren', text: 'Eine Nahaufnahme und ein Bild der gesamten Scheibe helfen, Lage und Verlauf zu erkennen.' },
+        {
+          title: 'Fahrzeugausstattung nennen',
+          text: 'Fahrzeugdaten und bekannte Scheibenfunktionen angeben. Bei Kameraausstattung den möglichen Kalibrierbedarf mit abklären.',
+        },
+        {
+          title: 'Versorgung abstimmen',
+          text: 'Machbarkeit, Materialverfügbarkeit und Termin werden geprüft. Hinweise zur Nutzung nach der Arbeit beachten.',
+        },
+      ],
+    },
+    faqs: [
+      {
+        question: 'Kann jeder Steinschlag repariert werden?',
+        answer: 'Nein. Lage, Ausmaß und Art des Schadens sowie geltende Vorgaben begrenzen die Reparaturmöglichkeit.',
+      },
+      {
+        question: 'Übernimmt meine Versicherung die Kosten?',
+        answer: 'Das hängt von Ihrem Vertrag und der Schadenart ab. Deckung und Abwicklung bitte direkt mit dem Versicherer klären.',
+      },
+      {
+        question: 'Kann ich nach einem Scheibentausch sofort fahren?',
+        answer:
+          'Erforderliche Standzeiten richten sich unter anderem nach Klebesystem und Bedingungen. Die konkrete Freigabe ist maßgeblich.',
+      },
+    ],
+    related: 'fahrzeugaufbereitung',
+    request: {
+      title: 'Eine Spur im Glas?\nJetzt einordnen lassen.',
+      text: 'Beschreiben Sie die Stelle und Ihr Fahrzeug. Wir klären die passende Versorgung und einen möglichen Termin.',
+    },
   },
 ];
 
@@ -446,8 +593,7 @@ export function getService(slug: string): Service | undefined {
   return services.find((s) => s.slug === slug);
 }
 
-export function getServicesBySlugs(slugs: ServiceSlug[]): Service[] {
-  return slugs.map((slug) => services.find((s) => s.slug === slug)).filter((s): s is Service => Boolean(s));
-}
-
 export const servicePath = (slug: ServiceSlug) => `/leistungen/${slug}`;
+
+/** Terminanfrage mit vorausgewählter Leistung im Formular. */
+export const requestPath = (slug?: ServiceSlug) => (slug ? `/kontakt?leistung=${slug}#anfrage` : '/kontakt#anfrage');

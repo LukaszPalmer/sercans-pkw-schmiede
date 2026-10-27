@@ -1,5 +1,7 @@
 export interface OpeningHours {
   days: string;
+  /** Kurzform für die Statuszeile im Banner – z. B. „Mo–Fr“. */
+  short: string;
   time: string;
 }
 
@@ -26,9 +28,13 @@ export interface SiteConfig {
   whatsapp: { display: string; number: string; greeting: string };
   hours: OpeningHours[];
   mapsUrl: string;
+  /** Google-Bewertung für die Sektion „Echte Erfahrungen“ – z. B. „4,9“ und „186“. */
+  google: { rating: string; reviewCount: string };
 }
 
 export interface NavItem {
   label: string;
   href: string;
+  /** Pfad-Präfix, unter dem der Punkt als aktiv markiert wird, wenn `href` ein Anker ist. */
+  activePath?: string;
 }

@@ -1,15 +1,23 @@
 @import 'tailwindcss';
 
 /* ════════════════════════════════════════════════════════════════════
-   SERCANS PKW SCHMIEDE — DESIGN TOKENS
-   Primär   #0B1B2B  „Nachtstahl“   Vertrauen, Tiefe, Präzision
-   Sekundär #1F4E79  „Stahlblau“    Technik, Ruhe, Verläufe
-   Akzent   #FF8A33  „Glut“         Schmiedefeuer, Handlung, Fokus
-   Kontrast: Weiß/Primär 17.4:1 · Primär/Akzent 7.4:1 · Muted/Weiß 8.2:1 (WCAG AAA)
+   PKW SCHMIEDE — DESIGN TOKENS (Figma „Moderne Marke gestalten“, Referenzbreite 1440 px)
+   Flächen  #F5F6F4 paper   – Mineralweiß, Grundfläche
+            #FFFFFF white   – Fokus- und Ablaufsektionen, Formularfelder
+            #E8EEF8 ice     – Hinweisboxen, Saisonhinweis
+            #172024 night   – Graphit: Banner, dunkle Sektionen, Fußzeile
+            #10191D shade   – Lesekontrast-Verlauf über Bannerfotos
+   Schrift  #202729 ink     – Überschriften & Text
+            #677173 muted   – Steingrau: Lesetext sekundär (auf Graphit: Haarlinie)
+            #B6C0C3 fog     – Lesetext auf Graphit
+   Akzent   #245AC7 primary – Präzisionsblau: Aktion & Orientierung
+            #83A8F5 sky     – Akzent auf Graphit
+   Linien   #D3D9D8 line    – Liniengrau: Haarlinien & Raster
+   Inter: Titel Light 300, Lesetext Regular 400, Labels Medium 500 – eckige Flächen, keine Schatten.
    ════════════════════════════════════════════════════════════════════ */
 
 @theme {
-  /* Breakpoint-Matrix: 325 (Basis) · 375 · 425 · 768 · 1024 · 1440 · 2000+ */
+  /* Breakpoint-Matrix: 325 (Basis) · 375 · 425 · 768 · 1024 · 1280 · 1440 · 2000+ */
   --breakpoint-xs: 23.4375rem;
   --breakpoint-sm: 26.5625rem;
   --breakpoint-md: 48rem;
@@ -18,49 +26,77 @@
   --breakpoint-2xl: 90rem;
   --breakpoint-3xl: 125rem;
 
-  --color-primary: #0b1b2b;
-  --color-primary-950: #06111c;
-  --color-primary-800: #102539;
-  --color-primary-700: #15314c;
-  --color-secondary: #1f4e79;
-  --color-secondary-300: #8fb4da;
-  --color-secondary-50: #eef3f9;
-  --color-accent: #ff8a33;
-  --color-accent-300: #ffb27a;
-  --color-accent-700: #b24a06;
-  --color-paper: #f4f6f9;
-  --color-line: #dce3eb;
-  --color-muted: #3e5064;
-  --color-muted-dark: #b8c5d4;
+  --color-paper: #f5f6f4;
+  --color-ice: #e8eef8;
+  --color-night: #172024;
+  --color-shade: #10191d;
+  --color-ink: #202729;
+  --color-muted: #677173;
+  --color-fog: #b6c0c3;
+  --color-primary: #245ac7;
+  --color-primary-deep: #1b4799;
+  --color-sky: #83a8f5;
+  --color-line: #d3d9d8;
+  /* Ausschließlich für Formularfehler */
+  --color-error: #b42318;
 
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
-  --font-display: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
 
-  /* Fluide Typografie – clamp(min @325px, fluid, max @1440px) */
-  --text-display: clamp(2.125rem, 1.28rem + 4.1vw, 5rem);
-  --text-display--line-height: 1.02;
-  --text-display--letter-spacing: -0.02em;
-  --text-h1: clamp(1.75rem, 1.1rem + 3vw, 3.75rem);
-  --text-h1--line-height: 1.05;
-  --text-h1--letter-spacing: -0.015em;
-  --text-h2: clamp(1.625rem, 1.15rem + 2vw, 3rem);
-  --text-h2--line-height: 1.08;
-  --text-h2--letter-spacing: -0.01em;
-  --text-h3: clamp(1.125rem, 1.02rem + 0.5vw, 1.4375rem);
-  --text-h3--line-height: 1.25;
-  --text-lead: clamp(1.0625rem, 0.98rem + 0.38vw, 1.3125rem);
-  --text-lead--line-height: 1.6;
-  --text-eyebrow: 0.75rem;
-  --text-eyebrow--line-height: 1;
-  --text-eyebrow--letter-spacing: 0.24em;
+  /* Typografie – Werte bei 1440 px aus dem Design (Inter), große Stufen fluid bis 375 px.
+     Laufweite wie im Figma-Rendering: Titel und Kicker ohne Sperrung (gemessen). */
+  --text-hero: clamp(2.5rem, 1.6637rem + 3.568vw, 4.875rem);
+  --text-hero--line-height: 1.03;
+  --text-hero-stacked: clamp(2.375rem, 1.6708rem + 3.005vw, 4.375rem);
+  --text-hero-stacked--line-height: 1.05;
+  --text-hero-split: clamp(2.25rem, 1.6338rem + 2.629vw, 4rem);
+  --text-hero-split--line-height: 1.06;
+  --text-h2-xl: clamp(2rem, 1.5599rem + 1.878vw, 3.25rem);
+  --text-h2-xl--line-height: 1.12;
+  --text-h2-band: clamp(1.875rem, 1.4569rem + 1.784vw, 3.0625rem);
+  --text-h2-band--line-height: 1.12;
+  --text-h2-lg: clamp(1.875rem, 1.4789rem + 1.69vw, 3rem);
+  --text-h2-lg--line-height: 1.12;
+  --text-h2: clamp(1.875rem, 1.5009rem + 1.596vw, 2.9375rem);
+  --text-h2--line-height: 1.13;
+  --text-h2-md: clamp(1.875rem, 1.5229rem + 1.502vw, 2.875rem);
+  --text-h2-md--line-height: 1.15;
+  --text-h2-sm: clamp(1.75rem, 1.4199rem + 1.408vw, 2.6875rem);
+  --text-h2-sm--line-height: 1.15;
+  --text-h3-xl: clamp(1.625rem, 1.4489rem + 0.751vw, 2.125rem);
+  --text-h3-xl--line-height: 1.21;
+  --text-h3-lg: clamp(1.625rem, 1.493rem + 0.563vw, 2rem);
+  --text-h3-lg--line-height: 1.21;
+  --text-h3: clamp(1.5rem, 1.412rem + 0.376vw, 1.75rem);
+  --text-h3--line-height: 1.21;
+  --text-h3-sm: clamp(1.4375rem, 1.3495rem + 0.376vw, 1.6875rem);
+  --text-h3-sm--line-height: 1.21;
+  --text-item-lg: clamp(1.375rem, 1.287rem + 0.376vw, 1.625rem);
+  --text-item-lg--line-height: 1.21;
+  --text-item: clamp(1.375rem, 1.309rem + 0.282vw, 1.5625rem);
+  --text-item--line-height: 1.21;
+  --text-step: clamp(1.3125rem, 1.2465rem + 0.282vw, 1.5rem);
+  --text-step--line-height: 1.21;
+  --text-step-sm: clamp(1.25rem, 1.184rem + 0.282vw, 1.4375rem);
+  --text-step-sm--line-height: 1.21;
+  --text-lead-xl: clamp(1.1875rem, 1.1215rem + 0.282vw, 1.375rem);
+  --text-lead-xl--line-height: 1.21;
+  --text-link-lg: clamp(1.125rem, 1.059rem + 0.282vw, 1.3125rem);
+  --text-link-lg--line-height: 1.21;
+  --text-question: clamp(1.125rem, 1.081rem + 0.188vw, 1.25rem);
+  --text-question--line-height: 1.21;
+
+  /* Sektionsrhythmus – Innenabstände des Designs bei 1440 px, fluid bis 375 px */
+  --spacing-sec-96: clamp(3.5rem, 2.6197rem + 3.756vw, 6rem);
+  --spacing-sec-88: clamp(3.5rem, 2.7958rem + 3.005vw, 5.5rem);
+  --spacing-sec-80: clamp(3.5rem, 2.9718rem + 2.254vw, 5rem);
+  --spacing-sec-72: clamp(3rem, 2.4718rem + 2.254vw, 4.5rem);
+  --spacing-sec-68: clamp(2.5rem, 1.8838rem + 2.629vw, 4.25rem);
+  --spacing-sec-64: clamp(2.5rem, 1.9718rem + 2.254vw, 4rem);
+  --spacing-sec-48: clamp(2rem, 1.6479rem + 1.502vw, 3rem);
 
   --ease-forge: cubic-bezier(0.16, 1, 0.3, 1);
 
-  --shadow-card: 0 1px 0 rgb(11 27 43 / 0.04), 0 28px 56px -28px rgb(11 27 43 / 0.32);
-  --shadow-glow: 0 0 0 1px rgb(255 138 51 / 0.35), 0 18px 48px -16px rgb(255 138 51 / 0.45);
-
   --animate-rise: rise 0.9s var(--ease-forge) both;
-
 }
 
 @keyframes rise {
@@ -74,20 +110,17 @@
   }
 }
 
-@keyframes lift {
-  from {
-    transform: translateY(1.5rem);
+/* Scroll-Reveal (ScrollReveal.tsx setzt data-reveal): `.reveal`-Elemente steigen beim Hereinscrollen auf.
+   Ohne JavaScript, im Druck und bei reduzierter Bewegung bleibt alles sofort sichtbar. */
+@layer components {
+  @media screen and (prefers-reduced-motion: no-preference) {
+    .reveal[data-reveal='hidden'] {
+      opacity: 0;
+    }
+    .reveal[data-reveal='shown'] {
+      animation: rise 0.9s var(--ease-forge) var(--reveal-delay, 0ms) backwards;
+    }
   }
-  to {
-    transform: none;
-  }
-}
-
-/* Registrierte Custom Properties → flüssige Farbübergänge der Chamfer-Buttons */
-@property --btn-bg {
-  syntax: '<color>';
-  inherits: false;
-  initial-value: transparent;
 }
 
 @layer base {
@@ -95,8 +128,12 @@
     -webkit-text-size-adjust: 100%;
     text-size-adjust: 100%;
     scroll-behavior: smooth;
-    scroll-padding-top: 5.5rem;
+    scroll-padding-top: 5rem;
     color-scheme: light;
+
+    @media (min-width: 64rem) {
+      scroll-padding-top: 6.25rem;
+    }
   }
 
   /* 4K+: Abstände & Typografie proportional skalieren (rem-basiertes System) */
@@ -112,23 +149,15 @@
   }
 
   body {
-    @apply bg-white font-sans text-primary antialiased;
+    @apply bg-paper font-sans text-ink antialiased;
     text-rendering: optimizeLegibility;
-    font-feature-settings: 'cv11', 'ss01';
   }
 
   h1,
   h2,
   h3,
   h4 {
-    @apply font-display text-balance;
-    font-variation-settings: 'wdth' 102;
-    hyphens: auto;
     overflow-wrap: break-word;
-
-    @media (min-width: 26.5625rem) {
-      font-variation-settings: 'wdth' 112;
-    }
   }
 
   p {
@@ -136,13 +165,13 @@
   }
 
   :focus-visible {
-    outline: 3px solid var(--color-accent);
+    outline: 2px solid var(--color-primary);
     outline-offset: 3px;
   }
 
   ::selection {
-    background: var(--color-accent);
-    color: var(--color-primary);
+    background: var(--color-primary);
+    color: #ffffff;
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -161,117 +190,80 @@
 
 /* ── Marken-Utilities ─────────────────────────────────────────────── */
 
-@utility font-wide {
-  font-family: var(--font-display);
-  font-variation-settings: 'wdth' 118;
-}
-
-@utility bg-forge {
-  background-color: var(--color-primary);
-  background-image:
-    radial-gradient(60rem 40rem at 88% -10%, rgb(255 138 51 / 0.16), transparent 60%),
-    radial-gradient(50rem 36rem at -10% 110%, rgb(31 78 121 / 0.55), transparent 65%),
-    linear-gradient(160deg, var(--color-primary-950) 0%, var(--color-primary) 45%, var(--color-primary-700) 100%);
-}
-
-@utility bg-steel {
-  background-image: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-700) 50%, var(--color-secondary) 100%);
-}
-
-@utility bg-paper-grain {
-  background-color: var(--color-paper);
-  background-image:
-    radial-gradient(40rem 24rem at 100% 0%, rgb(31 78 121 / 0.08), transparent 70%),
-    radial-gradient(32rem 20rem at 0% 100%, rgb(255 138 51 / 0.07), transparent 70%);
-}
-
-@utility bg-blueprint {
-  background-image:
-    linear-gradient(to right, rgb(255 255 255 / 0.045) 1px, transparent 1px),
-    linear-gradient(to bottom, rgb(255 255 255 / 0.045) 1px, transparent 1px);
-  background-size: 3rem 3rem;
-}
-
-@utility bg-blueprint-light {
-  background-image:
-    linear-gradient(to right, rgb(11 27 43 / 0.05) 1px, transparent 1px),
-    linear-gradient(to bottom, rgb(11 27 43 / 0.05) 1px, transparent 1px);
-  background-size: 3rem 3rem;
-}
-
-@utility text-glow {
-  background-image: linear-gradient(100deg, var(--color-accent) 0%, var(--color-accent-300) 55%, #ffffff 120%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-/* Signatur-Element „Schmiede-Fase“: 45°-Anschnitt oben rechts – ohne clip-path,
-   damit der Fokusrahmen sichtbar bleibt (A11y). */
-@utility chamfer {
-  background: linear-gradient(225deg, transparent var(--chamfer, 0.75rem), var(--btn-bg) var(--chamfer, 0.75rem));
-  transition: --btn-bg 0.25s var(--ease-forge), color 0.25s var(--ease-forge), transform 0.25s var(--ease-forge);
-}
-
-@utility chamfer-frame {
-  clip-path: polygon(0 0, calc(100% - var(--chamfer, 1.5rem)) 0, 100% var(--chamfer, 1.5rem), 100% 100%, 0 100%);
-}
-
+/* Inhaltsbreite 1296 px (bei 1440 px je 72 px Rand), mobil 16 px Rand */
 @utility container-site {
   width: 100%;
   max-width: 90rem;
   margin-inline: auto;
-  padding-inline: clamp(1rem, 0.55rem + 2.2vw, 3rem);
+  padding-inline: clamp(1rem, 5vw, 4.5rem);
 }
 
-@utility section-y {
-  padding-block: clamp(4rem, 2.6rem + 6vw, 8.5rem);
-}
+/* Seitenbanner auf voller Bildschirmhöhe (100svh: auch mit eingeblendeter Browserleiste ganz sichtbar) – abzüglich
+   Kopfzeile (4 rem, ab lg 6,25 rem) und unter 768 px der Aktionsleiste (4 rem + Haarlinie), damit der Banner genau am
+   Bildschirmrand endet */
+@utility min-h-banner {
+  min-height: calc(100svh - 8rem - 1px - env(safe-area-inset-bottom));
 
-/* Scroll-Reveal ohne JavaScript (Scroll-Driven Animations, progressive enhancement) */
-@utility reveal {
-  @media (prefers-reduced-motion: no-preference) {
-    @supports (animation-timeline: view()) {
-      animation: lift linear both;
-      animation-timeline: view();
-      animation-range: entry 0% cover 20%;
-    }
+  @media (min-width: 48rem) {
+    min-height: calc(100svh - 4rem);
+  }
+  @media (min-width: 64rem) {
+    min-height: calc(100svh - 6.25rem);
   }
 }
 
-/* Artikel- & Rechtstexte */
+/* Gestrichelte Haarlinie 4/4 px wie im Design (Bildanhang) – exakt, unabhängig vom Browser-Strichmuster */
+@utility dashed-frame {
+  background-image:
+    repeating-linear-gradient(90deg, var(--color-line) 0 4px, transparent 4px 8px),
+    repeating-linear-gradient(90deg, var(--color-line) 0 4px, transparent 4px 8px),
+    repeating-linear-gradient(0deg, var(--color-line) 0 4px, transparent 4px 8px),
+    repeating-linear-gradient(0deg, var(--color-line) 0 4px, transparent 4px 8px);
+  background-size:
+    100% 1px,
+    100% 1px,
+    1px 100%,
+    1px 100%;
+  background-position:
+    0 0,
+    0 100%,
+    0 0,
+    100% 0;
+  background-repeat: no-repeat;
+}
+
+/* Rechtstexte */
 @utility prose-forge {
   color: var(--color-muted);
   font-size: 1.0625rem;
-  line-height: 1.75;
+  line-height: 1.7;
 
   & > * + * {
     margin-top: 1.25em;
   }
   & h2 {
-    color: var(--color-primary);
-    font-size: var(--text-h3);
-    line-height: 1.25;
-    font-weight: 700;
+    color: var(--color-ink);
+    font-size: var(--text-item);
+    line-height: 1.3;
+    font-weight: 400;
     margin-top: 2.4em;
-    scroll-margin-top: 6rem;
+    scroll-margin-top: 7rem;
   }
   & h3 {
-    color: var(--color-primary);
-    font-size: 1.125rem;
-    font-weight: 700;
+    color: var(--color-ink);
+    font-size: 1.1875rem;
+    font-weight: 400;
     margin-top: 1.8em;
   }
   & strong {
-    color: var(--color-primary);
-    font-weight: 600;
+    color: var(--color-ink);
+    font-weight: 500;
   }
   & a {
     color: var(--color-primary);
     text-decoration: underline;
-    text-decoration-color: var(--color-accent);
-    text-decoration-thickness: 2px;
-    text-underline-offset: 3px;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 4px;
     overflow-wrap: anywhere;
   }
   & ul,
@@ -288,6 +280,6 @@
     margin-top: 0.5em;
   }
   & li::marker {
-    color: var(--color-accent-700);
+    color: var(--color-primary);
   }
 }

@@ -1,69 +1,61 @@
 import {
-  ArrowRight,
-  ArrowUpRight,
+  ArrowUp,
   BadgeCheck,
-  BookOpen,
   CalendarDays,
-  CarFront,
   Check,
-  ChevronDown,
-  ClipboardCheck,
-  Clock3,
-  Crosshair,
-  Disc3,
+  createLucideIcon,
   Droplet,
-  Euro,
-  Gauge,
-  Mail,
+  FileSearch,
   MapPin,
   Menu,
-  MessageCircle,
   Phone,
-  Route,
-  ScanLine,
+  Plus,
   Search,
-  Settings2,
-  ShieldCheck,
+  Snowflake,
   Sparkles,
-  Thermometer,
-  Warehouse,
-  Wrench,
+  SprayCan,
   X,
   type LucideIcon,
 } from 'lucide-react';
 import type { IconName } from '@/types/icon';
 
+/* Eigene Glyphen für Leistungen, die lucide nicht abbildet – im selben 24er-Raster und mit derselben Strichführung. */
+const Wheel = createLucideIcon('wheel', [
+  ['circle', { cx: '12', cy: '12', r: '10', key: 'tire' }],
+  ['circle', { cx: '12', cy: '12', r: '6.5', key: 'rim' }],
+  ['circle', { cx: '12', cy: '12', r: '2', key: 'hub' }],
+  ['path', { d: 'M12 10V5.5M13.9 11.38l4.28-1.39M13.18 13.62l2.64 3.64M10.82 13.62l-2.64 3.64M10.1 11.38l-4.28-1.39', key: 'spokes' }],
+]);
+const Windshield = createLucideIcon('windshield', [
+  ['path', { d: 'M7.75 5Q12 4.4 16.25 5Q17.75 5 18.14 6.45L21.11 17.55Q21.5 19 20 19Q12 17.9 4 19Q2.5 19 2.89 17.55L5.86 6.45Q6.25 5 7.75 5Z', key: 'pane' }],
+  ['path', { d: 'M9.75 15.25l3.75-6', key: 'glare-long' }],
+  ['path', { d: 'M13.75 15.5l2.25-3.5', key: 'glare-short' }],
+]);
+const Foil = createLucideIcon('foil', [
+  ['path', { d: 'M13 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v8', key: 'sheet' }],
+  ['path', { d: 'M21 13l-8 8', key: 'fold' }],
+  ['path', { d: 'M21 13c-2.8 0-5.3.4-6.6 1.4C13.4 15.7 13 18.2 13 21', key: 'flap' }],
+]);
+
 const glyphs: Record<Exclude<IconName, 'whatsapp'>, LucideIcon> = {
-  alignment: Crosshair,
-  wrench: Wrench,
-  maintenance: Settings2,
-  sparkle: Sparkles,
-  tire: Disc3,
-  glass: ScanLine,
-  storage: Warehouse,
-  oil: Droplet,
-  inspection: BadgeCheck,
-  car: CarFront,
-  shield: ShieldCheck,
-  euro: Euro,
-  clock: Clock3,
-  check: Check,
   phone: Phone,
-  mail: Mail,
-  pin: MapPin,
   calendar: CalendarDays,
-  'arrow-right': ArrowRight,
-  'arrow-up-right': ArrowUpRight,
-  'chevron-down': ChevronDown,
+  check: Check,
   menu: Menu,
   close: X,
-  message: MessageCircle,
+  'arrow-up': ArrowUp,
   search: Search,
-  gauge: Gauge,
-  badge: ClipboardCheck,
-  route: Route,
-  thermometer: Thermometer,
-  book: BookOpen,
+  'map-pin': MapPin,
+  plus: Plus,
+  paint: SprayCan,
+  oil: Droplet,
+  shine: Sparkles,
+  climate: Snowflake,
+  wheel: Wheel,
+  report: FileSearch,
+  inspection: BadgeCheck,
+  foil: Foil,
+  glass: Windshield,
 };
 
 interface IconProps {
@@ -72,8 +64,8 @@ interface IconProps {
   strokeWidth?: number;
 }
 
-/** Einheitliche, technische Ikonografie: eckige Linienenden, 1.75 px Strichstärke. */
-export function Icon({ name, className = 'size-5', strokeWidth = 1.75 }: IconProps) {
+/** Linien-Ikonografie (Kontaktwege, Suche, Karte, „Nach oben“, Leistungen): 1,5-px-Striche mit runden Enden. */
+export function Icon({ name, className = 'size-5', strokeWidth = 1.5 }: IconProps) {
   if (name === 'whatsapp') {
     return (
       <svg viewBox="0 0 24 24" className={className} fill="currentColor" aria-hidden="true" focusable="false">
@@ -82,16 +74,7 @@ export function Icon({ name, className = 'size-5', strokeWidth = 1.75 }: IconPro
     );
   }
   const Glyph = glyphs[name];
-  return (
-    <Glyph
-      className={className}
-      strokeWidth={strokeWidth}
-      strokeLinecap="square"
-      strokeLinejoin="miter"
-      aria-hidden="true"
-      focusable="false"
-    />
-  );
+  return <Glyph className={className} strokeWidth={strokeWidth} aria-hidden="true" focusable="false" />;
 }
 
 /** SVG-Sprite: komplexe Marken-Glyphen einmal pro Dokument statt dutzendfach im HTML/RSC-Payload. */

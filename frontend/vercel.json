@@ -6,18 +6,34 @@
   "regions": ["fra1"],
   "trailingSlash": false,
   "redirects": [
-    { "source": "/achsvermessung", "destination": "/leistungen/achsvermessung", "permanent": true },
-    { "source": "/reparaturen", "destination": "/leistungen/reparaturen", "permanent": true },
-    { "source": "/instandhaltung", "destination": "/leistungen/instandhaltung", "permanent": true },
-    { "source": "/aufbereitung", "destination": "/leistungen/aufbereitung", "permanent": true },
-    { "source": "/reifenwechsel", "destination": "/leistungen/reifenwechsel", "permanent": true },
-    { "source": "/smart-repair-glas", "destination": "/leistungen/smart-repair-glas", "permanent": true },
-    { "source": "/reifenlagerung", "destination": "/leistungen/reifenlagerung", "permanent": true },
+    { "source": "/achsvermessung", "destination": "/#leistungen", "permanent": true },
+    { "source": "/reparaturen", "destination": "/#leistungen", "permanent": true },
+    { "source": "/instandhaltung", "destination": "/#leistungen", "permanent": true },
+    { "source": "/aufbereitung", "destination": "/leistungen/fahrzeugaufbereitung", "permanent": true },
+    { "source": "/reifenwechsel", "destination": "/leistungen/reifen-felgenservice", "permanent": true },
+    { "source": "/smart-repair-glas", "destination": "/leistungen/autoglas", "permanent": true },
+    { "source": "/reifenlagerung", "destination": "/leistungen/reifen-felgenservice", "permanent": true },
     { "source": "/oelwechsel", "destination": "/leistungen/oelwechsel", "permanent": true },
-    { "source": "/tuev", "destination": "/leistungen/tuev", "permanent": true },
-    { "source": "/tuv", "destination": "/leistungen/tuev", "permanent": true },
-    { "source": "/termin", "destination": "/kontakt", "permanent": false },
-    { "source": "/whatsapp", "destination": "/kontakt#whatsapp", "permanent": false }
+    { "source": "/tuev", "destination": "/leistungen/hu-au", "permanent": true },
+    { "source": "/tuv", "destination": "/leistungen/hu-au", "permanent": true },
+    { "source": "/termin", "destination": "/kontakt#anfrage", "permanent": false },
+    { "source": "/whatsapp", "destination": "/kontakt", "permanent": false },
+    { "source": "/leistungen", "destination": "/#leistungen", "permanent": true },
+    { "source": "/leistungen/achsvermessung", "destination": "/#leistungen", "permanent": true },
+    { "source": "/leistungen/reparaturen", "destination": "/#leistungen", "permanent": true },
+    { "source": "/leistungen/instandhaltung", "destination": "/#leistungen", "permanent": true },
+    { "source": "/leistungen/aufbereitung", "destination": "/leistungen/fahrzeugaufbereitung", "permanent": true },
+    { "source": "/leistungen/reifenwechsel", "destination": "/leistungen/reifen-felgenservice", "permanent": true },
+    { "source": "/leistungen/smart-repair-glas", "destination": "/leistungen/autoglas", "permanent": true },
+    { "source": "/leistungen/reifenlagerung", "destination": "/leistungen/reifen-felgenservice", "permanent": true },
+    { "source": "/leistungen/tuev", "destination": "/leistungen/hu-au", "permanent": true },
+    { "source": "/faq", "destination": "/#fragen", "permanent": true },
+    { "source": "/blog/winterreifen-alpine-symbol-was-jetzt-gilt", "destination": "/leistungen/reifen-felgenservice", "permanent": true },
+    { "source": "/blog/oelwechsel-intervall-freigabe-richtiges-motoroel", "destination": "/leistungen/oelwechsel", "permanent": true },
+    { "source": "/blog/tuev-checkliste-hauptuntersuchung-bestehen", "destination": "/leistungen/hu-au", "permanent": true },
+    { "source": "/blog/steinschlag-reparieren-oder-scheibe-tauschen", "destination": "/leistungen/autoglas", "permanent": true },
+    { "source": "/blog/fahrzeugaufbereitung-werterhalt-verkauf-leasing", "destination": "/leistungen/fahrzeugaufbereitung", "permanent": true },
+    { "source": "/blog/:path*", "destination": "/", "permanent": true }
   ],
   "headers": [
     {
@@ -31,7 +47,7 @@
         { "key": "Cross-Origin-Opener-Policy", "value": "same-origin" },
         {
           "key": "Content-Security-Policy",
-          "value": "default-src 'self'; script-src 'self' 'unsafe-inline' https://vercel.live; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://vercel.live https://vercel.com; font-src 'self' data:; connect-src 'self' https://vercel.live wss://ws-us3.pusher.com; frame-src https://vercel.live; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none'; upgrade-insecure-requests"
+          "value": "default-src 'self'; script-src 'self' 'unsafe-inline' https://vercel.live; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://vercel.live https://vercel.com; font-src 'self' data:; connect-src 'self' https://vercel.live wss://ws-us3.pusher.com; frame-src https://vercel.live https://www.google.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none'; upgrade-insecure-requests"
         }
       ]
     },
