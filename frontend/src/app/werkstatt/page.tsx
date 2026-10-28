@@ -28,11 +28,15 @@ export default function WerkstattPage() {
       <JsonLd data={breadcrumbJsonLd(crumbs)} />
       <PageBanner
         layout="overlay"
-        image="werkstatt"
+        image={['werkstatt', 'werkstatt-fahrzeuge']}
         kicker="Die Werkstatt / Unser Anspruch"
         title={'Gutes Handwerk.\nEin klarer Anspruch.'}
         intro="Unsere Vorstellung von Werkstatt: aufmerksam im Gespräch, präzise am Fahrzeug und verbindlich in der Abstimmung."
         action={{ label: 'Termin anfragen', href: requestPath() }}
+        centered="always"
+        narrowIntro
+        narrowShade="strong"
+        mobile={{ title: 'Werkstatt', subtitle: 'Gutes Handwerk. Ein klarer Anspruch.' }}
       />
       <WorkshopStance
         kicker="Wofür die Schmiede steht"

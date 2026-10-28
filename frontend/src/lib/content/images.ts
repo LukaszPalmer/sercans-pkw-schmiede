@@ -110,11 +110,22 @@ export const images: Record<ImageKey, SiteImage> = {
     blurDataURL: 'data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAADwAQCdASoMAAkABUB8JYwC7ADcpXx8rAAA/LKBNoTTxJesGWXKLvprW3KkO7aTfKOrnxQqnLQEJCkU244MOirbIlkAAA==',
   },
   werkstatt: {
-    src: '/images/werkstatt.jpg',
-    width: 1584,
-    height: 672,
-    alt: 'Werkbank mit Drehmomentschlüssel und Stecknüssen, dahinter ein Fahrzeug in der Werkstatt',
-    blurDataURL: 'data:image/webp;base64,UklGRkYAAABXRUJQVlA4IDoAAACwAQCdASoMAAUAA4BaJZQC7ADdBGUkAP7zOa6ahrwKIlrQpN/7Fp3yuUZP1twh8SUUzrZQDkCxjzQA',
+    src: '/images/werkstatt-first.jpeg',
+    width: 2560,
+    height: 1440,
+    alt: 'Lange Werkstatthalle mit hellen Wänden und Stahlträgern, hinten ein roter Kleinwagen mit geöffneter Motorhaube',
+    // Querformat: ganze Halle · Hochformat: Fluchtpunkt mit dem roten Wagen mittig unter dem Titel
+    position: '47% 50%',
+    blurDataURL: 'data:image/webp;base64,UklGRjwAAABXRUJQVlA4IDAAAADQAQCdASoMAAcABUB8JZwAAp3U7evyAAD9U7DsKO45bHmRPCNjId/5jHRuMoeAAAA=',
+  },
+  'werkstatt-fahrzeuge': {
+    src: '/images/werkstatt-second.jpeg',
+    width: 2560,
+    height: 1440,
+    alt: 'Mehrere Fahrzeuge in der Werkstatthalle, vorne links ein silberner Transporter mit geöffneter Motorhaube und Tür',
+    // Hochformat: links der Mitte – Wandbanner ganz im Bild statt angeschnitten, Transporterfront rechts unten
+    position: '45% 50%',
+    blurDataURL: 'data:image/webp;base64,UklGRkYAAABXRUJQVlA4IDoAAADQAQCdASoMAAcABUB8JYwAAlokXDL5AAD+Ga5RAMjFqVGPlDpYZ+WfyX3PDPuiQCBVo3bI+DLbgOAA',
   },
   kontakt: {
     src: '/images/kontakt-new.jpeg',

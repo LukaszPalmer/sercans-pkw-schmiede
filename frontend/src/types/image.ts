@@ -12,6 +12,7 @@ export type ImageKey =
   | 'folierung'
   | 'autoglas'
   | 'werkstatt'
+  | 'werkstatt-fahrzeuge'
   | 'kontakt';
 
 /** Bild-Registry-Eintrag – statisches Foto aus /public/images. */

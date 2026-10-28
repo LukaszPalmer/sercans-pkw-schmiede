@@ -10,6 +10,8 @@ export type IconName =
   | 'search'
   | 'map-pin'
   | 'plus'
+  | 'pause'
+  | 'play'
   // Leistungen
   | 'paint'
   | 'oil'
