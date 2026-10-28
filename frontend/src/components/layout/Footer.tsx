@@ -44,20 +44,27 @@ export function Footer() {
           </nav>
         </div>
 
-        {/* Vermerk der Webagentur: auf dem Handy unter den Rechtslinks, ab 425 px neben dem Absender (Rechtslinks rechts, bei Platzmangel umbrechend).
-            „Nach oben“ bleibt am Seitenende über dieser Zeile (data-scroll-top-clear). */}
-        <div data-scroll-top-clear className="mt-[3.25rem] flex flex-col gap-3 border-t border-muted pt-[1.375rem] text-[0.6875rem] leading-[1.21] text-fog sm:flex-row sm:flex-wrap sm:gap-x-8">
-          <p>{site.shortName}</p>
-          <ul className="flex gap-8 sm:order-last sm:ml-auto">
-            {legalNav.map((item) => (
-              <li key={item.href}>
-                <Link href={item.href} className="transition-colors duration-300 hover:text-white">
-                  {item.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-          <p>Erstellt bei Palmer Digital</p>
+        {/* Links Copyright und Rechtslinks, ab lg rechts der Vermerk der Webagentur – darunter untereinander, alles linksbündig.
+            Das Jahr stammt aus dem Build (jeder Deploy aktualisiert es). „Nach oben“ bleibt am Seitenende über dieser Zeile (data-scroll-top-clear). */}
+        <div data-scroll-top-clear className="mt-[3.25rem] flex flex-col gap-4 border-t border-muted pt-[1.375rem] text-[0.6875rem] leading-[1.6] text-fog lg:flex-row lg:items-center lg:justify-between lg:gap-8">
+          <div className="flex flex-wrap items-center gap-x-8 gap-y-2">
+            <p>
+              © {new Date().getFullYear()} {site.shortName}. Alle Rechte vorbehalten.
+            </p>
+            <ul className="flex gap-8">
+              {legalNav.map((item) => (
+                <li key={item.href}>
+                  <Link href={item.href} className="transition-colors duration-300 hover:text-white">
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <p>
+            Design und Entwicklung von Palmer Digital.
+            <br className="md:hidden" /> Entwickelt mit Next.js
+          </p>
         </div>
       </div>
     </footer>

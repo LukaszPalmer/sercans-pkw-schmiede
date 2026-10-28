@@ -18,6 +18,10 @@ export const services: Service[] = [
       layout: 'overlay',
       title: 'Kleine Spuren.\nGezielter Eingriff.',
       intro: 'Kratzer, Schrammen, kleine Lackschäden: Entscheidend ist nicht nur die Größe, sondern wo und wie tief die Spur sitzt.',
+      centered: 'always',
+      narrowIntro: true,
+      narrowShade: true,
+      mobile: { title: 'Smartrepair', subtitle: 'Kleine Spuren. Gezielter Eingriff.' },
     },
     scope: {
       kicker: 'Erhalten statt großflächig ersetzen',

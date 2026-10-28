@@ -21,6 +21,15 @@ export interface TitledText {
 /** Banner-Varianten des Designs: Foto mit Verlauf · Graphit links, Foto rechts · Titelzeile über dem Foto. */
 export type BannerLayout = 'overlay' | 'split' | 'stacked';
 
+/** `overlay`-Inhalt vertikal mittig statt unten: `always` auf allen Breiten, `desktop` erst ab lg – darunter bleibt er unten auf dem dunklen Teil des Verlaufs (helle Motive). */
+export type BannerCentering = 'always' | 'desktop';
+
+/** Kompakter `overlay`-Inhalt unter 768 px: großer Titel, Zeile darunter, Aktion – zentriert. */
+export interface BannerMobile {
+  title: string;
+  subtitle: string;
+}
+
 export interface Service {
   slug: ServiceSlug;
   /** Name wie im Design – Leistungsübersicht, Kicker „Leistung / …“, Formular. */
@@ -33,8 +42,16 @@ export interface Service {
   icon: IconName;
   metaDescription: string;
   image: ImageKey;
-  /** Titel mit „\n“ an den Zeilenumbrüchen des Designs. */
-  banner: { layout: BannerLayout; title: string; intro: string };
+  /** Titel mit „\n“ an den Zeilenumbrüchen des Designs – die optionalen Felder gelten nur für `overlay` (siehe PageBanner). */
+  banner: {
+    layout: BannerLayout;
+    title: string;
+    intro: string;
+    centered?: BannerCentering;
+    narrowIntro?: boolean;
+    narrowShade?: boolean;
+    mobile?: BannerMobile;
+  };
   /** Leistungsumfang: `columns` drei Spalten, `rows` Tabellenzeilen – `night` auf Graphit. */
   scope: {
     kicker: string;

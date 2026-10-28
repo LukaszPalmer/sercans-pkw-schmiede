@@ -31,7 +31,6 @@ export const site: SiteConfig = {
     display: '+49 176 22548772',
     /** Internationales Format ohne +, Leerzeichen oder führende 0 – z. B. 4917612345678 */
     number: '4917622548772',
-    greeting: 'Hallo Sercans PKW Schmiede, ich habe eine Frage zu meinem Fahrzeug:',
   },
   hours: [
     { days: 'Montag', short: 'Mo', time: '08:30 – 17:00 Uhr' },

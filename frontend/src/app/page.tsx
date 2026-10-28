@@ -29,6 +29,9 @@ export default function HomePage() {
         title={'Präzision,\ndie bleibt.'}
         intro="Service, Reparatur und Wartung. Mit einem klaren Blick für Ihr Fahrzeug und Sorgfalt bis ins Detail."
         action={{ label: 'Termin anfragen', href: requestPath() }}
+        centered="always"
+        narrowIntro
+        mobile={{ title: site.shortName, subtitle: 'Service, Reparatur, Wartung' }}
       />
       <PrinciplesBar items={['Erst verstehen. Dann empfehlen.', 'Arbeiten nach Absprache.', 'Auf das Detail kommt es an.']} />
       <ServiceOverview />

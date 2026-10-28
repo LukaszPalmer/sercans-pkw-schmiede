@@ -25,7 +25,7 @@ export interface SiteConfig {
   };
   phone: { display: string; href: string };
   email: string;
-  whatsapp: { display: string; number: string; greeting: string };
+  whatsapp: { display: string; number: string };
   hours: OpeningHours[];
   mapsUrl: string;
   /** Google-Bewertung für die Sektion „Echte Erfahrungen“ – z. B. „4,9“ und „186“. */

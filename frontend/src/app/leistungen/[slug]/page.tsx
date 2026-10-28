@@ -50,6 +50,10 @@ export default async function ServicePage({ params }: Props) {
         title={service.banner.title}
         intro={service.banner.intro}
         action={{ label: 'Termin anfragen', href: requestPath(service.slug) }}
+        centered={service.banner.centered}
+        narrowIntro={service.banner.narrowIntro}
+        narrowShade={service.banner.narrowShade}
+        mobile={service.banner.mobile}
       />
       <ServiceScope scope={service.scope} />
       <Preparation preparation={service.preparation} />

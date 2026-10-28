@@ -11,7 +11,7 @@ interface PhotoProps {
 
 /** Registry-gebundenes next/image: AVIF/WebP, responsive srcset, Blur-Placeholder, CLS 0. */
 export function Photo({ image, sizes, className = 'object-cover', priority = false }: PhotoProps) {
-  const { src, width, height, alt, blurDataURL } = images[image];
+  const { src, width, height, alt, blurDataURL, position } = images[image];
   return (
     <Image
       src={src}
@@ -24,6 +24,7 @@ export function Photo({ image, sizes, className = 'object-cover', priority = fal
       priority={priority}
       quality={80}
       className={className}
+      style={position ? { objectPosition: position } : undefined}
     />
   );
 }
