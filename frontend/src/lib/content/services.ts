@@ -209,6 +209,10 @@ export const services: Service[] = [
       layout: 'overlay',
       title: 'Ein kühler Kopf.\nEine klare Prüfung.',
       intro: 'Weniger Kühlung, ungewohnte Geräusche oder Geruch? Wir grenzen das Anliegen ein und stimmen den nächsten Schritt ab.',
+      centered: 'always',
+      narrowIntro: true,
+      narrowShade: true,
+      mobile: { title: 'Klimaservice', subtitle: 'Ein kühler Kopf. Eine klare Prüfung.' },
     },
     scope: {
       kicker: 'Funktion vor Routine',
@@ -407,9 +411,13 @@ export const services: Service[] = [
       'Hauptuntersuchung HU/AU: Vorbereitung und mögliche Terminkoordination bei der PKW Schmiede anfragen. Die amtliche Prüfung erfolgt durch eine berechtigte Prüfstelle.',
     image: 'hu-au',
     banner: {
-      layout: 'split',
+      layout: 'overlay',
       title: 'Prüftermin fällig?\nGut vorbereitet.',
       intro: 'Vorbereitung und mögliche Terminkoordination für HU/AU anfragen. Zuständigkeit und Verfügbarkeit klären wir vorab.',
+      centered: 'always',
+      narrowIntro: true,
+      narrowShade: true,
+      mobile: { title: 'HU/AU', subtitle: 'Prüftermin fällig? Gut vorbereitet.' },
     },
     scope: {
       kicker: 'Vor dem Prüftermin',

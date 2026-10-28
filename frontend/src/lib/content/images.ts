@@ -56,11 +56,13 @@ export const images: Record<ImageKey, SiteImage> = {
     blurDataURL: 'data:image/webp;base64,UklGRkYAAABXRUJQVlA4IDoAAADQAQCdASoMAAkABUB8JYwCdAEfaSrriADxR4iNGt0xu44oFjXs5TP7GhT7rvSxCJ7txckTqI2a1gAA',
   },
   klimaservice: {
-    src: '/images/klimaservice.jpg',
-    width: 1584,
-    height: 672,
-    alt: 'Manometer und Serviceschläuche an den Anschlüssen der Klimaanlage im Motorraum',
-    blurDataURL: 'data:image/webp;base64,UklGRj4AAABXRUJQVlA4IDIAAACwAQCdASoMAAUAA4BaJZwAAsaVbTTYAP72pLVdPukm7QEmun9d6wN6Vyudyl49LMAAAA==',
+    src: '/images/klimaservice-new.jpeg',
+    width: 2560,
+    height: 1440,
+    alt: 'Hand in schwarzem Handschuh führt die Serviceschläuche einer Monteurhilfe mit blauem und rotem Manometer zu den Klimaanschlüssen im Motorraum',
+    // Querformat: unten – Manometer neben und über dem Titel statt dahinter · Hochformat: Manometer mittig über dem Titel
+    position: '55% 85%',
+    blurDataURL: 'data:image/webp;base64,UklGRkYAAABXRUJQVlA4IDoAAADwAQCdASoMAAcABUB8JZQAArL/VmH9UgAA/tmq0/a5julY5xVl1Xw5PgaYRdbiBcGwUp/u/DMZB4AA',
   },
   'reifen-felgenservice': {
     src: '/images/reifen-felgenservice-new.jpeg',
@@ -81,11 +83,13 @@ export const images: Record<ImageKey, SiteImage> = {
     blurDataURL: 'data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAADQAQCdASoMAAwABUB8JZwAAp/IWWqVSAD4MmCmRUR9uQmCjDXR4Rr+5EJqjcPNwYVUAD58c4ve+HE500rDtI0oBdrWPwAA',
   },
   'hu-au': {
-    src: '/images/hu-au.jpg',
-    width: 1152,
-    height: 928,
-    alt: 'Kfz-Techniker prüft den Scheinwerfer mit einem Einstellgerät',
-    blurDataURL: 'data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAAAQAgCdASoMAAoAA4BaJZwAAxUzVQ39K0aAAP6I3qruB6wehLgv8fMHzq9sjGxuOktY5aoMkRjxZjoC9eytCBwwF5IamlVZemGKJDcSkAA=',
+    src: '/images/hu-au-new.jpeg',
+    width: 2560,
+    height: 1440,
+    alt: 'Hände in schwarzen Handschuhen führen die Sonde des Abgasmessgeräts in das Endrohr eines grauen Fahrzeugs',
+    // Querformat: Sonde und Hände ganz im Bild · Hochformat: rechts der Mitte – Aufkleber mit Abstand zum Titel, Endrohr und Sonde im Bild
+    position: '55% 75%',
+    blurDataURL: 'data:image/webp;base64,UklGRkgAAABXRUJQVlA4IDwAAAAQAgCdASoMAAcABUB8JZQC7AEDfpsADPpIAP7AVjIKxqwhLcC7faPxkkVHKmA0GjFid1YFlBU5oQMGAAA=',
   },
   folierung: {
     src: '/images/Folierung-new.jpeg',
@@ -113,10 +117,12 @@ export const images: Record<ImageKey, SiteImage> = {
     blurDataURL: 'data:image/webp;base64,UklGRkYAAABXRUJQVlA4IDoAAACwAQCdASoMAAUAA4BaJZQC7ADdBGUkAP7zOa6ahrwKIlrQpN/7Fp3yuUZP1twh8SUUzrZQDkCxjzQA',
   },
   kontakt: {
-    src: '/images/kontakt.jpg',
-    width: 1152,
-    height: 928,
-    alt: 'Auftragsbogen und Fahrzeugschlüssel auf dem Servicetresen der Werkstatt',
-    blurDataURL: 'data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAADQAQCdASoMAAoAA4BaJZQAAl2LqLKcAAD5D7uYWAgxr9ZK6Uiqw6dtAsQi04v1X9MCp/DfiR9LV5h8e7j4L/vthN1YBkzio5vns4CAAAA=',
+    src: '/images/kontakt-new.jpeg',
+    width: 2560,
+    height: 1440,
+    alt: 'Empfangsbereich in einer Werkstatthalle: schwarzer Büro-Kubus mit Glastür und Ledersofa, links die Front eines weißen Transporters',
+    // Querformat: Transporter abgedunkelt hinter dem Text, Empfang daneben frei · Hochformat: rechts der Mitte – Sofa und Glastür, kein angeschnittener Transporter am Rand
+    position: '60% 50%',
+    blurDataURL: 'data:image/webp;base64,UklGRkIAAABXRUJQVlA4IDYAAADwAQCdASoMAAcABUB8JZwAAxQ70/FK3cAA/U32vJ6xxvIABfgtTZEVnvbOt6JSZZwVZ4yAAAA=',
   },
 };

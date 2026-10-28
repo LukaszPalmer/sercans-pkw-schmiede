@@ -28,8 +28,8 @@ interface PageBannerProps {
 
 /**
  * Seitenbanner in den drei Varianten des Designs, jeweils so hoch wie der erste Bildschirm (`min-h-banner`):
- * `overlay` Foto mit Lesekontrast-Verlauf, Inhalt unten links oder mittig (Startseite, Werkstatt und alle Leistungen außer HU/AU) ·
- * `split` Graphit 650 px mit zentriertem Inhalt, Foto rechts (HU/AU, Kontakt) ·
+ * `overlay` Foto mit Lesekontrast-Verlauf, Inhalt unten links oder mittig (Startseite, Werkstatt, Kontakt und alle Leistungen) ·
+ * `split` Graphit 650 px mit zentriertem Inhalt, Foto rechts (derzeit ungenutzt) ·
  * `stacked` Titelzeile auf Mineralweiß, darunter das Foto (derzeit ungenutzt).
  * Wo Text und Foto untereinander stehen, füllt das Foto die restliche Höhe (mindestens 15 rem).
  */
@@ -78,7 +78,7 @@ export function PageBanner({ layout, kicker, title, intro, image, action, center
             {mobile && (
               <p className="mt-3 text-sm leading-[1.4] font-medium tracking-[0.12em] text-fog uppercase md:hidden">
                 {/* Sätze bleiben ganz: Reicht die Breite nicht, bricht die Zeile zwischen den Sätzen statt mitten im Satz */}
-                {mobile.subtitle.split(/(?<=\.) /).map((sentence, i) => (
+                {mobile.subtitle.split(/(?<=[.?]) /).map((sentence, i) => (
                   <Fragment key={i}>
                     {i > 0 && ' '}
                     <span className="inline-block">{sentence}</span>

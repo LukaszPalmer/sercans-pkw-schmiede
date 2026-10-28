@@ -24,12 +24,16 @@ export default function KontaktPage() {
     <>
       <JsonLd data={breadcrumbJsonLd(crumbs)} />
       <PageBanner
-        layout="split"
+        layout="overlay"
         image="kontakt"
         kicker="Kontakt / Terminanfrage"
         title={'Ihr Anliegen\nist der Anfang.'}
         intro="Beschreiben Sie kurz, was Ihr Fahrzeug braucht. Den passenden Umfang und einen möglichen Termin klären wir persönlich mit Ihnen."
         action={{ label: 'Termin anfragen', href: '#anfrage' }}
+        centered="always"
+        narrowIntro
+        narrowShade
+        mobile={{ title: 'Kontakt', subtitle: 'Ihr Anliegen ist der Anfang.' }}
       />
       <ContactRequest />
       <NextSteps
