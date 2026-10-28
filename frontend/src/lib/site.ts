@@ -19,7 +19,7 @@ export const site: SiteConfig = {
   supervisoryAuthority:
     'Landesbeauftragte für Datenschutz und Informationsfreiheit Nordrhein-Westfalen, Postfach 20 04 44, 40102 Düsseldorf',
   address: {
-    street: 'Himmelgeister Straße 35',
+    street: 'Himmelgeister Straße 25',
     zip: '40225',
     city: 'Düsseldorf',
     region: 'Nordrhein-Westfalen',

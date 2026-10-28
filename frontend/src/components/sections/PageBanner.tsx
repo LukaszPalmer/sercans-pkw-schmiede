@@ -1,3 +1,4 @@
+import { Fragment } from 'react';
 import { ButtonLink } from '@/components/ui/Button';
 import { Kicker } from '@/components/ui/Kicker';
 import { Lines } from '@/components/ui/Lines';
@@ -27,9 +28,9 @@ interface PageBannerProps {
 
 /**
  * Seitenbanner in den drei Varianten des Designs, jeweils so hoch wie der erste Bildschirm (`min-h-banner`):
- * `overlay` Foto mit Lesekontrast-Verlauf, Inhalt unten links oder mittig (Startseite, Smartrepair, Klimaservice, Folierung, Werkstatt) ·
- * `split` Graphit 650 px mit zentriertem Inhalt, Foto rechts (Ölwechsel, Reifen, HU/AU, Kontakt) ·
- * `stacked` Titelzeile auf Mineralweiß, darunter das Foto (Fahrzeugaufbereitung, Gutachten, Autoglas).
+ * `overlay` Foto mit Lesekontrast-Verlauf, Inhalt unten links oder mittig (Startseite, Werkstatt und alle Leistungen außer HU/AU) ·
+ * `split` Graphit 650 px mit zentriertem Inhalt, Foto rechts (HU/AU, Kontakt) ·
+ * `stacked` Titelzeile auf Mineralweiß, darunter das Foto (derzeit ungenutzt).
  * Wo Text und Foto untereinander stehen, füllt das Foto die restliche Höhe (mindestens 15 rem).
  */
 export function PageBanner({ layout, kicker, title, intro, image, action, centered, narrowIntro, narrowShade, mobile }: PageBannerProps) {
@@ -37,6 +38,8 @@ export function PageBanner({ layout, kicker, title, intro, image, action, center
     // Hochformat: Das Foto füllt die Bannerhöhe und ist dann breiter als der Bildschirm – srcset nach Höhe × Seitenverhältnis wählen, sonst wird es unscharf hochskaliert.
     const { width, height } = images[image];
     const sizes = `(max-aspect-ratio: ${width}/${height}) ${Math.ceil((100 * width) / height)}vh, 100vw`;
+    // Handy-Titel in Versalien: Wörter ab 12 Zeichen (Fahrzeugaufbereitung, Felgenservice) sind in Hero-Größe breiter als 360 px – dann mit der Bildschirmbreite skalieren
+    const longMobileTitle = mobile && Math.max(...mobile.title.split(/[\s\u00ad-]/).map((word) => word.length)) > 11;
     return (
       <section
         aria-labelledby="seitentitel"
@@ -60,7 +63,7 @@ export function PageBanner({ layout, kicker, title, intro, image, action, center
             <Kicker tone="night" className={mobile && 'max-md:hidden'}>
               {kicker}
             </Kicker>
-            <h1 id="seitentitel" className="text-hero font-light">
+            <h1 id="seitentitel" className={cn('text-hero font-light', longMobileTitle && 'max-md:text-[length:min(var(--text-hero),9vw)]')}>
               {mobile ? (
                 <>
                   <span className="tracking-[0.03em] uppercase md:hidden">{mobile.title}</span>{' '}
@@ -72,7 +75,17 @@ export function PageBanner({ layout, kicker, title, intro, image, action, center
                 <Lines text={title} />
               )}
             </h1>
-            {mobile && <p className="mt-3 text-sm leading-[1.4] font-medium tracking-[0.12em] text-fog uppercase md:hidden">{mobile.subtitle}</p>}
+            {mobile && (
+              <p className="mt-3 text-sm leading-[1.4] font-medium tracking-[0.12em] text-fog uppercase md:hidden">
+                {/* Sätze bleiben ganz: Reicht die Breite nicht, bricht die Zeile zwischen den Sätzen statt mitten im Satz */}
+                {mobile.subtitle.split(/(?<=\.) /).map((sentence, i) => (
+                  <Fragment key={i}>
+                    {i > 0 && ' '}
+                    <span className="inline-block">{sentence}</span>
+                  </Fragment>
+                ))}
+              </p>
+            )}
             <p className={cn('text-lg leading-[1.55]', narrowIntro ? 'max-w-[24rem] text-balance' : 'max-w-[37.5rem]', mobile && 'max-md:hidden')}>{intro}</p>
             <ButtonLink href={action.href} className={cn('self-start', mobile && 'max-md:mt-9 max-md:self-center')}>
               {action.label}

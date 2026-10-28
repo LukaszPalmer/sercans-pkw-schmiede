@@ -75,9 +75,13 @@ export const services: Service[] = [
       'Ölwechsel bei der PKW Schmiede: Motoröl und Filter nach Fahrzeugvorgabe – mit Blick auf Freigabe, Motorisierung und den passenden Wartungszeitpunkt. Jetzt Termin anfragen.',
     image: 'oelwechsel',
     banner: {
-      layout: 'split',
+      layout: 'overlay',
       title: 'Der richtige Schutz.\nFür Ihren Motor.',
       intro: 'Ölwechsel nach Fahrzeuganforderung – mit Blick auf Freigabe, Filter und den passenden Wartungszeitpunkt.',
+      centered: 'always',
+      narrowIntro: true,
+      narrowShade: true,
+      mobile: { title: 'Ölwechsel', subtitle: 'Der richtige Schutz. Für Ihren Motor.' },
     },
     scope: {
       kicker: 'Wartung mit Maß',
@@ -135,9 +139,13 @@ export const services: Service[] = [
       'Fahrzeugaufbereitung bei der PKW Schmiede: Innenraum und Außenflächen materialgerecht reinigen und pflegen – abgestimmt auf Zustand, Material und Ihr Pflegeziel.',
     image: 'fahrzeugaufbereitung',
     banner: {
-      layout: 'stacked',
+      layout: 'overlay',
       title: 'Pflege, die man sieht.\nSorgfalt, die bleibt.',
       intro: 'Innenraum und Außenflächen gezielt behandeln. Abgestimmt auf Material, Zustand und Ihren Anspruch.',
+      centered: 'always',
+      narrowIntro: true,
+      narrowShade: true,
+      mobile: { title: 'Fahrzeug\u00adaufbereitung', subtitle: 'Pflege, die man sieht. Sorgfalt, die bleibt.' },
     },
     scope: {
       kicker: 'Substanz im Mittelpunkt',
@@ -258,9 +266,13 @@ export const services: Service[] = [
       'Reifen- und Felgenservice bei der PKW Schmiede: Radwechsel, Reifenmontage, Auswuchten und Felgenzustand – passend zu Fahrzeug, Dimension und Zustand. Jetzt Termin anfragen.',
     image: 'reifen-felgenservice',
     banner: {
-      layout: 'split',
+      layout: 'overlay',
       title: 'Der Kontakt\nzur Straße zählt.',
       intro: 'Saisonwechsel, Reifenmontage und Fragen zur Felge. Passend zu Fahrzeug, Dimension und Zustand.',
+      centered: 'always',
+      narrowIntro: true,
+      narrowShade: true,
+      mobile: { title: 'Reifen- und Felgenservice', subtitle: 'Der Kontakt zur Straße zählt.' },
     },
     scope: {
       kicker: 'Rund um Rad und Reifen',
@@ -316,9 +328,13 @@ export const services: Service[] = [
       'Gutachten anfragen bei der PKW Schmiede: Anlass klären, Unterlagen sammeln und die Koordination einer Begutachtung abstimmen – Zuständigkeit und Termin werden ausdrücklich bestätigt.',
     image: 'gutachten',
     banner: {
-      layout: 'stacked',
+      layout: 'overlay',
       title: 'Erst dokumentieren.\nDann entscheiden.',
       intro: 'Sie benötigen eine Begutachtung? Wir klären den Anlass und fragen den passenden Weg zur Koordination an.',
+      centered: 'always',
+      narrowIntro: true,
+      narrowShade: true,
+      mobile: { title: 'Gutachten', subtitle: 'Erst dokumentieren. Dann entscheiden.' },
     },
     scope: {
       kicker: 'Anlass und Zuständigkeit klären',
@@ -466,6 +482,10 @@ export const services: Service[] = [
       layout: 'overlay',
       title: 'Eine neue Fläche.\nIhr eigener Ausdruck.',
       intro: 'Farbe, Finish und ausgewählte Details. Eine Folierung beginnt mit einer klaren Idee und einem geeigneten Untergrund.',
+      centered: 'always',
+      narrowIntro: true,
+      narrowShade: true,
+      mobile: { title: 'Folierung', subtitle: 'Eine neue Fläche. Ihr eigener Ausdruck.' },
     },
     scope: {
       kicker: 'Gestaltung mit Augenmaß',
@@ -529,9 +549,13 @@ export const services: Service[] = [
       'Autoglas bei der PKW Schmiede: Steinschlag oder Riss prüfen lassen und Reparatur oder Austausch passend zu Fahrzeug, Scheibenausstattung und Assistenzsystemen abstimmen.',
     image: 'autoglas',
     banner: {
-      layout: 'stacked',
+      layout: 'overlay',
       title: 'Klare Sicht.\nKlare Entscheidung.',
       intro: 'Steinschlag oder Riss: Schadenstelle prüfen lassen und Reparatur oder Austausch passend zum Fahrzeug abstimmen.',
+      centered: 'always',
+      narrowIntro: true,
+      narrowShade: true,
+      mobile: { title: 'Autoglas', subtitle: 'Klare Sicht. Klare Entscheidung.' },
     },
     scope: {
       kicker: 'Glas braucht eine genaue Beurteilung',
