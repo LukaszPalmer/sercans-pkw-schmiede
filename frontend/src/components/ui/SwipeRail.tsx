@@ -5,7 +5,7 @@ import { cn } from '@/lib/cn';
 import { pad2 } from '@/lib/format';
 
 interface SwipeRailProps {
-  /** Anzahl der Karten für die Position „01 / 09“. */
+  /** Anzahl der Karten für die Position „01 / 07“. */
   count: number;
   className?: string;
   /** Raster ab 768 px – darunter ist die Liste immer die wischbare Reihe. */
@@ -24,7 +24,7 @@ const cards = 'max-md:*:w-[82%] max-md:*:max-w-[22rem] max-md:*:shrink-0 max-md:
 
 /**
  * Kartenliste, die unter 768 px zur wischbaren Reihe wird: Die aktuelle Karte rastet links ein, die nächste schaut rechts
- * herein. Darunter wächst eine präzisionsblaue Linie mit dem Wischweg, daneben steht die Position „01 / 09“.
+ * herein. Darunter wächst eine präzisionsblaue Linie mit dem Wischweg, daneben steht die Position „01 / 07“.
  * Scroll-Reveal: Mobil steigt die Reihe als Ganzes auf – einzeln würden die Karten außerhalb des Bildes erst beim Wischen
  * auftauchen –, ab 768 px wie gewohnt jede Karte für sich.
  */

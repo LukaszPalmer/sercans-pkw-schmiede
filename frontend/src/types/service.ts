@@ -3,9 +3,7 @@ import type { IconName } from './icon';
 import type { ImageKey } from './image';
 
 export type ServiceSlug =
-  | 'smartrepair'
   | 'oelwechsel'
-  | 'fahrzeugaufbereitung'
   | 'klimaservice'
   | 'reifen-felgenservice'
   | 'gutachten'
@@ -38,6 +36,8 @@ export interface Service {
   shortTitle: string;
   /** Kurzbeschreibung in der Leistungsübersicht der Startseite. */
   teaser: string;
+  /** Beschriftung der Aktion in der Fokus-Tafel der Startseite – „Zum Ölwechsel“. */
+  linkLabel: string;
   /** Linien-Icon in der Leistungsübersicht der Startseite. */
   icon: IconName;
   metaDescription: string;

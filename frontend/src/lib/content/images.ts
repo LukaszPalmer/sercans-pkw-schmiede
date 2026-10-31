@@ -14,13 +14,6 @@ export const images: Record<ImageKey, SiteImage> = {
     alt: 'Mechaniker arbeitet mit Handschuhen und Ratsche an Bremsscheibe und Bremssattel eines angehobenen Fahrzeugs',
     blurDataURL: 'data:image/webp;base64,UklGRkgAAABXRUJQVlA4IDwAAADQAQCdASoMAAcABUB8JZQAAmfqyn6leADLRnQ5nN80YWIIKF9pvLPBgrgz7hsXq2hWTFatFlUNtrpZgAA=',
   },
-  'startseite-aufbereitung': {
-    src: '/images/startseite-aufbereitung-neu.jpeg',
-    width: 2048,
-    height: 2048,
-    alt: 'Lackprüfung mit Messgerät und Inspektionsleuchte an der zerkratzten Seitenwand eines grauen Fahrzeugs',
-    blurDataURL: 'data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAADwAQCdASoMAAwABUB8JZwAAq8VsCYT6cAA+5D9HwzpzFpluxPjj4np4RJPokyvE6wG2P2xliYRTBg0+HkEY13jcH0NCAAA',
-  },
   'startseite-werkstatt': {
     src: '/images/Banner_New.jpeg',
     width: 2560,
@@ -28,14 +21,12 @@ export const images: Record<ImageKey, SiteImage> = {
     alt: 'Werkstatthalle der PKW Schmiede mit zwei Hebebühnen: ein Transporter mit geöffneter Motorhaube und ein Kompaktwagen sind angehoben',
     blurDataURL: 'data:image/webp;base64,UklGRkQAAABXRUJQVlA4IDgAAADwAQCdASoMAAcABUB8JYwAAlr6a5zWMYAA4hhmnBjsmAxtCxKOj9j2Cw/9gaF1ntgHbDjZ7PAAAA==',
   },
-  smartrepair: {
-    src: '/images/smartrepair-new.jpeg',
-    width: 2560,
-    height: 1440,
-    alt: 'Kfz-Techniker prüft Kratzer an einer grauen Fahrzeugtür im Streiflicht einer Inspektionsleuchte',
-    // Oben: Türgriff und Kratzer unter dem Titel statt dahinter (Desktop) · leicht rechts: Griff, Leuchte und Hand im Hochformat
-    position: '56% 0%',
-    blurDataURL: 'data:image/webp;base64,UklGRkgAAABXRUJQVlA4IDwAAADQAQCdASoMAAcABUB8JZQAAvhwymMdAADyjZkaeZ/f6bmRbkMalyeR8btzyGQJ/iIm5YapigZwjgbIAAA=',
+  'clean-car-solution': {
+    src: '/images/clean-car-solution.jpeg',
+    width: 1024,
+    height: 1024,
+    alt: 'Mitarbeiter in schwarzer Arbeitskleidung reinigt eine nasse schwarze Limousine in einer dunklen Halle mit dem Hochdruckreiniger',
+    blurDataURL: 'data:image/webp;base64,UklGRkoAAABXRUJQVlA4ID4AAACwAQCdASoMAAwABUB8JQBOgA+d/8AAAP7ax2jj2a9fJ24RqhA+BlRsloqjyo9foD8Yhj/kLBfoZn+Iu4gAAA==',
   },
   oelwechsel: {
     src: '/images/oelwechsel-new.jpeg',
@@ -45,15 +36,6 @@ export const images: Record<ImageKey, SiteImage> = {
     // Querformat: Kanister, Ölstrahl und Einfüllstutzen ganz im Bild · Hochformat: rechts der Mitte – Handschuh, Strahl und Stutzen
     position: '65% 45%',
     blurDataURL: 'data:image/webp;base64,UklGRkYAAABXRUJQVlA4IDoAAACwAQCdASoMAAkABUB8JZQAAxP7HzI8AP7lv21DKVLKt3AqFW5LdmwNqQaotchfaYZkoudyFvq2wAAA',
-  },
-  fahrzeugaufbereitung: {
-    src: '/images/fahrzeugaufbereitung-new.jpeg',
-    width: 2368,
-    height: 1776,
-    alt: 'Hände in blauen Handschuhen polieren die Motorhaube eines dunklen Fahrzeugs mit der Poliermaschine',
-    // Querformat: oben – Maschine und Hände ganz im Bild · Hochformat: rechts – Maschine statt hellem Polierpad hinter der Textzeile
-    position: '72% 20%',
-    blurDataURL: 'data:image/webp;base64,UklGRkYAAABXRUJQVlA4IDoAAADQAQCdASoMAAkABUB8JYwCdAEfaSrriADxR4iNGt0xu44oFjXs5TP7GhT7rvSxCJ7txckTqI2a1gAA',
   },
   klimaservice: {
     src: '/images/klimaservice-new.jpeg',

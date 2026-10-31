@@ -5,16 +5,18 @@ import type { IconName } from '@/types/icon';
 import { Arrow } from './Arrow';
 import { Icon } from './Icon';
 
-type Variant = 'primary' | 'light' | 'outline';
+type Variant = 'primary' | 'light' | 'outline' | 'ccs';
 
 /**
  * `primary` Präzisionsblau mit weißer Schrift · `light` weiße Fläche auf Blau und Graphit ·
- * `outline` Haarlinie auf hellen Flächen – Schrift Textfarbe, Pfeil blau.
+ * `outline` Haarlinie auf hellen Flächen – Schrift Textfarbe, Pfeil blau ·
+ * `ccs` Clean-Car-Akzent im Inhouse-Partner-Abschnitt – eigene Maße: 50 px hoch, 28 px Innenabstand, 2 px Radius, 16 px zum Pfeil (18 px).
  */
 const variants: Record<Variant, { box: string; arrow: string }> = {
-  primary: { box: 'bg-primary text-white hover:bg-primary-deep', arrow: 'text-white' },
-  light: { box: 'bg-white text-ink hover:bg-paper', arrow: 'text-primary' },
-  outline: { box: 'text-ink ring-1 ring-line ring-inset hover:ring-ink/40', arrow: 'text-primary' },
+  primary: { box: 'min-h-[3.25rem] gap-[1.875rem] px-6 bg-primary text-white hover:bg-primary-deep', arrow: 'text-xl text-white' },
+  light: { box: 'min-h-[3.25rem] gap-[1.875rem] px-6 bg-white text-ink hover:bg-paper', arrow: 'text-xl text-primary' },
+  outline: { box: 'min-h-[3.25rem] gap-[1.875rem] px-6 text-ink ring-1 ring-line ring-inset hover:ring-ink/40', arrow: 'text-xl text-primary' },
+  ccs: { box: 'min-h-[3.125rem] gap-4 rounded-xs px-7 bg-ccs text-white hover:bg-ccs-deep', arrow: 'text-lg text-white' },
 };
 
 interface StyleProps {
@@ -28,7 +30,7 @@ interface StyleProps {
 /** Aktion wie im Design: 52 px hoch, 24 px Innenabstand, Beschriftung 14 px Medium, 30 px Abstand zum Pfeil ↗ (20 px). */
 function buttonClasses({ variant = 'primary', className }: Pick<StyleProps, 'variant' | 'className'>) {
   return cn(
-    'group/btn inline-flex min-h-[3.25rem] items-center gap-[1.875rem] px-6 text-sm leading-[1.21] font-medium whitespace-nowrap select-none',
+    'group/btn inline-flex items-center text-sm leading-[1.21] font-medium whitespace-nowrap select-none',
     'transition-[background-color,box-shadow,color] duration-300 ease-forge active:translate-y-px disabled:pointer-events-none disabled:opacity-60',
     variants[variant].box,
     className,
@@ -49,7 +51,7 @@ function Content({ variant = 'primary', icon, children }: Pick<StyleProps, 'vari
       <span>{children}</span>
       <Arrow
         className={cn(
-          'text-xl transition-transform duration-300 ease-forge group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5',
+          'transition-transform duration-300 ease-forge group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5',
           variants[variant].arrow,
         )}
       />
@@ -104,7 +106,7 @@ interface TextLinkProps {
   children: ReactNode;
 }
 
-/** Textlink mit nachgestelltem ↗ – „Passenden Service anfragen ↗“, „Fahrzeugaufbereitung ↗“. Größe über `className`. */
+/** Textlink mit nachgestelltem ↗ – „Passenden Service anfragen ↗“, „Ölwechsel ↗“. Größe über `className`. */
 export function TextLink({ href, tone = 'primary', className, children }: TextLinkProps) {
   const classes = cn(
     'group/link transition-colors duration-300',

@@ -5,8 +5,8 @@ import { Logo } from '@/components/ui/Logo';
 import { servicePath, services } from '@/lib/content/services';
 import { legalNav, site } from '@/lib/site';
 
-/** Zeilenumbrüche der Leistungsliste wie im Design: nach „Fahrzeugaufbereitung“ und nach „Reifen- und Felgenservice“. */
-const lineBreakAfter = new Set(['fahrzeugaufbereitung', 'reifen-felgenservice']);
+/** Zeilenumbrüche der Leistungsliste: nach „Klimaservice“ und nach „Reifen- und Felgenservice“. */
+const lineBreakAfter = new Set(['klimaservice', 'reifen-felgenservice']);
 
 /** Fußzeile wie im Design: Graphit, großes Logo (helle Variante, Markenkern im Logo), Leistungsliste, Seitenlinks – Rechtliches unter einer Haarlinie. */
 export function Footer() {

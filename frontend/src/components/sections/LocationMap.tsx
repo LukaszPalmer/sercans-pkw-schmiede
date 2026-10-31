@@ -41,7 +41,10 @@ export function LocationMap({ kicker, title }: LocationMapProps) {
               {site.hours.map((h) => (
                 <div key={h.days} className="flex justify-between gap-6">
                   <dt className="text-muted">{h.days}</dt>
-                  <dd>{h.time}</dd>
+                  <dd className="text-right">
+                    {h.time}
+                    {h.note && <span className="block text-muted">{h.note}</span>}
+                  </dd>
                 </div>
               ))}
             </dl>

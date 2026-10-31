@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { serviceSlugs } from '@/lib/content/services';
 import { PHOTO_LIMITS } from './photos';
 
-/** Auswahl „Gewünschte Leistung“: die neun Leistungen und eine allgemeine Anfrage. */
+/** Auswahl „Gewünschte Leistung“: die sieben Leistungen und eine allgemeine Anfrage. */
 export const GENERAL_REQUEST = 'allgemein';
 
 /** Serverseitige Validierung – die einzige Wahrheit, unabhängig vom Client. Pflicht: Name, E-Mail, Leistung, Anliegen, Einwilligung. */

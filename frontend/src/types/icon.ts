@@ -13,9 +13,7 @@ export type IconName =
   | 'pause'
   | 'play'
   // Leistungen
-  | 'paint'
   | 'oil'
-  | 'shine'
   | 'climate'
   | 'wheel'
   | 'report'

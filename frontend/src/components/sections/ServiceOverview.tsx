@@ -5,11 +5,13 @@ import { Kicker } from '@/components/ui/Kicker';
 import { SwipeRail } from '@/components/ui/SwipeRail';
 import { pad2 } from '@/lib/format';
 import { servicePath, services } from '@/lib/content/services';
+import { ServiceFocusBoard } from './ServiceFocusBoard';
 
 /**
- * Leistungsübersicht der Startseite: Überschrift links, Einordnung rechts unten bündig – darunter alle neun Leistungen
- * in Dreierreihen, je mit Haarlinie, Kennung, Pfeil, Icon im Haarlinien-Quadrat, Name und Kurzbeschreibung. Die ganze
- * Zeile ist klickbar. Unter 768 px weiße Karten in einer wischbaren Reihe.
+ * Leistungsübersicht der Startseite: Überschrift links, Einordnung rechts unten bündig – darunter ab 1024 px die
+ * Fokus-Tafel. Von 768 bis 1023 px alle sieben Leistungen in Zweierreihen, je mit Haarlinie, Kennung, Pfeil, Icon im
+ * Haarlinien-Quadrat, Name und Kurzbeschreibung – die ganze Karte ist klickbar. Unter 768 px weiße Karten in einer
+ * wischbaren Reihe.
  */
 export function ServiceOverview() {
   return (
@@ -27,7 +29,19 @@ export function ServiceOverview() {
           </p>
         </div>
 
-        <SwipeRail count={services.length} className="mt-12" listClassName="grid gap-x-10 gap-y-12 md:grid-cols-2 lg:grid-cols-3">
+        <ServiceFocusBoard
+          services={services.map((s) => ({
+            slug: s.slug,
+            href: servicePath(s.slug),
+            title: s.title,
+            icon: s.icon,
+            headline: s.banner.title,
+            intro: s.banner.intro,
+            action: s.linkLabel,
+          }))}
+        />
+
+        <SwipeRail count={services.length} className="mt-12 lg:hidden" listClassName="grid gap-x-10 gap-y-12 md:grid-cols-2">
           {services.map((s, i) => (
             <li
               key={s.slug}

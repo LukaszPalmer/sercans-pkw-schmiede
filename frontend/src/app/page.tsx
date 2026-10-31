@@ -1,6 +1,7 @@
-import { FocusSplit } from '@/components/sections/FocusSplit';
 import { HomeQuestions } from '@/components/sections/HomeQuestions';
+import { InhousePartner } from '@/components/sections/InhousePartner';
 import { PageBanner } from '@/components/sections/PageBanner';
+import { PartsSuppliers } from '@/components/sections/PartsSuppliers';
 import { PrinciplesBar } from '@/components/sections/PrinciplesBar';
 import { RequestBand } from '@/components/sections/RequestBand';
 import { SeasonNote } from '@/components/sections/SeasonNote';
@@ -8,7 +9,7 @@ import { ServiceOverview } from '@/components/sections/ServiceOverview';
 import { WorkSteps } from '@/components/sections/WorkSteps';
 import { WorkshopInsight } from '@/components/sections/WorkshopInsight';
 import { faqTopics, faqs } from '@/lib/content/faq';
-import { requestPath, servicePath } from '@/lib/content/services';
+import { requestPath } from '@/lib/content/services';
 import { buildMetadata } from '@/lib/seo';
 import { site } from '@/lib/site';
 
@@ -35,14 +36,8 @@ export default function HomePage() {
       />
       <PrinciplesBar items={['Erst verstehen. Dann empfehlen.', 'Arbeiten nach Absprache.', 'Auf das Detail kommt es an.']} />
       <ServiceOverview />
-      <FocusSplit
-        id="fokus"
-        image="startseite-aufbereitung"
-        kicker="Im Detail liegt der Unterschied"
-        title={'Nicht einfach schöner.\nSondern gepflegt.'}
-        text="Ein Kratzer, matte Oberflächen oder Spuren im Innenraum: Wir schauen auf den Zustand und besprechen, welche Behandlung sinnvoll ist. Nicht jede Spur braucht denselben Eingriff."
-        action={{ label: 'Zur Fahrzeugaufbereitung', href: servicePath('fahrzeugaufbereitung') }}
-      />
+      <InhousePartner />
+      <PartsSuppliers />
       <WorkSteps
         kicker="So gehen wir vor"
         steps={[

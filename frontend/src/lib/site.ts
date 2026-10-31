@@ -10,7 +10,7 @@ export const site: SiteConfig = {
   shortName: 'PKW Schmiede',
   tagline: 'Präzision, die bleibt.',
   description:
-    'Sercans PKW Schmiede – Service, Reparatur und Wartung mit klarem Blick für Ihr Fahrzeug: Smartrepair, Ölwechsel, Fahrzeugaufbereitung, Klimaservice, Reifen- und Felgenservice, Folierung und Autoglas sowie Anfragen zu Gutachten und HU/AU.',
+    'Sercans PKW Schmiede – Service, Reparatur und Wartung mit klarem Blick für Ihr Fahrzeug: Ölwechsel, Fahrzeugaufbereitung, Klimaservice, Reifen- und Felgenservice, Folierung und Autoglas sowie Anfragen zu Gutachten und HU/AU.',
   owner: 'Redah Fakih',
   legalForm: 'Einzelunternehmen',
   vatId: 'XXX',
@@ -19,7 +19,7 @@ export const site: SiteConfig = {
   supervisoryAuthority:
     'Landesbeauftragte für Datenschutz und Informationsfreiheit Nordrhein-Westfalen, Postfach 20 04 44, 40102 Düsseldorf',
   address: {
-    street: 'Himmelgeister Straße 25',
+    street: 'Himmelgeister Straße 35',
     zip: '40225',
     city: 'Düsseldorf',
     region: 'Nordrhein-Westfalen',
@@ -38,7 +38,7 @@ export const site: SiteConfig = {
     { days: 'Mittwoch', short: 'Mi', time: '08:30 – 17:00 Uhr' },
     { days: 'Donnerstag', short: 'Do', time: '08:30 – 17:00 Uhr' },
     { days: 'Freitag', short: 'Fr', time: '08:30 – 17:00 Uhr' },
-    { days: 'Samstag', short: 'Sa', time: '09:00 – 13:00 Uhr' },
+    { days: 'Samstag', short: 'Sa', time: '09:00 – 13:00 Uhr', note: 'Telefon nicht besetzt' },
     { days: 'Sonntag', short: 'So', time: 'geschlossen' },
   ],
   mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Sercans+PKW+Schmiede',
@@ -53,6 +53,9 @@ export const siteUrl = (
 ).replace(/\/$/, '');
 
 export const fullAddress = `${site.address.street}, ${site.address.zip} ${site.address.city}`;
+
+/** Website von Clean Car Solution: Logo und Menü-Kachel führen zur Startseite, die Aktion zum Kontaktformular – alles im neuen Tab. */
+export const partnerUrl = 'https://cleancarsolution.de/';
 
 /** true, solange ein Wert noch den Platzhalter „XX“ enthält – verhindert fehlerhafte Structured Data. */
 export const isPlaceholder = (value: string) => value.includes('XX');

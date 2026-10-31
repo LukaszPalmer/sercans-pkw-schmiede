@@ -88,7 +88,7 @@ export const faqs: FaqEntry[] = [
     topic: 'leistungen',
     question: 'Welche Leistungen bietet die PKW Schmiede an?',
     answer:
-      'Smartrepair, Ölwechsel, Fahrzeugaufbereitung, Klimaservice, Reifen- und Felgenservice, Folierung und Autoglas. Bei Gutachten und HU/AU klären wir Zuständigkeit und Verfügbarkeit individuell.',
+      'Ölwechsel, Fahrzeugaufbereitung, Klimaservice, Reifen- und Felgenservice, Folierung und Autoglas. Bei Gutachten und HU/AU klären wir Zuständigkeit und Verfügbarkeit individuell.',
     link: { label: 'Alle Leistungen', href: '/#leistungen' },
     keywords: 'Angebot Service Reparatur Wartung Pflege',
   },

@@ -9,7 +9,7 @@
     { "source": "/achsvermessung", "destination": "/#leistungen", "permanent": true },
     { "source": "/reparaturen", "destination": "/#leistungen", "permanent": true },
     { "source": "/instandhaltung", "destination": "/#leistungen", "permanent": true },
-    { "source": "/aufbereitung", "destination": "/leistungen/fahrzeugaufbereitung", "permanent": true },
+    { "source": "/aufbereitung", "destination": "/#leistungen", "permanent": true },
     { "source": "/reifenwechsel", "destination": "/leistungen/reifen-felgenservice", "permanent": true },
     { "source": "/smart-repair-glas", "destination": "/leistungen/autoglas", "permanent": true },
     { "source": "/reifenlagerung", "destination": "/leistungen/reifen-felgenservice", "permanent": true },
@@ -22,7 +22,9 @@
     { "source": "/leistungen/achsvermessung", "destination": "/#leistungen", "permanent": true },
     { "source": "/leistungen/reparaturen", "destination": "/#leistungen", "permanent": true },
     { "source": "/leistungen/instandhaltung", "destination": "/#leistungen", "permanent": true },
-    { "source": "/leistungen/aufbereitung", "destination": "/leistungen/fahrzeugaufbereitung", "permanent": true },
+    { "source": "/leistungen/aufbereitung", "destination": "/#leistungen", "permanent": true },
+    { "source": "/leistungen/fahrzeugaufbereitung", "destination": "/#leistungen", "permanent": true },
+    { "source": "/leistungen/smartrepair", "destination": "/#leistungen", "permanent": true },
     { "source": "/leistungen/reifenwechsel", "destination": "/leistungen/reifen-felgenservice", "permanent": true },
     { "source": "/leistungen/smart-repair-glas", "destination": "/leistungen/autoglas", "permanent": true },
     { "source": "/leistungen/reifenlagerung", "destination": "/leistungen/reifen-felgenservice", "permanent": true },
@@ -32,7 +34,7 @@
     { "source": "/blog/oelwechsel-intervall-freigabe-richtiges-motoroel", "destination": "/leistungen/oelwechsel", "permanent": true },
     { "source": "/blog/tuev-checkliste-hauptuntersuchung-bestehen", "destination": "/leistungen/hu-au", "permanent": true },
     { "source": "/blog/steinschlag-reparieren-oder-scheibe-tauschen", "destination": "/leistungen/autoglas", "permanent": true },
-    { "source": "/blog/fahrzeugaufbereitung-werterhalt-verkauf-leasing", "destination": "/leistungen/fahrzeugaufbereitung", "permanent": true },
+    { "source": "/blog/fahrzeugaufbereitung-werterhalt-verkauf-leasing", "destination": "/#leistungen", "permanent": true },
     { "source": "/blog/:path*", "destination": "/", "permanent": true }
   ],
   "headers": [

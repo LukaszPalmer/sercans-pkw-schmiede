@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useId, useRef, useState, type CSSProperties, type FocusEvent, type PointerEvent as ReactPointerEvent } from 'react';
@@ -7,6 +8,7 @@ import { Arrow } from '@/components/ui/Arrow';
 import { Kicker } from '@/components/ui/Kicker';
 import { cn } from '@/lib/cn';
 import { pad2 } from '@/lib/format';
+import { partnerUrl } from '@/lib/site';
 import { NavMarker } from './NavMarker';
 
 export interface NavService {
@@ -24,10 +26,14 @@ interface ServicesMenuProps {
   services: NavService[];
 }
 
+/** Gestaffeltes Einblenden der Einträge beim Öffnen – `--i` ist die Position im Raster. */
+const entry = 'transition-[opacity,translate] delay-[calc(var(--i)*35ms)] duration-500 ease-forge starting:translate-y-1.5 starting:opacity-0';
+
 /**
  * Menüpunkt „Leistungen“ mit großem Dropdown im Stil der Leistungsübersicht der Startseite: mittig unter der Kopfzeile,
- * 896 px breit – Kopf mit Kapitelzeile und „Alle Leistungen ↓“, darunter die neun Leistungen im Dreierraster mit Kennung,
- * Name, Kurzbeschreibung und Pfeil, die Leistung der aktuellen Seite eisblau. Beim Öffnen gleiten die Einträge gestaffelt ein.
+ * 896 px breit – Kopf mit Kapitelzeile und „Alle Leistungen ↓“, darunter die sieben Leistungen im Dreierraster mit Kennung,
+ * Name, Kurzbeschreibung und Pfeil, die Leistung der aktuellen Seite eisblau, daneben die Kachel des Inhouse-Partners
+ * (Website im neuen Tab). Beim Öffnen gleiten die Einträge gestaffelt ein.
  * Disclosure-Pattern: Klick, Hover, Escape, Klick außerhalb, Tab heraus.
  */
 export function ServicesMenu({ label, href, active, services }: ServicesMenuProps) {
@@ -127,11 +133,7 @@ export function ServicesMenu({ label, href, active, services }: ServicesMenuProp
           {services.map((s, i) => {
             const current = pathname === `/leistungen/${s.slug}`;
             return (
-              <li
-                key={s.slug}
-                style={{ '--i': i } as CSSProperties}
-                className="transition-[opacity,translate] delay-[calc(var(--i)*35ms)] duration-500 ease-forge starting:translate-y-1.5 starting:opacity-0"
-              >
+              <li key={s.slug} style={{ '--i': i } as CSSProperties} className={entry}>
                 <Link
                   href={`/leistungen/${s.slug}`}
                   aria-current={current ? 'page' : undefined}
@@ -158,6 +160,28 @@ export function ServicesMenu({ label, href, active, services }: ServicesMenuProp
               </li>
             );
           })}
+          {/* Füllt die zwei freien Zellen der letzten Reihe: Logo unter Spalte 2, Text unter Spalte 3 (halbe Breite plus halber Rasterabstand) */}
+          <li style={{ '--i': services.length } as CSSProperties} className={cn(entry, 'col-span-2')}>
+            <a
+              href={partnerUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setOpen(false)}
+              className="group/partner grid h-full grid-cols-[calc(50%+0.125rem)_1fr] overflow-hidden rounded-md focus-visible:outline-ccs-deep focus-visible:-outline-offset-2"
+            >
+              <span className="flex items-center justify-center bg-paper px-8">
+                <Image src="/images/clean-car-solution-logo.png" width={370} height={76} alt="Clean Car Solution" unoptimized className="w-full" />
+              </span>
+              <span className="flex flex-col gap-2.5 bg-ccs-night p-4 transition-colors duration-300 group-hover/partner:bg-ccs-deep-night">
+                <span className="flex items-center justify-between">
+                  <span className="text-[0.6875rem] leading-[1.21] font-medium text-ccs uppercase">Inhouse-Partner</span>
+                  <Arrow className="text-lg text-ccs transition-transform duration-300 ease-forge group-hover/partner:translate-x-0.5 group-hover/partner:-translate-y-0.5" />
+                </span>
+                <span className="text-lg leading-[1.21] text-white transition-colors duration-300 group-hover/partner:text-ccs">Professionelle Autopflege</span>
+                <span className="text-sm leading-[1.5] text-ccs-fog">Aufbereitung und Pflege direkt in unserer Werkstatt.</span>
+              </span>
+            </a>
+          </li>
         </ul>
       </div>
     </li>

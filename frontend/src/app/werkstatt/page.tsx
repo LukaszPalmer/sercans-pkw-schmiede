@@ -67,7 +67,7 @@ export default function WerkstattPage() {
         action={{ label: 'Leistungen entdecken', href: '/#leistungen' }}
         areas={[
           { title: 'Service & Wartung', text: 'Ölwechsel, Klimaservice sowie Reifen- und Felgenservice.' },
-          { title: 'Oberfläche & Erscheinung', text: 'Smartrepair, Fahrzeugaufbereitung, Folierung und Autoglas.' },
+          { title: 'Oberfläche & Erscheinung', text: 'Fahrzeugaufbereitung, Folierung und Autoglas.' },
           { title: 'Anfrage & Koordination', text: 'Gutachten und HU/AU: Zuständigkeit und Verfügbarkeit werden individuell geklärt.' },
         ]}
       />

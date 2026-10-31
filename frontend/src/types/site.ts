@@ -3,6 +3,8 @@ export interface OpeningHours {
   /** Kurzform für die Statuszeile im Banner – z. B. „Mo–Fr“. */
   short: string;
   time: string;
+  /** Hinweis unter der Uhrzeit in der Anfahrt (Kontakt) – z. B. „Telefon nicht besetzt“. */
+  note?: string;
 }
 
 export interface SiteConfig {

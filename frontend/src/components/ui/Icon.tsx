@@ -14,8 +14,6 @@ import {
   Plus,
   Search,
   Snowflake,
-  Sparkles,
-  SprayCan,
   X,
   type LucideIcon,
 } from 'lucide-react';
@@ -51,9 +49,7 @@ const glyphs: Record<Exclude<IconName, 'whatsapp'>, LucideIcon> = {
   plus: Plus,
   pause: Pause,
   play: Play,
-  paint: SprayCan,
   oil: Droplet,
-  shine: Sparkles,
   climate: Snowflake,
   wheel: Wheel,
   report: FileSearch,

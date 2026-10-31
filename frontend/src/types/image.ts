@@ -1,10 +1,8 @@
 export type ImageKey =
   | 'startseite-banner'
-  | 'startseite-aufbereitung'
   | 'startseite-werkstatt'
-  | 'smartrepair'
+  | 'clean-car-solution'
   | 'oelwechsel'
-  | 'fahrzeugaufbereitung'
   | 'klimaservice'
   | 'reifen-felgenservice'
   | 'gutachten'

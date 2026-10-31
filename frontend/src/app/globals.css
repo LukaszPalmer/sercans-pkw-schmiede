@@ -13,6 +13,7 @@
    Akzent   #245AC7 primary – Präzisionsblau: Aktion & Orientierung
             #83A8F5 sky     – Akzent auf Graphit
    Linien   #D3D9D8 line    – Liniengrau: Haarlinien & Raster
+   Partner  #1A9FD4 ccs     – Clean Car Solution, nur im Inhouse-Partner-Abschnitt und auf seiner Kachel im Leistungs-Menü (samt ccs-night, ccs-deep-night, ccs-fog, ccs-mist)
    Inter: Titel Light 300, Lesetext Regular 400, Labels Medium 500 – eckige Flächen, keine Schatten.
    ════════════════════════════════════════════════════════════════════ */
 
@@ -37,6 +38,15 @@
   --color-primary-deep: #1b4799;
   --color-sky: #83a8f5;
   --color-line: #d3d9d8;
+  /* Beschriftung der Lieferantenkarten */
+  --color-steel: #465154;
+  /* Clean Car Solution – Akzent, Hover, Fläche, Infoleiste, Lesetext, Text der Infoleiste */
+  --color-ccs: #1a9fd4;
+  --color-ccs-deep: #1587b5;
+  --color-ccs-night: #111827;
+  --color-ccs-deep-night: #0d1421;
+  --color-ccs-fog: #9ca3af;
+  --color-ccs-mist: #a8b5c4;
   /* Ausschließlich für Formularfehler */
   --color-error: #b42318;
 
@@ -54,14 +64,14 @@
   --text-h2-xl--line-height: 1.12;
   --text-h2-band: clamp(1.875rem, 1.4569rem + 1.784vw, 3.0625rem);
   --text-h2-band--line-height: 1.12;
-  --text-h2-lg: clamp(1.875rem, 1.4789rem + 1.69vw, 3rem);
-  --text-h2-lg--line-height: 1.12;
   --text-h2: clamp(1.875rem, 1.5009rem + 1.596vw, 2.9375rem);
   --text-h2--line-height: 1.13;
   --text-h2-md: clamp(1.875rem, 1.5229rem + 1.502vw, 2.875rem);
   --text-h2-md--line-height: 1.15;
   --text-h2-sm: clamp(1.75rem, 1.4199rem + 1.408vw, 2.6875rem);
   --text-h2-sm--line-height: 1.15;
+  --text-h2-xs: clamp(1.75rem, 1.442rem + 1.315vw, 2.625rem);
+  --text-h2-xs--line-height: 1.21;
   --text-h3-xl: clamp(1.625rem, 1.4489rem + 0.751vw, 2.125rem);
   --text-h3-xl--line-height: 1.21;
   --text-h3-lg: clamp(1.625rem, 1.493rem + 0.563vw, 2rem);

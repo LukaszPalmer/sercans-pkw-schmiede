@@ -2,74 +2,15 @@ import type { Service, ServiceSlug } from '@/types/service';
 
 /**
  * Leistungskatalog wie im Figma-Design – eine Datenquelle für Startseite, Detailseiten, Fußzeile,
- * Formular-Auswahl, Sitemap und Structured Data. Reihenfolge = Nummerierung „01“–„09“ im Design.
+ * Formular-Auswahl, Sitemap und Structured Data. Reihenfolge = Nummerierung „01“–„07“.
  */
 export const services: Service[] = [
-  {
-    slug: 'smartrepair',
-    title: 'Smartrepair',
-    shortTitle: 'Smartrepair',
-    teaser: 'Kleine Lackschäden gezielt behandeln.',
-    icon: 'paint',
-    metaDescription:
-      'Smartrepair bei der PKW Schmiede: Kratzer, Schrammen und kleine Lackschäden beurteilen und gezielt behandeln. Reparaturweg, Aufwand und Termin stimmen wir vorab mit Ihnen ab.',
-    image: 'smartrepair',
-    banner: {
-      layout: 'overlay',
-      title: 'Kleine Spuren.\nGezielter Eingriff.',
-      intro: 'Kratzer, Schrammen, kleine Lackschäden: Entscheidend ist nicht nur die Größe, sondern wo und wie tief die Spur sitzt.',
-      centered: 'always',
-      narrowIntro: true,
-      narrowShade: true,
-      mobile: { title: 'Smartrepair', subtitle: 'Kleine Spuren. Gezielter Eingriff.' },
-    },
-    scope: {
-      kicker: 'Erhalten statt großflächig ersetzen',
-      title: 'So wenig Eingriff wie sinnvoll.',
-      text: 'Smartrepair kann bei örtlich begrenzten Schäden eine passende Lösung sein. Wir beurteilen die Stelle und besprechen, welches Ergebnis realistisch ist – bevor aus einer kleinen Spur eine große Maßnahme wird.',
-      layout: 'columns',
-      tone: 'light',
-      items: [
-        { title: 'Lackschäden beurteilen', text: 'Lage, Tiefe und Untergrund bestimmen, ob eine lokale Behandlung infrage kommt.' },
-        { title: 'Reparaturweg abstimmen', text: 'Polieren, örtlich ausbessern oder weitergehend behandeln: Die Methode folgt dem Schaden.' },
-        { title: 'Übergänge im Blick', text: 'Farbton, Glanz und die angrenzende Oberfläche gehören zur Beurteilung dazu.' },
-      ],
-    },
-    preparation: {
-      layout: 'aside',
-      title: 'Zeigen Sie uns die Stelle.',
-      notice: 'Nicht jeder Schaden eignet sich für Smartrepair. Fotos helfen zur Orientierung, ersetzen aber nicht immer die Besichtigung.',
-      steps: [
-        { title: 'Fotos senden', text: 'Eine Nahaufnahme und ein Bild des gesamten Bauteils helfen, den Schaden einzuordnen.' },
-        { title: 'Stelle besichtigen', text: 'Wir betrachten Oberfläche und Verlauf im passenden Licht und klären den möglichen Umfang.' },
-        { title: 'Vorgehen vereinbaren', text: 'Reparaturweg, Aufwand und Termin werden vor der Ausführung abgestimmt.' },
-      ],
-    },
-    faqs: [
-      {
-        question: 'Lässt sich jeder Kratzer entfernen?',
-        answer: 'Nein. Tiefe Kratzer bis zum Untergrund brauchen eine andere Behandlung als oberflächliche Spuren.',
-      },
-      {
-        question: 'Kann ich den Preis anhand eines Fotos erfahren?',
-        answer: 'Ein Foto ermöglicht eine erste Orientierung. Der tatsächliche Aufwand hängt vom Zustand vor Ort ab.',
-      },
-      {
-        question: 'Ist Smartrepair auch vor einer Rückgabe sinnvoll?',
-        answer: 'Eine Zustandsprüfung kann helfen, sinnvolle Maßnahmen zu erkennen. Rückgabevorgaben sollten dabei vorliegen.',
-      },
-    ],
-    related: 'fahrzeugaufbereitung',
-    request: {
-      title: 'Eine kleine Spur?\nSchauen wir genauer hin.',
-      text: 'Senden Sie uns Fahrzeugangaben und eine kurze Beschreibung der betroffenen Stelle.',
-    },
-  },
   {
     slug: 'oelwechsel',
     title: 'Ölwechsel',
     shortTitle: 'Ölwechsel',
     teaser: 'Das passende Öl. Der richtige Wechsel.',
+    linkLabel: 'Zum Ölwechsel',
     icon: 'oil',
     metaDescription:
       'Ölwechsel bei der PKW Schmiede: Motoröl und Filter nach Fahrzeugvorgabe – mit Blick auf Freigabe, Motorisierung und den passenden Wartungszeitpunkt. Jetzt Termin anfragen.',
@@ -130,77 +71,11 @@ export const services: Service[] = [
     },
   },
   {
-    slug: 'fahrzeugaufbereitung',
-    title: 'Fahrzeugaufbereitung',
-    shortTitle: 'Fahrzeugaufbereitung',
-    teaser: 'Oberflächen pflegen. Substanz erhalten.',
-    icon: 'shine',
-    metaDescription:
-      'Fahrzeugaufbereitung bei der PKW Schmiede: Innenraum und Außenflächen materialgerecht reinigen und pflegen – abgestimmt auf Zustand, Material und Ihr Pflegeziel.',
-    image: 'fahrzeugaufbereitung',
-    banner: {
-      layout: 'overlay',
-      title: 'Pflege, die man sieht.\nSorgfalt, die bleibt.',
-      intro: 'Innenraum und Außenflächen gezielt behandeln. Abgestimmt auf Material, Zustand und Ihren Anspruch.',
-      centered: 'always',
-      narrowIntro: true,
-      narrowShade: true,
-      mobile: { title: 'Fahrzeug\u00adaufbereitung', subtitle: 'Pflege, die man sieht. Sorgfalt, die bleibt.' },
-    },
-    scope: {
-      kicker: 'Substanz im Mittelpunkt',
-      title: 'Jede Oberfläche hat ihre Eigenheiten.',
-      text: 'Lack, Kunststoff, Textil oder Leder brauchen unterschiedliche Pflege. Wir beginnen beim Zustand und wählen die Behandlung danach aus – nicht nach einem starren Paket.',
-      layout: 'columns',
-      tone: 'night',
-      items: [
-        {
-          title: 'Außenflächen',
-          text: 'Schonende Reinigung und eine abgestimmte Lackbehandlung. Der Zustand entscheidet über die sinnvolle Intensität.',
-        },
-        { title: 'Innenraum', text: 'Materialgerechte Reinigung von Flächen, Sitzen und Kontaktbereichen nach vereinbartem Umfang.' },
-        { title: 'Pflegeziel', text: 'Alltag, Verkauf oder Rückgabe: Wir besprechen, worauf es Ihnen bei der Aufbereitung ankommt.' },
-      ],
-    },
-    preparation: {
-      layout: 'stacked',
-      title: 'Ein gutes Ergebnis beginnt beim Hinsehen.',
-      notice:
-        'Tiefe Beschädigungen, Materialverschleiß und manche Flecken lassen sich durch Reinigung oder Politur nicht vollständig beheben.',
-      steps: [
-        { title: 'Zustand beschreiben', text: 'Nennen Sie beanspruchte Bereiche, Flecken oder sichtbare Lackspuren. Ergänzen Sie gern Fotos.' },
-        { title: 'Behandlung festlegen', text: 'Wir grenzen Reinigung, Lackkorrektur und mögliche Pflegeprodukte gemeinsam ab.' },
-        {
-          title: 'Übergabe vorbereiten',
-          text: 'Persönliche Gegenstände bitte vor dem Termin aus dem Fahrzeug nehmen. Den benötigten Zeitraum stimmen wir ab.',
-        },
-      ],
-    },
-    faqs: [
-      {
-        question: 'Verschwindet jeder Kratzer durch Polieren?',
-        answer: 'Nein. Ob eine Korrektur sinnvoll ist, hängt von der Tiefe der Spur und der verfügbaren Lackschicht ab.',
-      },
-      {
-        question: 'Ist eine Innenraumreinigung einzeln möglich?',
-        answer: 'Fragen Sie den gewünschten Bereich gezielt an. Wir stimmen einen passenden Umfang ab.',
-      },
-      {
-        question: 'Wie lange bleibt das Fahrzeug in der Werkstatt?',
-        answer: 'Das richtet sich nach Größe, Zustand und Behandlung. Ein Zeitfenster wird vor dem Termin vereinbart.',
-      },
-    ],
-    related: 'smartrepair',
-    request: {
-      title: 'Mehr Pflege.\nWeniger Kompromiss.',
-      text: 'Erzählen Sie uns, welche Bereiche Sie aufbereiten lassen möchten und welches Ergebnis Ihnen wichtig ist.',
-    },
-  },
-  {
     slug: 'klimaservice',
     title: 'Klimaservice',
     shortTitle: 'Klimaservice',
     teaser: 'Kühlleistung und Funktion im Blick.',
+    linkLabel: 'Zum Klimaservice',
     icon: 'climate',
     metaDescription:
       'Klimaservice bei der PKW Schmiede: nachlassende Kühlung, Geräusche oder Geruch einordnen und Prüfung sowie Service passend zu Fahrzeug und Kältemitteltyp abstimmen.',
@@ -265,6 +140,7 @@ export const services: Service[] = [
     title: 'Reifen- und Felgenservice',
     shortTitle: 'Reifen- und Felgenservice',
     teaser: 'Für einen sauberen Kontakt zur Straße.',
+    linkLabel: 'Zum Reifen- und Felgenservice',
     icon: 'wheel',
     metaDescription:
       'Reifen- und Felgenservice bei der PKW Schmiede: Radwechsel, Reifenmontage, Auswuchten und Felgenzustand – passend zu Fahrzeug, Dimension und Zustand. Jetzt Termin anfragen.',
@@ -327,6 +203,7 @@ export const services: Service[] = [
     title: 'Gutachten',
     shortTitle: 'Gutachten',
     teaser: 'Anlass klären. Begutachtung anfragen.',
+    linkLabel: 'Zum Thema Gutachten',
     icon: 'report',
     metaDescription:
       'Gutachten anfragen bei der PKW Schmiede: Anlass klären, Unterlagen sammeln und die Koordination einer Begutachtung abstimmen – Zuständigkeit und Termin werden ausdrücklich bestätigt.',
@@ -395,7 +272,7 @@ export const services: Service[] = [
           'Nein. Versicherungs- oder Rechtsfragen gehören zu den dafür zuständigen Stellen. Hier geht es um die Anfrage und Koordination.',
       },
     ],
-    related: 'smartrepair',
+    related: 'hu-au',
     request: {
       title: 'Was soll\ngeklärt werden?',
       text: 'Nennen Sie uns Anlass und Fahrzeug. Wir melden uns zur möglichen Koordination einer Begutachtung.',
@@ -406,6 +283,7 @@ export const services: Service[] = [
     title: 'Hauptuntersuchung HU/AU',
     shortTitle: 'HU/AU',
     teaser: 'Prüftermin und Vorbereitung abstimmen.',
+    linkLabel: 'Zur Hauptuntersuchung HU/AU',
     icon: 'inspection',
     metaDescription:
       'Hauptuntersuchung HU/AU: Vorbereitung und mögliche Terminkoordination bei der PKW Schmiede anfragen. Die amtliche Prüfung erfolgt durch eine berechtigte Prüfstelle.',
@@ -482,6 +360,7 @@ export const services: Service[] = [
     title: 'Folierung',
     shortTitle: 'Folierung',
     teaser: 'Neue Oberfläche. Eigener Charakter.',
+    linkLabel: 'Zur Folierung',
     icon: 'foil',
     metaDescription:
       'Folierung bei der PKW Schmiede: Farbe, Finish und ausgewählte Details – Idee, Untergrund und Ausführung stimmen wir vor dem Termin gemeinsam ab.',
@@ -541,7 +420,7 @@ export const services: Service[] = [
           'Die Pflege richtet sich nach dem verwendeten Material und Finish. Passende Hinweise werden für die vereinbarte Folie besprochen.',
       },
     ],
-    related: 'fahrzeugaufbereitung',
+    related: 'autoglas',
     request: {
       title: 'Eine Idee im Kopf?\nMachen wir sie konkret.',
       text: 'Senden Sie uns Ihr Fahrzeugmodell und die gewünschte Veränderung. Wir klären, was sich umsetzen lässt.',
@@ -552,6 +431,7 @@ export const services: Service[] = [
     title: 'Autoglas',
     shortTitle: 'Autoglas',
     teaser: 'Glasschäden beurteilen und versorgen.',
+    linkLabel: 'Zum Autoglas',
     icon: 'glass',
     metaDescription:
       'Autoglas bei der PKW Schmiede: Steinschlag oder Riss prüfen lassen und Reparatur oder Austausch passend zu Fahrzeug, Scheibenausstattung und Assistenzsystemen abstimmen.',
@@ -615,7 +495,7 @@ export const services: Service[] = [
           'Erforderliche Standzeiten richten sich unter anderem nach Klebesystem und Bedingungen. Die konkrete Freigabe ist maßgeblich.',
       },
     ],
-    related: 'fahrzeugaufbereitung',
+    related: 'folierung',
     request: {
       title: 'Eine Spur im Glas?\nJetzt einordnen lassen.',
       text: 'Beschreiben Sie die Stelle und Ihr Fahrzeug. Wir klären die passende Versorgung und einen möglichen Termin.',

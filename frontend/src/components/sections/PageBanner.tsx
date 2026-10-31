@@ -57,7 +57,7 @@ export function PageBanner({ layout, kicker, title, intro, image, action, center
       : centered === 'always'
         ? 'py-sec-68'
         : 'pt-40 pb-sec-68';
-    // Handy-Titel in Versalien: Wörter ab 12 Zeichen (Fahrzeugaufbereitung, Felgenservice) sind in Hero-Größe breiter als 360 px – dann mit der Bildschirmbreite skalieren
+    // Handy-Titel in Versalien: Wörter ab 12 Zeichen (Felgenservice) sind in Hero-Größe breiter als 360 px – dann mit der Bildschirmbreite skalieren
     const longMobileTitle = mobile && Math.max(...mobile.title.split(/[\s\u00ad-]/).map((word) => word.length)) > 11;
     return (
       <section
